@@ -35,13 +35,14 @@ a{
     text-decoration: none;
     color: #fff;
 }
-#about{
-    height: 800px;
+#introoo{
+    height: 510px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     margin-top: 100px;
     gap: 1rem;
+    border-bottom: 2px solid #d1d5db2c;
 }
 #code-block{
     height: 300px;
@@ -55,7 +56,8 @@ a{
 .code-header{
     display: flex;
     padding-bottom: 5px;
-    border-bottom: #d1d5db2c;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #d1d5db2c;
     gap: 0.5rem;
 }
 .code-red{
@@ -76,4 +78,73 @@ a{
     height: 12px;
     border-radius: 50%;
 }
-
+.code-content{
+    margin-top: 15px;
+}
+.keyword{
+    color: #d73a49;
+}
+.string{
+    color: #1ee24c;
+}
+.textt{
+    color: #005cc5;
+}
+.code-line{
+    margin-bottom: 10px;
+}
+#intro{
+    margin-left: 50px;
+}
+#intro h2{
+    font-size: 3.5rem;
+}
+#name{
+    color: rgb(195,26,26);
+}
+button{
+    height: 45px;
+    width: 120px;
+    background-color: rgb(195,26,26);
+    border-radius: 16px;
+    color: #fff;
+    margin-top: 10px;
+}
+#about{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 1.7rem;
+    margin-left: 5%;
+}
+#hero h1{
+    display: flex;
+    font-size: 3.5rem;
+    font-weight: 800;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+#hero{
+    margin-top: 70px;
+    height: 500px;
+}
+#your-image img{
+    height: 500px;
+    width: 400px;
+    border-radius: 15px;
+}
+#your-image{
+    flex-shrink: 0;
+}
+#your-data{
+    margin-left: 25px;
+    flex-grow: 1;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+#your-info{
+    /* white-space: normal;
+    text-wrap: wrap; */
+    word-break: break-all;
+}
