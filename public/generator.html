@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Chewy&amp;display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    
     <title>Portify Generator : Make your own Portfolio</title>
     <style>
         *{
@@ -23,8 +25,14 @@
             text-decoration: none;
             color: inherit  ;
         }
+        .main{
+            display: flex;
+        }
         .builder-main {
-            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 75%;
         }
 
         .builder-details {
@@ -101,7 +109,7 @@
             margin-bottom: 11px;
         }
 
-        #nameInput{
+        .detailInput{
             display: block;
             width: 100%;
             border: 1px solid rgba(255, 255, 255, 0.133);
@@ -129,6 +137,15 @@
             color: black;
             cursor: pointer;
         }
+        iframe {
+        width: 100%;
+        height: calc(100vh - 48px);
+        min-height: 420px;
+        border: 0;
+        border-radius: 8px;
+        background: #fff;
+      }
+
     </style>
 </head>
 <body>
@@ -180,35 +197,37 @@
             <div class="builder-section">
                 <label class="input-group">
                     Name
-                    <input id="nameInput">
+                    <input id="nameInput" class="detailInput">
                 </label>
+                <label for="photo">Profile image</label>
+                    <input type="file" id="photo" accept="image/*" class="detailInput">
                 <label class="input-group">
                     Role
-                    <input id="nameInput">
+                    <input id="roleInput" class="detailInput">
                 </label>
                 <label class="input-group">
                     Bio
-                    <input id="nameInput">
+                    <input id="bioInput" class="detailInput">
                 </label>
                 <label class="input-group">
                     Location
-                    <input id="nameInput">
+                    <input id="locationInput" class="detailInput">
                 </label>
                 <label class="input-group">
                     Email
-                    <input id="nameInput">
+                    <input id="emailInput" class="detailInput">
                 </label>
                 <label class="input-group">
                     Github
-                    <input id="nameInput">
+                    <input id="githubInput" class="detailInput">
                 </label>
                 <label class="input-group">
                     LinkedIn
-                    <input id="nameInput">
+                    <input id="linkedinInput" class="detailInput">
                 </label>
                 <label class="input-group">
                     Skills
-                    <input id="nameInput">
+                    <input id="skillsInput" class="detailInput">
                 </label>
             </div>
 
@@ -219,8 +238,100 @@
         </div>
 
         <div class="builder-main">
-
+            <iframe id="preview" title="Portfolio preview">
+                
+            </iframe>
         </div>
     </div>
+
+    <script>
+        const $ = (id) => document.getElementById(id);
+        const detailInput = document.querySelectorAll('.detailInput');
+
+        let file= null;
+
+        let dataUrl = ''
+
+        const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); // This is so complex than I expected used AI for this new thing
+
+        const safeName = n => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
+
+        function construct(imgSrc) {
+            const name = esc($("nameInput").value);
+            const bio = esc($("bioInput").value);
+
+            const image = imgSrc
+                ? `<img src="${imgSrc}" alt="Portrait of ${name}">`
+                : `<div class="empty">No image yet</div>`;
+
+            return `<!DOCTYPE html>
+            <html lang="en"><head><meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>${name}</title>
+            <style>
+            body{margin:0;font-family:Georgia,serif;background:#faf8f3;color:#1d2b24;display:grid;place-items:center;min-height:100vh;text-align:center}
+            img{width:200px;height:200px;object-fit:cover;border-radius:50%;border:6px solid #e0b84c}
+            h1{margin:20px 0 4px}p{margin:0;color:#55645b}
+            .empty{width:200px;height:200px;border-radius:50%;background:#dde3da;display:grid;place-items:center;color:#55645b;font-size:14px;margin:auto}
+            </style></head><body><div>
+            ${image}
+            <h1>${name}</h1><p>${bio}</p>
+            </div><\/body><\/html>`;
+        }
+
+        function refresh(){
+            $("preview").srcdoc = construct(dataUrl);
+        }
+
+        detailInput.forEach(input => {
+            input.addEventListener('input', refresh);
+        });
+
+        $("photo").addEventListener('change', e=>{
+            file = e.target.files[0];
+
+            if(!file || !file.type.startsWith("image/") ){
+                file=null;
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload =()=>{
+                dataUrl = reader.result;
+                refresh();
+            };
+            
+            reader.readAsDataURL(file);
+        })
+        
+        $('exportbtn').addEventListener('click', async()=>{
+            try{
+                const zip = new JSZip();
+                let imgPath = ''
+                if(file){
+                    imgPath = "images/"+ safeName(file.name);
+                    zip.file(imgPath, file);
+                }
+
+                zip.file("index.html", construct(imgPath));
+                const blob = await zip.generateAsync({
+                    type: "blob"
+                });
+
+                const a = document.createElement("a");
+                a.href = URL.createObjectURL(blob);
+                a.download = "portfolio.zip";
+                a.click();
+                setTimeout(() =>
+                 URL.revokeObjectURL(a.href), 1000);
+
+            } catch (error) {
+                console.error("Failed to export profile:", error);
+            }
+        });
+
+        refresh();
+
+    </script>
 </body>
 </html>
