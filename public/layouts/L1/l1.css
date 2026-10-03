@@ -13,6 +13,20 @@
     --button: #6c63ff;
     --border: #ffffff1f;
 }
+[data-theme="redz"] {
+    --bg: #160808;
+    --bg-sections: #2a1111;
+    --text: #fff5f5;
+    --button: #e63946;
+    --border: #ff6b6b2e;
+}
+[data-theme="ocean"] {
+    --bg: #061923;
+    --bg-sections: #0c2935;
+    --text: #e9fbff;
+    --button: #00a6c7;
+    --border: #5eeaff2e;
+}
 *{
     margin: 0;
     padding: 0;
