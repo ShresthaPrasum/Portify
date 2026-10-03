@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&amp;display=swap" rel="stylesheet">
+    <title>Portify Generator : Make your own Portfolio</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            height: 100vh;
+            background: radial-gradient(circle at 20% 0%, rgba(56, 189, 248, 0.11), transparent 26rem), radial-gradient(circle at 90% 25%, rgba(139, 92, 246, 0.10), transparent 28rem), linear-gradient(145deg, #040912, #07111f 52%, #081426);
+            color: white;
+            font-family: Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+            margin: 0;
+        }
+        a{
+            text-decoration: none;
+            color: inherit  ;
+        }
+        .builder-main {
+            width: 80%;
+        }
+
+        .builder-details {
+            width: 25%;
+            padding: 20px;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+
+        .builder-brand {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            
+        }
+
+        .logo{
+            font-size: 20px;
+            font-weight: bolder;
+            
+        }
+
+
+        .builder-section{
+            padding: 10px 0;
+            border-top: 1px solid #ffffff2c;
+        }
+
+        .label{
+            font-size: 12px;
+            color: #70839a;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .choice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .choice-btn{
+            display: flex;
+            flex-direction: column;
+            color: white;
+            padding: 11px;
+            border: 1px solid #fdfdfd1f;
+            border-radius: 12px;
+            text-align: left;
+            background-color: #0a1627;
+            gap: 10px;
+        }
+
+        .choice-btn strong{
+            display: block;
+            font-size: 12px;
+        }
+
+        .choice-btn small{
+            color: #71859c;
+            font-size: 10px;
+        }
+
+        .theme-switch{
+            height: 23px;
+            border-radius: 8px;
+            margin-bottom: 7px;
+        }
+        .input-group {
+            display: block;
+            font-size: 10px;
+            color: #8092a8;
+            margin-bottom: 11px;
+        }
+
+        #nameInput{
+            display: block;
+            width: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.133);
+            background: #091525;
+            color: white;
+            border-radius: 10px;
+            padding: 10px 9px;
+            outline: none;
+            margin-top: 6px;
+        }
+
+        #exportbtn{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 40px;
+            padding: 12px 20px;
+            border-radius: 12px;
+            border-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.505);
+            font-weight: 850;
+            font-size: 12px;
+            background:linear-gradient(135deg, #67e8f9, #60a5fa 55%, #a78bfa);
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="builder-details">
+            <div class="builder-brand">
+                <a class="logo" href="index.html">Portify</a>
+            </div>
+
+            <div class="builder-section">
+                <p class="label">
+                    LAYOUT
+                </p>
+                <div class="choice-grid">
+                    <button class="choice-btn">
+                        <strong>Redz Hub</strong>
+                        <small>Bloody</small>
+                    </button>
+                    <button class="choice-btn">
+                        <strong>Greenz Hub</strong>
+                        <small>Terminality</small>
+                    </button>
+                    <button class="choice-btn">
+                        <strong>Bluez Hub</strong>
+                        <small>Technicality</small>
+                    </button>
+                </div>
+            </div>
+            <div class="builder-section">
+                <p class="label">
+                    Theme
+                </p>
+                <div class="choice-grid">
+                    <button class="choice-btn">
+                        <strong>Ocean</strong>
+                        <small class="theme-switch" style="background: linear-gradient(135deg, #0284c7, #7c3aed);"></small>
+                    </button>
+                    <button class="choice-btn">
+                        <strong>Midnight</strong>
+                        <small class="theme-switch" style="background: linear-gradient(135deg, #7dd3fc, #a78bfa);"></small>
+                    </button>
+                    <button class="choice-btn">
+                        <strong>Redz</strong>
+                        <small class="theme-switch" style="background:linear-gradient(135deg, #ea580c, #db2777);"></small>
+                    </button>
+                </div>
+            </div>
+
+            <div class="builder-section">
+                <label class="input-group">
+                    Name
+                    <input id="nameInput">
+                </label>
+                <label class="input-group">
+                    Role
+                    <input id="nameInput">
+                </label>
+                <label class="input-group">
+                    Bio
+                    <input id="nameInput">
+                </label>
+                <label class="input-group">
+                    Location
+                    <input id="nameInput">
+                </label>
+                <label class="input-group">
+                    Email
+                    <input id="nameInput">
+                </label>
+                <label class="input-group">
+                    Github
+                    <input id="nameInput">
+                </label>
+                <label class="input-group">
+                    LinkedIn
+                    <input id="nameInput">
+                </label>
+                <label class="input-group">
+                    Skills
+                    <input id="nameInput">
+                </label>
+            </div>
+
+            <div class="builder-section">
+                <button id="exportbtn">Export</button>
+            </div>
+            
+        </div>
+
+        <div class="builder-main">
+
+        </div>
+    </div>
+</body>
+</html>

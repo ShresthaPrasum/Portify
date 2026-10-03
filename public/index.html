@@ -24,7 +24,7 @@
             justify-content: center;
         }
         nav{
-            height: 70px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -75,7 +75,7 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             margin: 0 auto;
-            height: calc(92vh - 70px);
+            height: calc(92vh - 90px);
             width: 80%;
         }
 
@@ -119,6 +119,7 @@
             background:linear-gradient(135deg, #67e8f9, #60a5fa 55%, #a78bfa);
             color: black;
             cursor: pointer;
+            transition: transform 0.2s linear;
         }
 
         .gen-btn1{
@@ -306,6 +307,7 @@
 
         .gen-btn:hover{
             transform: scale(1.1);
+            
         }
 
     </style>
@@ -338,7 +340,7 @@
                     <div class="btns">
 
                         <a class="gen-btn" href="generator.html">Create my portfolio</a>
-                        <a class="gen-btn1" href="generator.html">Explore Templates</a>
+                        <a class="gen-btn1" href="#templates">Explore Templates</a>
                     </div>
                 </div>
               <div class="hero-visual">
@@ -413,7 +415,7 @@
                 </div>
             </section>
 
-            <section class="howitworks">
+            <section class="howitworks" id="howitworks">
                 <div class="layout-headline">
                     <div class="layout-head">
                         <h1>Everything you need to make it yours.</h1>
@@ -484,7 +486,7 @@
 
             <div class="footer">
                 <footer>
-                    
+
                 </footer>
             </div>
         </main>
