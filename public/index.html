@@ -118,6 +118,7 @@
             font-size: 15px;
             background:linear-gradient(135deg, #67e8f9, #60a5fa 55%, #a78bfa);
             color: black;
+            cursor: pointer;
         }
 
         .gen-btn1{
@@ -167,6 +168,7 @@
             align-items: center;
             margin: 30px auto;
             width: 80%;
+            
         }
         
         .layout-headline{
@@ -181,6 +183,7 @@
         .layout-head h1{
             font-size: 60px;
             margin: 20px 0;
+            text-align: center;
         }
 
         .grid-layouts{
@@ -216,9 +219,95 @@
         }
 
         .layout-meta p{
-            font-size: 10px;
+            font-size: 12px;
             color: rgba(255, 255, 255, 0.573);
         }
+
+        .howitworks{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            margin-top: 100px;
+            width: 90%;
+        }
+
+        .grid-howitworks{
+            display: grid;
+            width: 90%;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .howitworks-card{
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.025);
+            background-color: rgba(255, 255, 255, 0.025);
+            border-radius: 20px;
+            padding: 28px;
+            min-height: 250px;
+            gap: 8px;
+        }
+        
+        .howitworks-card h1{
+            font-size: 35px;
+        
+        }
+        
+        .howitworks-card p{
+            font-size: 16px;
+            color: #9cafc5c2;
+            min-width: 500px;
+            margin: 18px 8px;
+
+        }
+        .layout-options{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .layout-options span{
+            background-color: rgba(0, 0, 0, 0.207);
+            padding: 8px 14px;
+            border-radius: 12px;
+        }
+
+        .about{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .about-container{
+            display: flex;
+            flex-direction: column;
+            width: min(1180px, 92%);
+            margin: 100px;
+            border-radius: 28px;
+            background: linear-gradient(130deg, #0ea5e9, #7c3aed 65%, #db2777);
+            padding: 68px;
+            row-gap: 20px;
+        }
+
+        .about-container h1{
+            font-size: 4rem;
+        }
+
+        .about-container p{
+            font-size: 20px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .gen-btn:hover{
+            transform: scale(1.1);
+        }
+
     </style>
 </head> 
 <body>
@@ -228,9 +317,10 @@
                 <a href="index.html" class="logo">Portify</a>
 
                 <div class="nav-links">
+                    <a href="#hero">Home</a>
                     <a href="#templates">Templates</a>
+                    <a href="#howitworks">How it Works</a>
                     <a href="#about">About</a>
-                    <a href="#features">Features</a>
 
                 </div>
 
@@ -238,7 +328,7 @@
         </header>
 
         <main>
-            <section class="hero">
+            <section class="hero" id="hero">
                 <div class="hero-main">
                     <span class="brow">PORTFOLIO BUILDER FOR CREATORS</span>
                     <h1>Make your own portfolio in just a few clicks!</h1>
@@ -265,7 +355,7 @@
                 </div>
             </section>
 
-            <section class="layouts">
+            <section class="layouts" id="templates">
                 <div class="layout-headline">
                     <div class="layout-head">
                         <h1>Choose a Layout. For ur portfolio</h1>
@@ -322,17 +412,81 @@
                     </div>
                 </div>
             </section>
-            <div id="about">
-                <h2>About the app</h2>
-                <p>Portify is a web application which is used to make your portfolios. To make your own portfolio, just enter your details, social medias links that are needed, and other details and select a theme then your portfolio will be ready with a downloadable link. You can generate your portfolio by scrolling downwards and do the given instructions!</p>
+
+            <section class="howitworks">
+                <div class="layout-headline">
+                    <div class="layout-head">
+                        <h1>Everything you need to make it yours.</h1>
+                    </div>
+                    <div class="hero-text">
+                        Choose a layout, theme, insert your name, bio, and other details then finally export it 
+                    </div>
+                    
+                </div>
+
+                <div class="grid-howitworks">
+                    <div class="howitworks-card">
+                        <h1>Choose a Layout</h1>
+                        <p>Different layouts are available for your portfolio. Select a layout whichever matches your vibe.</p>
+                         <div class="layout-options">
+                            <span>Redz Hub</span>
+                            <span>Bluez Hub</span>
+                            <span>Greenz Hub</span>
+                        </div>
+                    </div>
+                    <div class="howitworks-card">
+                        <h1>Choose a Theme</h1>
+                        <p>Different themes are available for your portfolio. Select a theme whichever matches your portfolio vibe.</p>
+
+                        <div class="layout-options">
+                            <span>Ocean</span>
+                            <span>Sunset</span>
+                            <span>Red</span>
+                        </div>
+                    </div>
+                    <div class="howitworks-card">
+                        <h1>Insert your details</h1>
+                        <p>Insert your name, upload your image, write your own bio and other details</p>
+
+                        <div class="layout-options">
+                            <span>Name</span>
+
+                            <span>Image</span>
+
+                            <span>Others</span>
+                        </div>
+                    </div>
+                    <div class="howitworks-card">
+                        <h1>Export your portfolio</h1>
+                        <p>After completing making your portfolio you can export your website and download it by following given instructions</p>
+
+                        <div class="layout-options">
+                            <span>Zip</span>
+
+                            <span>Html</span>
+
+                            <span>Instruction</span>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+
+            <div class="about" id="about">
+                <div class="about-container">
+                    <h1>About the App.</h1>
+                    <p>Portify is a web application which is used to make your portfolios. To make your own portfolio, just enter your details, social medias links that are needed, and other details and select a theme then your portfolio will be ready with a downloadable link. You can generate your portfolio by scrolling downwards and do the given instructions!</p>
+                    <div>
+
+                        <a href="generator.html" class="gen-btn" style="color: white;">Start Building</a>
+                    </div>
+                </div>
             </div>
 
-            <div id="generate">
-                <h2>Generate your portfolio!</h2>
-                <h4>You can generate your portfolio by clicking the button below and following all the instructions where it is gonna redirect to.</h4>
-                <a href="generator.html" id="gen-a">Generate</a>
+            <div class="footer">
+                <footer>
+                    
+                </footer>
             </div>
-
         </main>
     </div>
 
