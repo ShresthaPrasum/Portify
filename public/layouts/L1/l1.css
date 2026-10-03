@@ -131,6 +131,7 @@ button{
     align-items: flex-start;
     font-size: 1.7rem;
     margin-left: 5%;
+    flex-wrap: wrap;
 }
 #hero h1{
     display: flex;
@@ -258,4 +259,31 @@ button{
     padding: 12px;
     align-items: center;
     justify-content: center;
+}
+@media(max-width:768px){
+    #about{
+        flex-direction: column;
+        align-items: center;
+        margin: 0 20px;
+        font-size: 1rem;
+    }
+    #yourimage img{
+        height: auto;
+        width: min(100%, 405px);
+    }
+    #your-data{
+        max-width: 100%;
+        margin-left: 0;
+    }
+    #hero{
+        height: auto;
+        padding-bottom: 40px;
+    }
+    #hero h1{
+        font-size: 1.6rem;
+    }
+}
+.logo{
+    font-size: 24px;
+    transition: ease-in-out 0.5s;
 }
