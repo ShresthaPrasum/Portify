@@ -75,8 +75,14 @@
             grid-template-columns: 1fr 1fr;
             align-items: center;
             margin: 0 auto;
-            height: calc(90vh - 70px);
+            height: calc(92vh - 70px);
             width: 80%;
+        }
+
+        .hero-main{
+            display: flex;
+            flex-direction: column;
+            row-gap: 10px;
         }
 
         .brow{
@@ -94,7 +100,7 @@
         .hero-text{
             font-size: 16px;
             color: #9cafc5c2;
-            max-width: 500px;
+            min-width: 500px;
             padding-bottom: 20px;
         }
 
@@ -119,7 +125,100 @@
             color:white;
             border-color: rgba(255, 255, 255, 0.178);
         }
+        .hero-visual{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .hero-visual img{
+            object-fit: cover;
+            width: 90%;
+            border-radius: 12px;
+            height: auto;
+        }
+
+        .visual-head{
+            display: flex;
+            width: 90%;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.112);
+            background-color: #0b1625;
+            border-radius: 15px 15px 0 0;
+            color: #73859c;
+            font-size: 11px;
+            padding: 10px 14px;
+            
+        }
+
+        .chrome-dots i{
+            display: inline-flex;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: #43546a;
+        }
+
+        .layouts{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 30px auto;
+            width: 80%;
+        }
         
+        .layout-headline{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 15px auto;
+            width: 80%;
+        }
+
+        .layout-head h1{
+            font-size: 60px;
+            margin: 20px 0;
+        }
+
+        .grid-layouts{
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .layout-card{
+            display: flex;
+            flex-direction: column;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #0b1625;
+        }
+
+        .layout-cover img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+
+        .layout-meta{
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+        }
+
+        .layout-meta h3{
+            font-size: 12px;
+            padding-bottom: 5px;
+        }
+
+        .layout-meta p{
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.573);
+        }
     </style>
 </head> 
 <body>
@@ -146,11 +245,81 @@
                     <p class="hero-text">
                         Choose a layout, enter your details, and download your portfolio in just a few clicks!
                     </p>
-                    <a class="gen-btn" href="generator.html">Create my portfolio</a>
-                    <a class="gen-btn1" href="generator.html">Explore Templates</a>
-                </div>
-                <div class="hero-visual">
+                    <div class="btns">
 
+                        <a class="gen-btn" href="generator.html">Create my portfolio</a>
+                        <a class="gen-btn1" href="generator.html">Explore Templates</a>
+                    </div>
+                </div>
+              <div class="hero-visual">
+                    <div class="visual-head">
+                        <div class="chrome-dots">
+                            <i></i>
+                            <i></i>
+                            <i></i> 
+                        </div>
+                        <span>portify / preview</span>
+                    </div>
+                    <img src="terminal.png" alt="Terminal">
+                   
+                </div>
+            </section>
+
+            <section class="layouts">
+                <div class="layout-headline">
+                    <div class="layout-head">
+                        <h1>Choose a Layout. For ur portfolio</h1>
+                    </div>
+                    <div class="hero-text">
+                        Different layouts are available for your portfolio. Select a layout whichever matches your vibe.
+                    </div>
+                </div>
+
+                <div class="grid-layouts">
+                    <div class="layout-card">
+                        <div class="layout-cover">
+                            <img src="terminal.png" alt="">
+                        </div>
+                        <div class="layout-meta">
+                            <div>
+                                <h3>Redz Hub</h3>
+                                <p>Classic looks and awesome animations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout-card">
+                        <div class="layout-cover">
+                            <img src="terminal.png" alt="">
+                        </div>
+                        <div class="layout-meta">
+                            <div>
+                                <h3>Redz Hub</h3>
+                                <p>Classic looks and awesome animations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout-card">
+                        <div class="layout-cover">
+                            <img src="terminal.png" alt="">
+                        </div>
+                        <div class="layout-meta">
+                            <div>
+                                <h3>Redz Hub</h3>
+                                <p>Classic looks and awesome animations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layout-card">
+                        <div class="layout-cover">
+                            <img src="terminal.png" alt="">
+                        </div>
+                        <div class="layout-meta">
+                            <div>
+                                <h3>Redz Hub</h3>
+                                <p>Classic looks and awesome animations</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <div id="about">
