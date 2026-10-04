@@ -77,7 +77,7 @@
             gap: 8px;
         }
 
-        .choice-btn{
+        .choice-btn, .theme-btn{
             display: flex;
             flex-direction: column;
             color: white;
@@ -87,17 +87,23 @@
             text-align: left;
             background-color: #0a1627;
             gap: 10px;
+            cursor:pointer;
         }
 
-        .choice-btn strong{
+        .choice-btn{
+            cursor:not-allowed;
+        }
+
+        .choice-btn strong, .theme-btn strong{
             display: block;
             font-size: 12px;
         }
 
-        .choice-btn small{
+        .choice-btn small, .theme-btn small{
             color: #71859c;
             font-size: 10px;
         }
+
 
         .theme-switch{
             height: 23px;
@@ -148,6 +154,28 @@
         background: #fff;
       }
 
+      #photo::file-selector-button {
+        background:linear-gradient(135deg, #67e8f9, #60a5fa 55%, #a78bfa);
+        color: #000;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 8px;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-right: 12px;
+        transition: all 0.2s ease;
+    }
+        #bluez{
+            border: 1px solid rgb(0, 157, 255);
+            transform: scale(1.05);
+        }
+
+        .active{
+            border: 1px solid rgb(0, 157, 255);
+            transform: scale(1.05);
+        }
+
     </style>
 </head>
 <body>
@@ -172,7 +200,7 @@
                         <small>Terminality</small>
                     </button>
 
-                    <button class="choice-btn">
+                    <button class="choice-btn" id="bluez">
                         <strong>Bluez Hub</strong>
                         <small>Technicality</small>
                     </button>
@@ -183,17 +211,17 @@
                     Theme
                 </p>
                 <div class="choice-grid">
-                    <button class="choice-btn">
+                    <button class="theme-btn" data-theme="ocean">
                         <strong>Ocean</strong>
                         <small class="theme-switch" style="background: linear-gradient(135deg, #0284c7, #7c3aed);"></small>
                     </button>
-                    <button class="choice-btn">
+                    <button class="theme-btn" data-theme="midnight">
                         <strong>Midnight</strong>
                         <small class="theme-switch" style="background: linear-gradient(135deg, #7dd3fc, #a78bfa);"></small>
                     </button>
-                    <button class="choice-btn">
-                        <strong>Redz</strong>
-                        <small class="theme-switch" style="background:linear-gradient(135deg, #ea580c, #db2777);"></small>
+                    <button class="theme-btn" data-theme="bluez">
+                        <strong>Bluez</strong>
+                        <small class="theme-switch" style="background:linear-gradient(135deg, #01196f, #3027db);"></small>
                     </button>
                 </div>
             </div>

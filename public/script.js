@@ -6,77 +6,78 @@ const $ = (id) => document.getElementById(id);
 
         let dataUrl = ''
 
-        // let theme = document.body.dataset.theme;
-        // let themechoice;
-        // let aboutme;
-        // let githublink;
-        // let githubname;
-        // let linkedin_link;
-        // let linkedin_username;
-        // let github_projects = [];
-        // let demo_links = [];
-        // let aboutprojects = [];
-        // let skillsno = skills.length;
-        // let phone_no;
-        // let projectsinfo = [];
-        // let project_count;
-        // let imagelink;
+        const themes = {
+            bluez:`
+                --bg: #0c2351;
+                --bg-sections: #172b5d5e;
+                --text: #fff;
+                --button: rgb(195,26,26);
+                --border: #44a2a8a2;
+            `,
+            midnight:`
+                --bg: #171f45;
+                --bg-sections: #151a2e;
+                --text: #f5f7ff;
+                --button: #6c63ff;
+                --border: #ffffff1f;
+            `
+            ,
+            ocean: `
+                --bg: #1e4458;
+                --bg-sections: #0c2935;
+                --text: #e9fbff;
+                --button: #00a6c7;
+                --border: #31334caf;
+            `
+        }
+        const state = {
+            theme: 'ocean',
+            name: '',
+            bio: '',
+            location: '',
+            email: '',
+            phoneno: '',
+            github: '',
+            linkedin: '',
+            twitter: '',
+            skills: '',
+            photo: ''
+        };
 
- 
+        const inputs = ['nameInput', 'bioInput', 'locationInput', 'emailInput', 'phonenoInput', 'githubInput', 'linkedinInput', 'twitterInput', 'skillsInput'];
 
         const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); // This is so complex than I expected used AI for this new thing
 
         const safeName = n => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
 
-        function construct(imgSrc) {
-            const name = esc($("nameInput").value);
-            const bio = esc($("bioInput").value);
-            const location = esc($("locationInput").value);
-            const email = esc($("emailInput").value);
-            const github = esc($("githubInput").value);
-            const linkedin = esc($("linkedinInput").value);
-            const twitter = esc($("twitterInput").value);
-            const skills = esc($("skillsInput").value);
-            const phone = esc($("phoneInput").value);
-            const image = imgSrc;
+        function construct(dataUrl) {
+            const iframe = $('preview')
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
 
-            return `<!doctype html>
+            const currentTheme = themes[state.theme] || themes.ocean;
+
+            state.name = esc($("nameInput").value);
+            state.bio = esc($("bioInput").value);
+            state.location = esc($("locationInput").value);
+            state.email = esc($("emailInput").value);
+            state.phoneno = esc($("phonenoInput").value);
+            state.github = esc($("githubInput").value);
+            state.linkedin = esc($("linkedinInput").value);
+            state.twitter = esc($("twitterInput").value);
+            state.skills = esc($("skillsInput").value);
+            state.phoneno = esc($("phonenoInput").value);
+            state.photo =  dataUrl;
+
+            const htmlContent =  `<!doctype html>
         <html lang="en">
         <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>${name} - Portfolio</title>
+            <title>${state.name} - Portfolio</title>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
             <style>
-            :root, [data-theme="normal"]{
-                --bg: #0c2351;
-                --bg-sections: #172b5d5e;
-                --text: #fff;
-                --button: rgb(195,26,26);
-                --border: #d1d5db2c;
-            }
-            :root,
-            [data-theme="midnight"] {
-                --bg: #080b18;
-                --bg-sections: #151a2e;
-                --text: #f5f7ff;
-                --button: #6c63ff;
-                --border: #ffffff1f;
-            }
-            
-            [data-theme="ocean"] {
-                --bg: #061923;
-                --bg-sections: #0c2935;
-                --text: #e9fbff;
-                --button: #00a6c7;
-                --border: #5eeaff2e;
-            }
-            [data-theme="redz"] {
-                --bg: #160808;
-                --bg-sections: #2a1111;
-                --text: #fff5f5;
-                --button: #e63946;
-                --border: #ff6b6b2e;
+            :root{
+            ${currentTheme}
             }
             
             *{
@@ -219,6 +220,7 @@ const $ = (id) => document.getElementById(id);
             #your-image img{
                 height: 500px;
                 width: 400px;
+                object-fit: cover;
                 border-radius: 15px;
             }
             #your-image{
@@ -362,7 +364,7 @@ const $ = (id) => document.getElementById(id);
                     font-size: 1.6rem;
                 }
             }
-            #logo{
+            #logo-text{
                 font-size: 24px;
                 animation: logo 2s infinite ease-in-out;
             }
@@ -402,7 +404,7 @@ const $ = (id) => document.getElementById(id);
                 <nav>
                 <ul>
                     <li>
-                    <a href="#"><h3 id="logo-text">${name}</h3></a>
+                    <a href="#"><h3 id="logo-text">${state.name}</h3></a>
                     </li>
                     <div class="nav-right">
                     <li><a href="#">Home</a></li>
@@ -432,7 +434,7 @@ const $ = (id) => document.getElementById(id);
                         <span class="string"></span>
                     </div>
                     <div class="code-line">
-                        <span class="string" id="hello-text">&nbsp;&nbsp;&nbsp;&nbsp;printf("Hello, I am ${name}\n");</span>
+                        <span class="string" id="hello-text">&nbsp;&nbsp;&nbsp;&nbsp;printf("Hello, I am ${state.name}\n");</span>
                     </div>
                     <div class="code-line">
                         <span class="string">&nbsp;&nbsp;&nbsp;&nbsp;printf("Welcome to my portfolio!\n");</span>
@@ -449,14 +451,14 @@ const $ = (id) => document.getElementById(id);
                 <div id="intro">
                     <h2>
                     Hello, I'm <br />
-                    <span id="name-text">${name}</span>
+                    <span id="name-text">${state.name}</span>
                     </h2>
                     <button>Get in touch</button>
                     <button>View my works</button>
                     <div class="social-medias">
-                    <a href="${twitter}" id="twitter"><i class="fab fa-x-twitter"></i></a>
-                    <a href="${github}" id="github"><i class="fab fa-github"></i></a>
-                    <a href="${linkedin}" id="linkedin"><i class="fab fa-linkedin"></i></a>
+                    <a href="${state.twitter}" id="twitter"><i class="fab fa-x-twitter"></i></a>
+                    <a href="${state.github}" id="github"><i class="fab fa-github"></i></a>
+                    <a href="${state.linkedin}" id="linkedin"><i class="fab fa-linkedin"></i></a>
 
                     </div>
                 </div>
@@ -468,18 +470,18 @@ const $ = (id) => document.getElementById(id);
                 </div>
                 <div id="about">
                     <div id="your-image">
-                    <img src="${image}" alt="Add your image here!" id="img-text"/>
+                    <img src="${state.photo}" alt="Add your image here!" id="img-text"/>
                     </div>
                     <div id="your-data">
                     <h1>Who am I?</h1>
                         <!--Add info about you here!-->
                         <p id="bio-text">
-                        ${bio}
+                        ${state.bio}
                         </p>
                         <div id="skills">
                         <h2>Skills:</h2>
                         <p id="skills-text">
-                            ${skills}
+                            ${state.skills}
                         </p>
                         </div>
                     </div>
@@ -498,7 +500,7 @@ const $ = (id) => document.getElementById(id);
                     <i class="fas fa-map-marker-alt location-logo contact-logo"></i>
                     <div class="location-infoss contact-infoss">
                     <h3>Location</h3>
-                    <p id="location-text">${location}</p>
+                    <p id="location-text">${state.location}</p>
                     </div>
                     </div>
 
@@ -506,7 +508,7 @@ const $ = (id) => document.getElementById(id);
                     <i class="contact-logo phoneno-logo fas fa-phone-alt"></i>
                     <div class="phoneno-infoss contact-infoss">
                         <h3>Phone No</h3>
-                        <p id="phoneno-text">${phone}</p>
+                        <p id="phoneno-text">${state.phoneno}</p>
                     </div>
                     </div>
 
@@ -514,23 +516,23 @@ const $ = (id) => document.getElementById(id);
                     <i class="contact-logo mail-logo fas fa-envelope"></i>
                     <div class="mail-infoss contact-infoss">
                         <h3>Mail</h3>
-                        <p id="mail-text">${email}</p>
+                        <p id="mail-text">${state.email}</p>
                     </div>
                     </div>
 
                     <div id="github" class="contact-infos">
                     <i class="contact-logo github-logo fa-brands fa-github"></i>
                     <div class="github-infoss contact-infoss">
-                        <h3><a href="${github}" >Github</a></h3>
-                        <p id="github-text"><a href="${github}" >${name}</a></p>
+                        <h3><a href="${state.github}" >Github</a></h3>
+                        <p id="github-text"><a href="${state.github}" >${state.name}</a></p>
                     </div>
                     </div>
 
                     <div id="linkedin" class="contact-infos">
                     <i class="contact-logo linkedin-logo fab fa-linkedin"></i>
                     <div class="linkedin-infoss contact-infoss">
-                        <h3><a href="${linkedin}" >Linked In</a></h3>
-                        <p id="linkedin-text"><a href="${linkedin}">${name}</a></p>
+                        <h3><a href="${state.linkedin}" >Linked In</a></h3>
+                        <p id="linkedin-text"><a href="${state.linkedin}" >${state.name}</a></p>
                     </div>
                     </div>
 
@@ -545,14 +547,46 @@ const $ = (id) => document.getElementById(id);
         </html>
 
         `;
+            doc.open();
+            doc.write(htmlContent);
+            doc.close();
+        }
+        
+        function getindexhtml() {
+            const iframe = document.getElementById('preview');
+            const doc = iframe.contentDocument || iframe.contentWindow.document;
+            return "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
         }
 
-        function refresh(){
-            $("preview").srcdoc = construct(dataUrl);
-        }
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            
+           
+            btn.addEventListener('click', (e)=>{
+                 document.querySelectorAll('.theme-btn').forEach(button =>{
+                    button.classList.remove('active')
+                 })
+                 
+                btn.classList.add('active')
+                
+                const selectedTheme = btn.getAttribute('data-theme');
+                if(selectedTheme){
+                    state.theme = selectedTheme;
+                    construct(dataUrl);
+                }
+            })
+        })
 
-        detailInput.forEach(input => {
-            input.addEventListener('input', refresh);
+        
+    
+        inputs.forEach(id => {
+            const inputElem = document.getElementById(id);
+            if (inputElem) {
+                inputElem.addEventListener('input', (e) => {
+                    const key = id.replace('Input', '');
+                    state[key] = e.target.value;
+                    construct(dataUrl);
+                });
+            }
         });
 
         $("photo").addEventListener('change', e=>{
@@ -566,7 +600,7 @@ const $ = (id) => document.getElementById(id);
             const reader = new FileReader();
             reader.onload =()=>{
                 dataUrl = reader.result;
-                refresh();
+                construct(dataUrl);
             };
             
             reader.readAsDataURL(file);
@@ -581,7 +615,7 @@ const $ = (id) => document.getElementById(id);
                     zip.file(imgPath, file);
                 }
 
-                zip.file("index.html", construct(imgPath));
+                zip.file("index.html", getindexhtml());
                 const blob = await zip.generateAsync({
                     type: "blob"
                 });
@@ -598,5 +632,5 @@ const $ = (id) => document.getElementById(id);
             }
         });
 
-        refresh();
+        construct(dataUrl);
 
