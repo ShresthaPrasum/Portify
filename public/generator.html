@@ -254,6 +254,8 @@
         let dataUrl = ''
 
         let theme = document.body.dataset.theme;
+        let themechoice;
+        let aboutme;
         let githublink;
         let githubname;
         let linkedin_link;
@@ -261,7 +263,14 @@
         let location;
         let github_projects = [];
         let demo_links = [];
+        let aboutprojects = [];
+        let skills = [];
+        let skillsno = skills.length;
         let phone_no;
+        let projectsinfo = [];
+        let project_count;
+        let imagelink;
+
  
 
         const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); // This is so complex than I expected used AI for this new thing
