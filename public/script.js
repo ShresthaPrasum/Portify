@@ -55,7 +55,15 @@ const state = {
   project2_name: "Project_2",
   project2_description: "This is a project",
   project2_github: "https://github.com/",
-  project2_demo: "https://"
+  project2_demo: "https://",
+  project3_name: "",
+  project3_description: "",
+  project3_demo: "",
+  project3_github: "",
+  project4_name: "",
+  project4_description: "",
+  project4_demo: "",
+  project4_github: ""
 };
 
 const inputs = [
@@ -75,7 +83,15 @@ const inputs = [
    "project2_name",
    "project2_description",
    "project2_demo",
-   "project2_github"
+   "project2_github",
+   "project3_name",
+   "project3_description",
+   "project3_demo",
+   "project3_github",
+   "project4_name",
+   "project4_description",
+   "project4_demo",
+   "project4_github"
 ];
 
 const esc = (s) =>
@@ -113,6 +129,14 @@ function construct(dataUrl, layout) {
   state.project2_description = esc($("project2_description").value);
   state.project2_github = esc($("project2_github").value);
   state.project2_demo = esc($("project2_demo").value);
+  state.project3_name = esc($("project3_name").value);
+  state.project3_description = esc($("project3_description").value);
+  state.project3_github = esc($("project3_github").value);
+  state.project3_demo = esc($("project3_demo").value);
+  state.project4_name = esc($("project4_name").value);
+  state.project4_description = esc($("project4_description").value);
+  state.project4_github = esc($("project4_github").value);
+  state.project4_demo = esc($("project4_demo").value);
 
   state.photo = dataUrl;
   let htmlContent = null;
@@ -564,32 +588,32 @@ function construct(dataUrl, layout) {
             
 
             <div class="project">
-              <h3>Project Name</h3>
+              <h3>${state.project3_name}</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat adipisci aliquid modi nesciunt unde architecto voluptatem. Illum eius fugiat veniam amet labore sed iste excepturi ducimus aspernatur. Nostrum, ut inventore.
+                ${state.project3_description}
               </p>
 
               <div class="project-links">
-              <a class="project-link" href="https://github.com/..."    target="_blank" rel="noopener noreferrer">
+              <a class="project-link" href="${state.project3_github}"    target="_blank" rel="noopener noreferrer">
                   <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="https://demo.link" class="project-link" target="_blank" rel="noopener noreferrer">
+                <a href="${state.project3_demo}" class="project-link" target="_blank" rel="noopener noreferrer">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
 
             </div>
                 <div class="project">
-              <h3>Project Name</h3>
+              <h3>${state.project4_name}</h3>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat adipisci aliquid modi nesciunt unde architecto voluptatem. Illum eius fugiat veniam amet labore sed iste excepturi ducimus aspernatur. Nostrum, ut inventore.
+                ${state.project4_description}
               </p>
 
               <div class="project-links">
-              <a class="project-link" href="https://github.com/..."    target="_blank" rel="noopener noreferrer">
+              <a class="project-link" href="${state.project4_github}"    target="_blank" rel="noopener noreferrer">
                   <i class="fa-brands fa-github"></i>
                 </a>
-                <a href="https://demo.link" class="project-link" target="_blank" rel="noopener noreferrer">
+                <a href="${state.project4_demo}" class="project-link" target="_blank" rel="noopener noreferrer">
                   <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
               </div>
@@ -864,6 +888,63 @@ function construct(dataUrl, layout) {
                     #contactt {
                         padding: 0px;
                     }
+                        #projects{
+    padding: 150px;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+}
+#projects-title h2{
+    color: var(--headings);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-weight: 800;
+    font-size: 56px;
+}
+#projects-title p{
+    color: var(--text);
+}
+#projects-content{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 1rem;
+    margin-top: 20px;
+}
+.project{
+    background-color: var(--bg-sections);
+    height: 210px;
+    padding: 50px;
+    padding-top: 35px;
+    padding-right: 35px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+.project h3{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+.project p{
+    color: var(--text);
+    margin-bottom: 15px;
+}
+.project a{
+    text-decoration: none;
+    color: var(--bg);
+    background-color: var(--button);
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    justify-content: center;
+}
                     </style>
                 </head>
                 <body data-theme="normal">
@@ -877,6 +958,7 @@ function construct(dataUrl, layout) {
                             <div class="right">
                             <li><a href="#">Home</a></li>
                             <li><a href="#about">About</a></li>
+                            <li><a href="#projects">Projects</a></li>
                             <li><a href="#contact">Contact</a></li>
                             </div>
                         </ul>
@@ -918,6 +1000,47 @@ function construct(dataUrl, layout) {
                             <p>Technologies I have learnt until now!</p>
                             <h3 id="skill">${state.skills}</h3>
                         </div>
+                        </div>
+
+                        <div id="projects">
+                        <div id="projects-title">
+                            <h2>My Projects:</h2>
+                            <p>Here are my best projects that I have made throughout my journey!</p>
+                        </div>
+
+                        <div id="projects-content">
+                            <div class="project">
+                            <h3>${state.project1_name}</h3>
+                            <p>
+                            ${state.project1_description}
+                            </p>
+
+                            <a class="project-button" href="${state.project1_demo}">Visit </a>
+                            </div>
+
+                            <div class="project">
+                            <h3>${state.project2_name}</h3>
+                            <p>${state.project2_description}</p>
+
+                            <a href="${state.project3_demo}" class="project-button">Visit</a>
+                            </div>
+
+                            <div class="project">
+                            <h3>${state.project3_name}</h3>
+                            <p>${state.project3_description}</p>
+
+                            <a href="${state.project3_demo}" class="project-button">Visit</a>
+                            </div>
+
+                            <div class="project">
+                            <h3>${state.project4_name}</h3>
+                            <p>${state.project4_description}</p>
+
+                            <a href="${state.project4_demo}" class="project-button">Visit</a>
+                            </div>
+
+                        </div>
+
                         </div>
 
 
