@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Chewy&amp;display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     
     <title>Portify Generator : Make your own Portfolio</title>
     <style>
@@ -23,7 +25,7 @@
         }
         a{
             text-decoration: none;
-            color: inherit  ;
+            color: inherit;
         }
         .main{
             display: flex;
@@ -164,10 +166,12 @@
                         <strong>Redz Hub</strong>
                         <small>Bloody</small>
                     </button>
+
                     <button class="choice-btn">
                         <strong>Greenz Hub</strong>
                         <small>Terminality</small>
                     </button>
+
                     <button class="choice-btn">
                         <strong>Bluez Hub</strong>
                         <small>Technicality</small>
@@ -199,36 +203,48 @@
                     Name
                     <input id="nameInput" class="detailInput">
                 </label>
-                <label for="photo">Profile image</label>
+                <label for="photo">
+                    Profile image
                     <input type="file" id="photo" accept="image/*" class="detailInput">
-                <label class="input-group">
-                    Role
-                    <input id="roleInput" class="detailInput">
                 </label>
                 <label class="input-group">
                     Bio
                     <input id="bioInput" class="detailInput">
                 </label>
+
                 <label class="input-group">
                     Location
                     <input id="locationInput" class="detailInput">
                 </label>
+
                 <label class="input-group">
                     Email
                     <input id="emailInput" class="detailInput">
                 </label>
                 <label class="input-group">
+                    Phone no
+                    <input id="phonenoInput" class="detailInput">
+                </label>
+
+                <label class="input-group">
                     Github
                     <input id="githubInput" class="detailInput">
                 </label>
+
                 <label class="input-group">
                     LinkedIn
                     <input id="linkedinInput" class="detailInput">
                 </label>
                 <label class="input-group">
+                    Twitter
+                    <input id="twitterInput" class="detailInput">
+                </label>
+
+                <label class="input-group">
                     Skills
                     <input id="skillsInput" class="detailInput">
                 </label>
+
             </div>
 
             <div class="builder-section">
@@ -239,120 +255,10 @@
 
         <div class="builder-main">
             <iframe id="preview" title="Portfolio preview">
-                
+            
             </iframe>
         </div>
-    </div>
-
-    <script>
-        const $ = (id) => document.getElementById(id);
-        const detailInput = document.querySelectorAll('.detailInput');
-
-        
-        let file= null;
-
-        let dataUrl = ''
-
-        let theme = document.body.dataset.theme;
-        let themechoice;
-        let aboutme;
-        let githublink;
-        let githubname;
-        let linkedin_link;
-        let linkedin_username;
-        let location;
-        let github_projects = [];
-        let demo_links = [];
-        let aboutprojects = [];
-        let skills = [];
-        let skillsno = skills.length;
-        let phone_no;
-        let projectsinfo = [];
-        let project_count;
-        let imagelink;
-
- 
-
-        const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); // This is so complex than I expected used AI for this new thing
-
-        const safeName = n => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
-
-        function construct(imgSrc) {
-            const name = esc($("nameInput").value);
-            const bio = esc($("bioInput").value);
-
-            const image = imgSrc
-                ? `<img src="${imgSrc}" alt="Portrait of ${name}">`
-                : `<div class="empty">No image yet</div>`;
-
-            return `<!DOCTYPE html>
-            <html lang="en"><head><meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>${name}</title>
-            <style>
-            body{margin:0;font-family:Georgia,serif;background:#faf8f3;color:#1d2b24;display:grid;place-items:center;min-height:100vh;text-align:center}
-            img{width:200px;height:200px;object-fit:cover;border-radius:50%;border:6px solid #e0b84c}
-            h1{margin:20px 0 4px}p{margin:0;color:#55645b}
-            .empty{width:200px;height:200px;border-radius:50%;background:#dde3da;display:grid;place-items:center;color:#55645b;font-size:14px;margin:auto}
-            </style></head><body><div>
-            ${image}
-            <h1>${name}</h1><p>${bio}</p>
-            </div><\/body><\/html>`;
-        }
-
-        function refresh(){
-            $("preview").srcdoc = construct(dataUrl);
-        }
-
-        detailInput.forEach(input => {
-            input.addEventListener('input', refresh);
-        });
-
-        $("photo").addEventListener('change', e=>{
-            file = e.target.files[0];
-
-            if(!file || !file.type.startsWith("image/") ){
-                file=null;
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload =()=>{
-                dataUrl = reader.result;
-                refresh();
-            };
-            
-            reader.readAsDataURL(file);
-        })
-        
-        $('exportbtn').addEventListener('click', async()=>{
-            try{
-                const zip = new JSZip();
-                let imgPath = ''
-                if(file){
-                    imgPath = "images/"+ safeName(file.name);
-                    zip.file(imgPath, file);
-                }
-
-                zip.file("index.html", construct(imgPath));
-                const blob = await zip.generateAsync({
-                    type: "blob"
-                });
-
-                const a = document.createElement("a");
-                a.href = URL.createObjectURL(blob);
-                a.download = "portfolio.zip";
-                a.click();
-                setTimeout(() =>
-                 URL.revokeObjectURL(a.href), 1000);
-
-            } catch (error) {
-                console.error("Failed to export profile:", error);
-            }
-        });
-
-        refresh();
-
-    </script>
+    </div> 
+    <script src="script.js" defer></script>
 </body>
 </html>
