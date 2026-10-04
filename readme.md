@@ -1,5 +1,5 @@
 # Portify
-Portify is a web application which is used to make your portfolios. To make your own portfolio, just enter your details, social medias links that are needed, and other details and select a theme then your portfolio will be ready with a downloadable link. You can generate your portfolio by scrolling downwards and do the given instructions!
+Portify is a web application that is used to create your portfolio. To make your own portfolio, just enter your details, social media links that are needed, and other details and select a theme, and then your portfolio will be ready with a downloadable link. You can generate your portfolio by scrolling downwards and following the given instructions!
 
 <hr>
 
@@ -25,8 +25,8 @@ Portify is a web application which is used to make your portfolios. To make your
 - [ZYR0X](https://github.com/xZYR0X)
 
 ## Live Demo
-Try this out on [here](https://portify-nine-ashy.vercel.app/).
+Try this out [here](https://portifygen.netlify.app/).
 
 ## Note:
-- This project is in progress so it might have some glitches, I would suggest to make a pr and contribute if you find one ;).
-- Exporting zip file was kinda difficult so we used some AI. (We have mentioned the parts we have used AI for in the code through comments!).
+- This project is in progress, so it might have some glitches. I would suggest making a pr and contributing if you find one ;).
+- Exporting the zip file was kinda difficult so we used some AI. (We have mentioned the parts we have used AI for in the code through comments!)
