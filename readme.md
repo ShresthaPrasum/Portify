@@ -21,11 +21,11 @@ Portify is a web application which is used to make your portfolios. To make your
 - Easy to use
 
 ## Contributors:
-- ShresthaPrasum
-- ZYR0X
+- [ShresthaPrasum](https://github.com/ShresthaPrasum)
+- [ZYR0X](https://github.com/xZYR0X)
 
 ## Live Demo
-Try this out on here.
+Try this out on [here](https://portify-nine-ashy.vercel.app/).
 
 ## Note:
 - This project is in progress so it might have some glitches, I would suggest to make a pr and contribute if you find one ;).
