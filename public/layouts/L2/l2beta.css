@@ -43,7 +43,6 @@ body{
     background-color: var(--bg);
     font-family: 'Montserrat', sans-serif;
     color: #fff;
-    width: 100vw;
 }
 nav{
     height: 60px;
@@ -53,21 +52,27 @@ nav{
     align-items: center;
     padding: 10px;
 }
+
 ul{
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
     gap: 50px;
     list-style: none;
 }
 a{
     text-decoration: none;
 }
+
 header a{
     text-decoration: none;
     color: var(--headings);
 }
-.rightt{
-    margin-left: 62vw;
+
+.right{
+    display: flex;
+    gap: 20px;
 }
 #far-left{
     font-weight: 750;
@@ -75,8 +80,7 @@ header a{
     font-size: 25px;
 }
 #intro{
-    margin-top: 50px;
-    height: 500px;
+    height: 75vh;
     padding-right: 200px;
     padding-left: 200px;
     background-color: var(--bg-sections);
@@ -183,10 +187,13 @@ button{
 }
 #skills-content{
     display: grid;
-    grid-template-columns: repeat(6, minmax(0,1fr));
+    grid-template-columns: repeat(6, minmax(250px,1fr));
     align-content: start;
     gap: 50px;
     margin-top: 10px;
+}
+#skill{
+    margin: 20px;
 }
 .skill{
     height: 200px;
@@ -282,6 +289,7 @@ button{
     font-weight: 800;
     justify-content: center;
 }
+
 #contact{
     background-color: var(--bg-sections);
     height: 250px;
@@ -304,8 +312,8 @@ button{
 }
 #contact-content{
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
-    gap: 200px;
 }
 .contact-infos{
     display: flex;

@@ -4,21 +4,250 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Name - Portfolio</title>
-    <link rel="stylesheet" href="l2.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+
+    <style>
+      *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root, [data-theme="normal"]{
+            --bg: #081320;
+            --bg-sections: #112437;
+            --nav: #17314a;
+            --text: #97b6c5;
+            --headings: #e8f5fb;
+            --button: #4eb7c8;
+            --border: rgba(78, 183, 200, 0.24); 
+        }
+        [data-theme="midnight"] {
+            --bg: #080b14;
+            --bg-sections: #111827;
+            --nav: #0d1424;
+            --text: #a8b3c7;
+            --headings: #f1f5ff;
+            --button: #7c6cff;
+            --border: rgba(124, 108, 255, 0.25);
+        }
+        [data-theme="redz"] {
+            --bg: #12090b;
+            --bg-sections: #211114;
+            --nav: #180c0f;
+            --text: #c9aeb2;
+            --headings: #fff1f3;
+            --button: #e63946;
+            --border: rgba(230, 57, 70, 0.28);
+        }
+        [data-theme="ocean"] {
+            --bg: #06151d;
+            --bg-sections: #0b2633;
+            --nav: #09202b;
+            --text: #9fc4d1;
+            --headings: #e6faff;
+            --button: #26b8d1;
+            --border: rgba(38, 184, 209, 0.25);
+        }
+        body{
+            background-color: var(--bg);
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+        }
+        nav{
+            height: 60px;
+            background-color: var(--nav);
+            color: var(--headings);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+
+        ul{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+            gap: 50px;
+            list-style: none;
+            padding: 50px;
+        }
+        a{
+            text-decoration: none;
+        }
+
+        header a{
+            text-decoration: none;
+            color: var(--headings);
+        }
+
+        .right{
+            display: flex;
+            gap: 20px;
+        }
+        #far-left{
+            font-weight: 750;
+            margin-left: 10px;
+            font-size: 25px;
+        }
+        #intro{
+            height: 80vh;
+            padding-right: 200px;
+            padding-left: 200px;
+            background-color: var(--bg-sections);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 25px;
+        }
+        #data{
+            display: flex;
+            flex-direction: column;
+            width: 40vw;
+            margin-right: 50px;
+            padding: 15px;
+        }
+        #intro-buttons{
+            margin-top: 20px;
+        }
+        button{
+            background-color: var(--button);
+            width: 110px;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+        }
+        #view-projects{
+            color: var(--bg);
+            text-decoration: none;
+            background: var(--button);
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #contactt{
+            background: var(--bg);
+            margin-left: 20px;
+        }
+        #contat{
+            text-decoration: none;
+            color: var(--headings);
+            font-weight: bold;
+            height: 42px;
+        }
+        #image-div{
+            background-color: var(--bg);
+            width: 500px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #image-div img{
+            width: 350px;
+            height: 325px;
+        }
+        #about{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-top: 50px;
+            padding-bottom: 100px;
+            /* height: 255px; */
+            padding-right: 200px;
+            padding-left: 84px;
+            text-align: left;
+            background-color: var(--nav);
+        }
+        #about h2{
+            font-weight: 800;
+            font-size: 56px;
+            margin-bottom: 10px;
+            margin-top: 30px;
+            margin-left: 20px;
+            text-align: left;
+        }
+        #about p{
+            font-size: 21px;
+            color: var(--text);
+            margin-left: 20px;
+            width: 60vw;
+        }
+        #data h1{
+            margin-bottom: 10px;
+            font-weight: 800;
+            font-size: 52px;
+        }
+
+        #skill{
+            margin: 20px;
+        }
+
+        #contact{
+            background-color: var(--bg-sections);
+            height: 40vh;
+            padding: 40px;
+        }
+        #contact-title{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            align-items: left;
+        }
+        #contact-title h2{
+            color: var(--headings);
+            font-weight: 800;
+            font-size: 56px;
+            margin-bottom: 5px;
+        }
+        #contact-title p{
+            color: var(--text);
+        }
+        #contact-content{
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .contact-infos{
+            display: flex;
+            flex-direction: row;
+            /* justify-content: center; */
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-icon{
+            background-color: var(--border);
+            color: var(--button);
+            font-weight: 600;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 10px;
+        }
+        #contactt{
+            padding: 0px;
+        }
+
+    </style>
   </head>
   <body data-theme="normal">
     <div id="container">
       <header>
         <nav>
           <ul>
-            <li id="far-left">>_Name</li>
-            <li class="right rightt"><a href="#">Home</a></li>
-            <li class="right"><a href="#about">About</a></li>
-            <li class="right"><a href="#skills">Skills</a></li>
-            <li class="right"><a href="#projects">Projects</a></li>
-            <li class="right"><a href="#contact">Contact</a></li>
+            <div>
+
+              <li id="far-left">>_Name</li>
+            </div>
+            <div class="right">
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </div>
           </ul>
         </nav>
       </header>
@@ -54,9 +283,15 @@
         <div id="about">
             <h2>About Me:</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non recusandae amet incidunt aspernatur, voluptate rem molestias maiores porro quidem provident, eum nisi eaque eos sunt nesciunt, quis necessitatibus et ipsam?Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi quisquam sint tenetur eaque libero ab laborum officiis, quaerat enim quo nemo laboriosam repellat maiores aliquam est! Eius consequatur blanditiis ea. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reiciendis illo sit ipsum eveniet laudantium est ipsa cumque atque suscipit voluptas amet quaerat maxime aspernatur, veniam porro dolorum earum, quas enim.</p>
-        </div>
+            
+            <div id="skills-title">
+              <h2>Skills</h2>
+              <p>Technologies I have learnt until now!</p>
+              <h3  id="skill">HTML & CSS</h3>
+            </div>
+          </div>
 
-        <div id="skills">
+        <!-- <div id="skills">
           <div id="skills-title">
             <h2>Skills</h2>
             <p>Technologies I have learnt until now!</p>
@@ -89,9 +324,9 @@
 
           </div>
 
-        </div>
+        </div> -->
 
-        <div id="projects">
+        <!-- <div id="projects">
           <div id="projects-title">
             <h2>My Projects:</h2>
             <p>Here are my best projects that I have made throughout my journey!</p>
@@ -128,7 +363,7 @@
 
           </div>
 
-        </div>
+        </div> -->
 
         <div id="contact">
           <div id="contact-title">
