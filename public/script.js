@@ -509,8 +509,8 @@ function construct(dataUrl, layout) {
                     <div id="intro">
                         <h2>
                         Hello, I'm  ${state.name}<br/>
-                        <span id="name-text">${state.bio}</span>
                         </h2>
+                        <span id="name-text">${state.bio}</span> <br> Feat: 
                         <button>Get in touch</button>
                         <button>View my works</button>
                         <div class="social-medias">
