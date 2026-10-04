@@ -210,6 +210,63 @@
       #contactt {
         padding: 0px;
       }
+      #projects{
+    padding: 150px;
+    padding-left: 100px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+}
+#projects-title h2{
+    color: var(--headings);
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    font-weight: 800;
+    font-size: 56px;
+}
+#projects-title p{
+    color: var(--text);
+}
+#projects-content{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 1rem;
+    margin-top: 20px;
+}
+.project{
+    background-color: var(--bg-sections);
+    height: 200px;
+    padding: 50px;
+    padding-top: 35px;
+    padding-right: 35px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+.project h3{
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    font-weight: 700;
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+.project p{
+    color: var(--text);
+    margin-bottom: 15px;
+}
+.project a{
+    text-decoration: none;
+    color: var(--bg);
+    background-color: var(--button);
+    width: 110px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    justify-content: center;
+}
     </style>
   </head>
   <body data-theme="normal">
@@ -316,7 +373,7 @@
 
                         </div> -->
 
-        <!-- <div id="projects">
+        <div id="projects">
                         <div id="projects-title">
                             <h2>My Projects:</h2>
                             <p>Here are my best projects that I have made throughout my journey!</p>
@@ -353,7 +410,7 @@
 
                         </div>
 
-                        </div> -->
+                        </div>
 
         <div id="contact">
           <div id="contact-title">

@@ -1,13 +1,12 @@
 const $ = (id) => document.getElementById(id);
-        const detailInput = document.querySelectorAll('.detailInput');
+const detailInput = document.querySelectorAll(".detailInput");
 
-        
-        let file= null;
+let file = null;
 
-        let dataUrl = ''
+let dataUrl = "";
 
-        const themes = {
-            bluez:`
+const themes = {
+  bluez: `
                 --bg: #0c2351;
                 --bg-sections: #172b5d5e;
                 --text: #fff;
@@ -16,7 +15,7 @@ const $ = (id) => document.getElementById(id);
                 --headings: #fff1f3;
                 --nav: #132343;
             `,
-            midnight:`
+  midnight: `
                 --bg: #171f45;
                 --bg-sections: #151a2e;
                 --text: #f5f7ff;
@@ -24,9 +23,8 @@ const $ = (id) => document.getElementById(id);
                 --border: #ffffff1f;
                 --headings: #f1f5ff;
                 --nav: #0d1424;
-            `
-            ,
-            ocean: `
+            `,
+  ocean: `
                 --bg: #1e4458;
                 --bg-sections: #0c2935;
                 --text: #e9fbff;
@@ -34,50 +32,92 @@ const $ = (id) => document.getElementById(id);
                 --border: #808182af;
                 --headings: #e6faff;
                 --nav: #09202b;
-            `
-        }
+            `,
+};
 
-        const state = {
-            theme: 'ocean',
-            layout: 'bluez',
-            name: 'Prasum Shrestha',
-            bio: 'I am a high school student and technology enthusiast from Nepal with a strong interest in software development and problem-solving. I enjoy exploring new tools, learning emerging technologies, and building practical digital projects. I am passionate about coding and continuously seek opportunities to enhance my skills and contribute to innovative solutions.',
-            location: 'Nepal, Rupendehi',
-            email: 'prasumshrestha8877@gmail.com',
-            phoneno: '9812345678',
-            github: 'github.com/prasumshrestha',
-            linkedin: 'linkedin.com/in/prasum-shrestha-1a2b3c4d5e',
-            twitter: 'twitter.com/prasumshrestha',
-            skills: 'HTML, CSS, JavaScript, Python, C++, React, Node.js, Git, SQL',
-            photo: 'example.jpg'
-        };
+const state = {
+  theme: "ocean",
+  layout: "bluez",
+  name: "Prasum Shrestha",
+  bio: "I am a high school student and technology enthusiast from Nepal with a strong interest in software development and problem-solving. I enjoy exploring new tools, learning emerging technologies, and building practical digital projects. I am passionate about coding and continuously seek opportunities to enhance my skills and contribute to innovative solutions.",
+  location: "Nepal, Rupendehi",
+  email: "prasumshrestha8877@gmail.com",
+  phoneno: "9812345678",
+  github: "github.com/prasumshrestha",
+  linkedin: "linkedin.com/in/prasum-shrestha-1a2b3c4d5e",
+  twitter: "twitter.com/prasumshrestha",
+  skills: "HTML, CSS, JavaScript, Python, C++, React, Node.js, Git, SQL",
+  photo: "example.jpg",
+  project1_name: "Project_1",
+  project1_description: "This is a project",
+  project1_github: "https://github.com/",
+  project1_demo: "https://",
+  project2_name: "Project_2",
+  project2_description: "This is a project",
+  project2_github: "https://github.com/",
+  project2_demo: "https://"
+};
 
-        const inputs = ['nameInput', 'bioInput', 'locationInput', 'emailInput', 'phonenoInput', 'githubInput', 'linkedinInput', 'twitterInput', 'skillsInput'];
+const inputs = [
+  "nameInput",
+  "bioInput",
+  "locationInput",
+  "emailInput",
+  "phonenoInput",
+  "githubInput",
+  "linkedinInput",
+  "twitterInput",
+  "skillsInput",
+  "project1_name",
+  "project1_description",
+  "project1_demo",
+   "project1_github",
+   "project2_name",
+   "project2_description",
+   "project2_demo",
+   "project2_github"
+];
 
-        const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); // This is so complex than I expected used AI for this new thing
+const esc = (s) =>
+  s.replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  ); // This is so complex than I expected used AI for this new thing
 
-        const safeName = n => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
+const safeName = (n) => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
 
-        function construct(dataUrl, layout) {
-            const iframe = $('preview')
-            const doc = iframe.contentDocument || iframe.contentWindow.document;
+function construct(dataUrl, layout) {
+  const iframe = $("preview");
+  const doc = iframe.contentDocument || iframe.contentWindow.document;
 
-            const currentTheme = themes[state.theme] || themes.ocean;
+  const currentTheme = themes[state.theme] || themes.ocean;
 
-            state.name = esc($("nameInput").value);
-            state.bio = esc($("bioInput").value);
-            state.location = esc($("locationInput").value);
-            state.email = esc($("emailInput").value);
-            state.phoneno = esc($("phonenoInput").value);
-            state.github = esc($("githubInput").value);
-            state.linkedin = esc($("linkedinInput").value);
-            state.twitter = esc($("twitterInput").value);
-            state.skills = esc($("skillsInput").value);
-            state.phoneno = esc($("phonenoInput").value);
-            state.photo =  dataUrl;
-            let htmlContent = null;
-            if(layout === 'bluez'){
-                htmlContent =  `<!doctype html>
+  state.name = esc($("nameInput").value);
+  state.bio = esc($("bioInput").value);
+  state.location = esc($("locationInput").value);
+  state.email = esc($("emailInput").value);
+  state.phoneno = esc($("phonenoInput").value);
+  state.github = esc($("githubInput").value);
+  state.linkedin = esc($("linkedinInput").value);
+  state.twitter = esc($("twitterInput").value);
+  state.skills = esc($("skillsInput").value);
+  state.phoneno = esc($("phonenoInput").value);
+  state.project1_name = esc($("project1_name").value);
+  state.project1_description = esc($("project1_description").value);
+  state.project1_demo = esc($("project1_demo").value);
+  state.project1_github = esc($("project1_github").value);
+  state.project2_name = esc($("project2_name").value);
+  state.project2_description = esc($("project2_description").value);
+  state.project2_github = esc($("project2_github").value);
+  state.project2_demo = esc($("project2_demo").value);
+
+  state.photo = dataUrl;
+  let htmlContent = null;
+  if (layout === "bluez") {
+    htmlContent = `<!doctype html>
             <html lang="en">
             <head>
                 <meta charset="UTF-8" />
@@ -377,20 +417,6 @@ const $ = (id) => document.getElementById(id);
                     font-size: 24px;
                     animation: logo 2s infinite ease-in-out;
                 }
-    
-                @keyframes logo {
-                    0%{
-                    transform: translateY(0px);
-                    }
-    
-                    50%{
-                    transform: translateY(-5px);
-                    }
-    
-                    100%{
-                    transform: translateY(0px);
-                    }
-                }
                 .social-medias {
                     display: flex;
                     margin-top: 1rem;
@@ -407,7 +433,6 @@ const $ = (id) => document.getElementById(id);
                 </style>
             </head>
             <body data-theme="ocean">
-                <!--First layout lets goo-->
                 <div id="container">
                 <header>
                     <nav>
@@ -418,7 +443,7 @@ const $ = (id) => document.getElementById(id);
                         <div class="nav-right">
                         <li><a href="#">Home</a></li>
                         <li><a href="#about">About</a></li>
-                        <!-- <li><a href="#projects">Projects</a></li> -->
+                        <li><a href="#projects">Projects</a></li> 
                         <li><a href="#contact">Contact</a></li>
                         </div>
                     </ul>
@@ -459,14 +484,14 @@ const $ = (id) => document.getElementById(id);
                     </div>
                     <div id="intro">
                         <h2>
-                        Hello, I'm <br />
-                        <span id="name-text">${state.name}</span>
+                        Hello, I'm  ${state.name}<br/>
+                        <span id="name-text">${state.bio}</span>
                         </h2>
                         <button>Get in touch</button>
                         <button>View my works</button>
                         <div class="social-medias">
                         <a href="${state.twitter}" id="twitter"><i class="fab fa-x-twitter"></i></a>
-                        <a href="${state.github}" id="github"><i class="fab fa-github"></i></a>
+                        <a href="https://github.com/${state.github}" id="github"><i class="fab fa-github"></i></a>
                         <a href="${state.linkedin}" id="linkedin"><i class="fab fa-linkedin"></i></a>
     
                         </div>
@@ -497,7 +522,83 @@ const $ = (id) => document.getElementById(id);
     
                         </div>
                     </div>
-                    
+                    <div id="projects">
+          <div id="projects-title">
+            <h2>My Projects</h2>
+          </div>
+          <div id="projects-content">
+            <div class="project">
+              <h3>${state.project1_name}</h3>
+              <p>
+                ${state.project1_description}
+              </p>
+              <div class="project-links">
+                <a class="project-link" href="${state.project1_github}"    target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a
+                  class="project-link"
+                  href="${state.project1_demo}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="project">
+              <h3>${state.project2_name}</h3>
+              <p>
+               ${state.project2_description}
+              </p>
+              <div class="project-links">
+               <a class="project-link" href="${state.project2_github}"    target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="${state.project2_demo}" class="project-link" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            
+
+            <div class="project">
+              <h3>Project Name</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat adipisci aliquid modi nesciunt unde architecto voluptatem. Illum eius fugiat veniam amet labore sed iste excepturi ducimus aspernatur. Nostrum, ut inventore.
+              </p>
+
+              <div class="project-links">
+              <a class="project-link" href="https://github.com/..."    target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://demo.link" class="project-link" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+            </div>
+                <div class="project">
+              <h3>Project Name</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat adipisci aliquid modi nesciunt unde architecto voluptatem. Illum eius fugiat veniam amet labore sed iste excepturi ducimus aspernatur. Nostrum, ut inventore.
+              </p>
+
+              <div class="project-links">
+              <a class="project-link" href="https://github.com/..."    target="_blank" rel="noopener noreferrer">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://demo.link" class="project-link" target="_blank" rel="noopener noreferrer">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
     
                     <div id="contact">
                     <div id="contact-title">
@@ -556,10 +657,8 @@ const $ = (id) => document.getElementById(id);
             </html>
     
             `;
-            }
-
-            else if(layout === 'redz'){
-                htmlContent = `<!doctype html>
+  } else if (layout === "redz") {
+    htmlContent = `<!doctype html>
                 <html lang="en">
                 <head>
                     <meta charset="UTF-8" />
@@ -895,105 +994,100 @@ const $ = (id) => document.getElementById(id);
                     </div>
                 </body>
                 </html>
-                `
-            }
+                `;
+  }
 
-            doc.open();
-            doc.write(htmlContent);
-            doc.close();
-        }
-        
-        function getindexhtml() {
-            const iframe = document.getElementById('preview');
-            const doc = iframe.contentDocument || iframe.contentWindow.document;
-            return "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
-        }
+  doc.open();
+  doc.write(htmlContent);
+  doc.close();
+}
 
-        document.querySelectorAll('.choice-btn').forEach(btn => {
-            btn.addEventListener('click', (e)=>{
-                document.querySelectorAll('.choice-btn').forEach(button =>{
-                    button.classList.remove('active')
-                })
-                btn.classList.add('active')
-                const selectedLayout = btn.getAttribute('data-layout');
-                if(selectedLayout){
-                    state.layout = selectedLayout;
-                    construct(dataUrl,state.layout);
-                }
-            })
-        })
+function getindexhtml() {
+  const iframe = document.getElementById("preview");
+  const doc = iframe.contentDocument || iframe.contentWindow.document;
+  return "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
+}
 
-        document.querySelectorAll('.theme-btn').forEach(btn => {           
-            btn.addEventListener('click', (e)=>{
-                 document.querySelectorAll('.theme-btn').forEach(button =>{
-                    button.classList.remove('active')
-                 })
-                 
-                btn.classList.add('active')
-                
-                const selectedTheme = btn.getAttribute('data-theme');
-                if(selectedTheme){
-                    state.theme = selectedTheme;
-                    construct(dataUrl,state.layout);
-                }
-            })
-        })
+document.querySelectorAll(".choice-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    document.querySelectorAll(".choice-btn").forEach((button) => {
+      button.classList.remove("active");
+    });
+    btn.classList.add("active");
+    const selectedLayout = btn.getAttribute("data-layout");
+    if (selectedLayout) {
+      state.layout = selectedLayout;
+      construct(dataUrl, state.layout);
+    }
+  });
+});
 
-        
-    
-        inputs.forEach(id => {
-            const inputElem = document.getElementById(id);
-            if (inputElem) {
-                inputElem.addEventListener('input', (e) => {
-                    const key = id.replace('Input', '');
-                    state[key] = e.target.value;
-                    construct(dataUrl,state.layout);
-                });
-            }
-        });
+document.querySelectorAll(".theme-btn").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    document.querySelectorAll(".theme-btn").forEach((button) => {
+      button.classList.remove("active");
+    });
 
-        $("photo").addEventListener('change', e=>{
-            file = e.target.files[0];
+    btn.classList.add("active");
 
-            if(!file || !file.type.startsWith("image/") ){
-                file=null;
-                return;
-            }
+    const selectedTheme = btn.getAttribute("data-theme");
+    if (selectedTheme) {
+      state.theme = selectedTheme;
+      construct(dataUrl, state.layout);
+    }
+  });
+});
 
-            const reader = new FileReader();
-            reader.onload =()=>{
-                dataUrl = reader.result;
-                construct(dataUrl,state.layout);
-            };
-            
-            reader.readAsDataURL(file);
-        })
-        
-        $('exportbtn').addEventListener('click', async()=>{
-            try{
-                const zip = new JSZip();
-                let imgPath = ''
-                if(file){
-                    imgPath = "images/"+ safeName(file.name);
-                    zip.file(imgPath, file);
-                }
+inputs.forEach((id) => {
+  const inputElem = document.getElementById(id);
+  if (inputElem) {
+    inputElem.addEventListener("input", (e) => {
+      const key = id.replace("Input", "");
+      state[key] = e.target.value;
+      construct(dataUrl, state.layout);
+    });
+  }
+});
 
-                zip.file("index.html", getindexhtml());
-                const blob = await zip.generateAsync({
-                    type: "blob"
-                });
+$("photo").addEventListener("change", (e) => {
+  file = e.target.files[0];
 
-                const a = document.createElement("a");
-                a.href = URL.createObjectURL(blob);
-                a.download = "portfolio.zip";
-                a.click();
-                setTimeout(() =>
-                 URL.revokeObjectURL(a.href), 1000);
+  if (!file || !file.type.startsWith("image/")) {
+    file = null;
+    return;
+  }
 
-            } catch (error) {
-                console.error("Failed to export profile:", error);
-            }
-        });
+  const reader = new FileReader();
+  reader.onload = () => {
+    dataUrl = reader.result;
+    construct(dataUrl, state.layout);
+  };
 
-        construct(dataUrl,state.layout);
+  reader.readAsDataURL(file);
+});
 
+$("exportbtn").addEventListener("click", async () => {
+  try {
+    const zip = new JSZip();
+    let imgPath = "";
+    if (file) {
+      imgPath = "images/" + safeName(file.name);
+      zip.file(imgPath, file);
+    }
+
+    zip.file("index.html", getindexhtml());
+    const blob = await zip.generateAsync({
+      type: "blob",
+    });
+
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "portfolio.zip";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  } catch (error) {
+    console.error("Failed to export profile:", error);
+  }
+});
+
+construct(dataUrl, state.layout);
