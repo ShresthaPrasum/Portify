@@ -90,9 +90,7 @@
             cursor:pointer;
         }
 
-        .choice-btn{
-            cursor:not-allowed;
-        }
+    
 
         .choice-btn strong, .theme-btn strong{
             display: block;
@@ -166,10 +164,6 @@
         margin-right: 12px;
         transition: all 0.2s ease;
     }
-        #bluez{
-            border: 1px solid rgb(0, 157, 255);
-            transform: scale(1.05);
-        }
 
         .active{
             border: 1px solid rgb(0, 157, 255);
@@ -190,17 +184,17 @@
                     LAYOUT
                 </p>
                 <div class="choice-grid">
-                    <button class="choice-btn">
+                    <button class="choice-btn" data-layout="redz">
                         <strong>Redz Hub</strong>
                         <small>Bloody</small>
                     </button>
 
-                    <button class="choice-btn">
+                    <!-- <button class="choice-btn" data-layout="greenz">
                         <strong>Greenz Hub</strong>
                         <small>Terminality</small>
-                    </button>
+                    </button> -->
 
-                    <button class="choice-btn" id="bluez">
+                    <button class="choice-btn" id="bluez" data-layout="bluez">
                         <strong>Bluez Hub</strong>
                         <small>Technicality</small>
                     </button>
