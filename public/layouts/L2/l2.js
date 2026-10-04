@@ -1,0 +1,18 @@
+let theme = document.body.dataset.theme;
+let theme_choice;
+let name;
+let projects = [];
+let projectslink = [];
+let phoneno;
+let location;
+let githubname;
+let githublink;
+let linkedinname;
+let linkedinlink;
+let mail;
+let skills = [];
+let skillsno = skills.length;
+let skill_description = [];
+let about;
+let intro;
+let imageaddress;
