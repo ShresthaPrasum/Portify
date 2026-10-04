@@ -35,7 +35,7 @@
 body{
     background-color: var(--bg);
     color: var(--text);
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Montserrat', sans-serif;
 }
 #container{
     width: 100vw;

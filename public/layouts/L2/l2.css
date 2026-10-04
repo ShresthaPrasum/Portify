@@ -10,6 +10,34 @@
     --text: #97b6c5;
     --headings: #e8f5fb;
     --button: #4eb7c8;
+    --border: rgba(78, 183, 200, 0.24); 
+}
+[data-theme="midnight"] {
+    --bg: #080b14;
+    --bg-sections: #111827;
+    --nav: #0d1424;
+    --text: #a8b3c7;
+    --headings: #f1f5ff;
+    --button: #7c6cff;
+    --border: rgba(124, 108, 255, 0.25);
+}
+[data-theme="redz"] {
+    --bg: #12090b;
+    --bg-sections: #211114;
+    --nav: #180c0f;
+    --text: #c9aeb2;
+    --headings: #fff1f3;
+    --button: #e63946;
+    --border: rgba(230, 57, 70, 0.28);
+}
+[data-theme="ocean"] {
+    --bg: #06151d;
+    --bg-sections: #0b2633;
+    --nav: #09202b;
+    --text: #9fc4d1;
+    --headings: #e6faff;
+    --button: #26b8d1;
+    --border: rgba(38, 184, 209, 0.25);
 }
 body{
     background-color: var(--bg);
@@ -189,7 +217,7 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(78, 183, 200, 0.24);
+    background-color: var(--border);
     color: var(--button);
     font-weight: 600;
     border-radius: 5px;
@@ -227,7 +255,7 @@ button{
     padding: 50px;
     padding-top: 35px;
     padding-right: 35px;
-    border: 1px solid rgba(78, 183, 200, 0.24);
+    border: 1px solid var(--border);
     border-radius: 4px;
 }
 .project h3{
@@ -287,7 +315,7 @@ button{
     gap: 10px;
 }
 .contact-icon{
-    background-color: rgba(78, 183, 200, 0.24);
+    background-color: var(--border);
     color: var(--button);
     font-weight: 600;
     width: 40px;
