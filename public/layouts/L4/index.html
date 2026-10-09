@@ -7,7 +7,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Pacifico&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
     <style>
+
+        :root{
+            --bg-color: #fff8ed;
+            --bg1-color: #ffe3c1;
+            --font-color: #f57959;
+        }
         *{
             box-sizing: border-box;
             margin: 0;
@@ -16,7 +24,7 @@
 
         body{
             color: #4e372f;
-            background-color: #fff8ed;
+            background-color: var(--bg-color);
             font-family: "DM Sans", Arial, sans-serif;
         }
 
@@ -25,7 +33,7 @@
             min-height: 100vh;
             position: relative;
             overflow: hidden;
-            background-color: #fffdf8;
+            background-color: var(--bg-color);
         }
 
         .top-box{
@@ -34,18 +42,91 @@
             right: 0;
             width: 75%;
             border-radius: 0 0 0 36% / 0 0 0 64%;
-            background-color: #ffe3c1;
+            background-color: var(--bg1-color);
             position: absolute;
+            z-index: -1;
         }
         .bottom-box{
-            height: 37%;
+            height: 27%;
             bottom: 0;
             left: 0;
             width: 100%;
-            border-radius: 0 36% 0 0  / 0 64% 0 0;
-            background-color: #ffe3c1;
+            border-radius: 30% 46% 0 0  / 20% 64% 0 0;
+            background-color: var(--bg1-color);
             position: absolute;
+            z-index: -1;
         }
+
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            height: 100%;
+        }
+
+        .brand{
+            display: inline-flex;
+            width: fit-content;
+            align-items: center;
+            gap: 8px;
+            width: 33%;
+        }
+
+        .logo{
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: relative;
+            color: var(--font-color);
+            font: 700 25px Georgia, serif;
+            border: 1px solid var(--font-color);
+        }
+
+        .logo-name{
+            font-size: 15px;
+            font-weight: 800;
+            line-break: auto;
+            line-height: 1.1;
+        }
+
+        .logo-name small{
+            font-size: 11px;
+        }
+
+        .nav-bar{
+            display: flex;
+            width: 33%;
+            justify-content: space-between;
+        }
+
+        .nav-bar a{
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .social-medias{
+            width: 33%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+        
     </style>
 </head>
 <body>
@@ -54,6 +135,38 @@
             <div class="hero-container">
                 <div class="top-box"></div>
                 <div class="bottom-box"></div>
+
+                <header>
+                    <div class="nav">
+                        <a href="#home" class="brand">
+                            <span class="logo">
+                                P
+                            </span>
+                            <span class="logo-name">
+                                PRASUM 
+                                <br>
+                                <small>SHRESTHA</small>
+                            </span>
+                        </a>
+                        <div class="nav-bar">
+                            <a href="">Home</a>
+                            <a href="">About</a>
+                            <a href="">Projects</a>
+                            <a href="">Contact</a>
+                        </div>
+                        <div class="social-medias">
+                            <a href="https://twitter.com">
+                                <i class="fa-brands fa-x"></i>
+                            </a>
+                            <a href="https://github.com">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="mailto:prasmshrestha@gmail.com">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </header>
             </div>
         </section>
     </main>
