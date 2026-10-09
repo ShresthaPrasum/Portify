@@ -1,11 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root,[data-theme="autumn"]{
+--bg: #1a100b;
+--bg-sections: #2b1c13;
+--nav: #43291a;
+--text: #d6b89a;
+--headings: #fff0d6;
+--button: #d97736;
+--border: rgba(217, 119, 54, 0.28);
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 body{
-    background-color: black;
-    color: white;
+    background-color: var(--bg);
+    color: var(--text);
     width: 100vw;
 }
 /* header{
@@ -21,20 +34,20 @@ ul{
     align-items: center;
     justify-content: center;
     gap: 40px;
-    background-color: rgb(40, 40, 40);
+    background-color: var(--nav);
     width: 100vw;
     margin-bottom: 20px;
 }
 a{
     text-decoration: none;
-    color: white;
+    color: var(--headings);
 }
 .right{
-    margin-left: 75vw;
+    margin-left: 72vw;
 }
 #about{
     margin-top: 150px;
-    background-color: rgb(33, 33, 33);
+    background-color: var(--bg-sections);
     height: 610px;
     display: flex;
     flex-direction: column;
@@ -71,14 +84,15 @@ a{
 #about-title h2{
     font-size: 56px;
     font-weight: 800;
+    color: var(--headings);
 }
 #linkss{
     display: flex;
     gap: 10px;
 }
 #linkss a{
-    background-color: rgb(65, 60, 60);
-    color: white;
+    background-color: var(--button);
+    color: var(--headings);
     width: 110px;
     height: 35px;
     padding: 5px;
@@ -87,12 +101,13 @@ a{
     align-items: center;
     justify-content: center;
     margin-top: 10px;
+    border-radius: 15px;
 }
 #skills{
     margin-top: 100px;
     height: 500px;
     display: flex;
-    background: #2a2a2a;
+    background: var(--bg-sections);
     padding: 100px;
     flex-direction: column;
 }
@@ -120,7 +135,7 @@ a{
     padding-top: 20px;
     align-items: center;
     /* justify-content: center; */
-    background-color: black;
+    background-color: var(--bg);
     border: none;
     border-radius: 10px;
 }
@@ -130,4 +145,5 @@ a{
 .skill h3{
     margin-top: 10px;
     margin-bottom: 12px;
+    color: var(--headings);
 }
