@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autumn Themes Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Pacifico&amp;display=swap" rel="stylesheet">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            color: #4e372f;
+            background-color: #fff8ed;
+            font-family: "DM Sans", Arial, sans-serif;
+        }
+
+        .hero-container{
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background-color: #fffdf8;
+        }
+
+        .top-box{
+            height: 37%;
+            top: 0;
+            right: 0;
+            width: 75%;
+            border-radius: 0 0 0 36% / 0 0 0 64%;
+            background-color: #ffe3c1;
+            position: absolute;
+        }
+        .bottom-box{
+            height: 37%;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 0 36% 0 0  / 0 64% 0 0;
+            background-color: #ffe3c1;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="top-box"></div>
+                <div class="bottom-box"></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
