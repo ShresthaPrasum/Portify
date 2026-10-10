@@ -42,6 +42,14 @@ const themes = {
                 --button: #d97736;
                 --border: rgba(217, 119, 54, 0.28);
   `
+//   autumn: `
+//             --bg-color: #fcd5ab;
+//             --bg1-color: #ffc37a;
+//             --bg2-color: #ffe4c4;
+//             --font-color: #f57959;
+//             --red-color: #f34c3e;
+//             --stem-color: #996b4c;
+//   `
 };
 
 const state = {
@@ -72,7 +80,8 @@ const state = {
   project4_name: "",
   project4_description: "",
   project4_demo: "",
-  project4_github: ""
+  project4_github: "",
+  "skillss": ""
 };
 
 const inputs = [
@@ -100,7 +109,8 @@ const inputs = [
    "project4_name",
    "project4_description",
    "project4_demo",
-   "project4_github"
+   "project4_github",
+   "skillss"
 ];
 
 const esc = (s) =>
@@ -145,6 +155,7 @@ function construct(dataUrl, layout) {
   state.project4_description = esc($("project4_description").value);
   state.project4_github = esc($("project4_github").value);
   state.project4_demo = esc($("project4_demo").value);
+  state.otherskills = esc($("skillss").value);
 
   state.photo = dataUrl;
   let htmlContent = null;
@@ -1806,6 +1817,748 @@ a{
 </body>
 </html>
     `;
+  }else if(layout==="autumn"){
+    htmlContent = `
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${state.name}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;family=Pacifico&amp;display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+    <style>
+
+        :root{
+            --bg-color: #fcd5ab;
+            --bg1-color: #ffc37a;
+            --bg2-color: #ffe4c4;
+            --font-color: #f57959;
+            --red-color: #f34c3e;
+            --stem-color: #996b4c;
+        }
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            color: #4e372f;
+            background-color: var(--bg-color);
+            font-family: "DM Sans", Arial, sans-serif;
+        }
+
+        .hero-container{
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            z-index: 1;
+        }
+
+        .top-box{
+            height: 37%;
+            top: 0;
+            right: 0;
+            width: 75%;
+            border-radius: 0 0 0 36% / 0 0 0 64%;
+            background-color: var(--bg1-color);
+            position: absolute;
+            z-index: -1;
+        }
+        .bottom-box{
+            height: 27%;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-radius: 30% 46% 0 0  / 20% 64% 0 0;
+            background-color: var(--bg1-color);
+            position: absolute;
+            z-index: -1;
+        }
+
+        header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        a{
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            height: 100%;
+        }
+
+        .brand{
+            display: inline-flex;
+            width: fit-content;
+            align-items: center;
+            gap: 8px;
+            width: 33%;
+        }
+
+        .logo{
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: relative;
+            color: var(--font-color);
+            font: 700 25px Georgia, serif;
+            border: 1px solid var(--font-color);
+        }
+
+        .logo-name{
+            font-size: 15px;
+            font-weight: 800;
+            line-break: auto;
+            line-height: 1.1;
+        }
+
+        .logo-name small{
+            font-size: 11px;
+        }
+
+        .nav-bar{
+            display: flex;
+            width: 33%;
+            justify-content: space-between;
+        }
+
+        .nav-bar a{
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .social-medias{
+            width: 33%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        .leaf-branch{
+            position: absolute;
+            
+        }
+
+        .top-branch{
+            width: 15%;
+            height: auto;
+            right: 8%;
+            top: 4%;
+            transform: rotate(3deg);
+        }
+
+        .branch-stem{
+            fill: none;
+            stroke-width: 1.2;
+            stroke: var(--stem-color);
+            stroke-linecap: round;
+        }
+        .red-leaf {
+            fill: var(--red-color);
+        }
+
+        .hero-content{
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            height: 80vh;
+            
+        }
+        
+        .hero-name{
+            
+        }
+
+        .hero-title{
+            display: block;
+            font-family: "Pacifico", "Segoe Script", cursive;
+            line-height: 1.1;
+            color: var(--font-color);
+            font-size: clamp(50px, 9vw, 110px);
+            font-weight: 400;
+            letter-spacing: -1px;
+            
+        }
+        .hero-subtitle{
+            color: var(--font-color);
+            font-size: clamp(20px, 2.8vw, 40px);
+            font-weight: 400;
+            letter-spacing: -1px;
+        }
+
+        .hero-description{
+            max-width: 520px;
+            margin: 20px 0px;
+            font-size: clamp(10px, 1vw, 14px);
+            line-height:1.6;
+            
+        }
+
+        .capsule-btn{
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 45px;
+            color: white;
+            background-color: var(--font-color);
+            padding: 14px 20px;
+            font-size: 14px;
+        }
+        
+        .hero-profile{
+            width: 34%;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background-color: #edc49e;
+            border: clamp(3px, 1vw, 14px) solid var(--font-color);
+        }
+
+        .hero-profile img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .bottom-branch{
+            width: 15%;
+            height: auto;
+            left: 28%;
+            bottom: -3%;
+            transform: rotateY(180deg);
+        }
+        .gold-leaf{
+            fill: #ffaa21;
+        }
+
+        .left-branch{
+            width: 12%;
+            height: auto;
+            left: -1%;
+            bottom: 19%;
+            transform: rotate(-7deg);
+        }
+
+        .tiny-leafs{
+            position: absolute;
+            left: 13%;
+            top: 15%;
+            width: 35px;
+            height: 40px;
+            transform: rotate(-20deg);
+        }
+
+        .tiny-leafs span{
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            border-radius: 100% 0 100% 0;
+            background-color: #f34c3e;
+        }
+
+        .tiny-leafs span:nth-child(2){
+            background-color: #ff6822;
+            transform: rotate(20deg);
+            left: 8px;
+            top: 5px;
+        }
+        .tiny-leafs span:nth-child(3){
+            background-color: #ff9822;
+            transform: rotate(40deg);
+            left: 12px;
+            top: 15px;
+        }
+
+        .about{
+            position: relative;
+            overflow: hidden;
+            padding: clamp(70px, 6vw, 130px) 5vw;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+        }
+
+        .about-header{
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .about-header h2{
+            font-size: clamp(30px, 5.5vw, 60px);
+            letter-spacing: -3px;
+            padding-bottom: 10px;
+        }
+
+        .about-content{
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 80px;
+            justify-content: center;
+        }
+
+        .about-note{
+            display: flex;
+            flex-direction: column;
+            height: 52vh;
+            width: 36%;
+            border-top: 8px solid var(--bg1-color);
+            background-color: #fff;
+            padding: 2vw;
+            transform: rotate(-2deg);
+            gap: 10px;
+        }
+
+        .about-details{
+            height: 50vh;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .detail h3{
+            font-size: 1vw;
+            margin-bottom: 10px;
+        }
+
+        .note-head{
+            font: 28px "Pacifico", cursive;
+            margin: 0 0 10px;
+        }
+
+        .note-content p{
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .projects{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(70px, 6vw, 130px) 5vw;
+            min-height: 100vh;
+            background-color: var(--bg2-color);
+        }
+
+        .projects-header{
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .projects-header h2{
+            font-size: clamp(30px, 5.5vw, 60px);
+            letter-spacing: -3px;
+            padding-bottom: 10px;
+        }
+
+        .project-container{
+            display: grid;
+            width: 70%;
+            justify-content: center;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 3rem;
+            margin-top: 20px;
+        }
+
+        .project-card{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 30px;
+            gap: 15px;
+            border: 1px solid var(--font-color);
+            border-radius: 12px;
+            background-color: var(--bg2-color);
+        }
+
+        .project-description{
+            color: #8e7468;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .project-title{
+            font-size: 4vh;
+            color: var(--font-color);
+            letter-spacing: -2px;
+        }
+
+        .project-view{
+            display: inline-flex;
+            width: 135px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: none;
+            border-radius: 45px;
+            color: white;
+            background-color: var(--font-color);
+            padding: 14px 20px;
+            font-size: 18px;
+        }
+
+        .contact{
+            position: relative;
+            overflow: hidden;
+            padding: clamp(70px, 6vw, 130px) 5vw;
+            min-height: 40vh;
+            background-color: var(--bg-color);
+            background-image: url(leafs.png);
+            background-size: cover;
+            /* background-position:; */
+            color: #ede9e9;
+        }
+
+        .contact-header{
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .contact-header h2{
+            font-size: clamp(30px, 5.5vw, 60px);
+            letter-spacing: -3px;
+            padding-bottom: 10px;
+        }
+        
+        .contact-details{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+        }
+
+        .contact-info{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-logo{
+            display: inline-flex;
+            background-color: #573710;
+            border-radius: 12px;
+            color: white;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="hero-container">
+                <div class="top-box"></div>
+                <div class="bottom-box"></div>
+
+                <header>
+                    <div class="nav">
+                        <a href="#home" class="brand">
+                            <span class="logo">
+                                ${state.name[0].toUpperCase()}
+                            </span>
+                            <span class="logo-name">
+                                ${state.name.toUpperCase()}
+                            </span>
+                        </a>
+                        <div class="nav-bar">
+                            <a href="#">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#projects">Projects</a>
+                            <a href="#contacts">Contact</a>
+                        </div>
+                        <div class="social-medias">
+                            <a href="${state.twitter}">
+                                <i class="fa-brands fa-x"></i>
+                            </a>
+                            <a href="https://github.com/${state.github}">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="mailto:${state.email}">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </header>
+
+                <svg class="leaf-branch top-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch bottom-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch left-branch" viewBox="0 0 140 160" aria-hidden="true">
+                    <path class="branch-stem" d="M8 152 C44 112 66 70 105 8"></path>
+                    <path class="gold-leaf" d="M24 132 C1 132 -3 118 25 116 C10 103 18 93 38 113 C42 123 34 131 24 132Z"></path>
+                    <path class="gold-leaf" d="M43 105 C20 99 21 86 48 91 C37 74 47 67 62 90 C63 101 53 106 43 105Z"></path>
+                    <path class="gold-leaf" d="M62 77 C43 66 48 54 69 66 C65 46 76 43 85 68 C83 78 72 82 62 77Z"></path>
+                    <path class="gold-leaf" d="M82 48 C66 34 75 25 91 40 C90 21 101 20 106 44 C102 53 91 56 82 48Z"></path>
+                </svg>
+
+                <div class="tiny-leafs">
+                    <span></span><span></span><span></span>
+                </div>
+
+                <div class="hero-content">
+                    <div class="hero-name">
+                        <h1>
+                            <span class="hero-title">
+                                ${state.name}
+                            </span>
+                            <span class="hero-subtitle">
+                                CREATIVE DEVELOPER
+                            </span>
+                        </h1>
+
+                        <p class="hero-description">
+                            ${state.bio}
+                        </p>
+
+                        <a href="#project" class="capsule-btn">View My Projects</a>
+                    </div>
+                    <div class="hero-profile">
+                        <img src="${state.photo}" alt="${state,name}">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="about">
+            <div class="about-header">
+                <svg class="leaf-branch top-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch bottom-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch left-branch" viewBox="0 0 140 160" aria-hidden="true">
+                    <path class="branch-stem" d="M8 152 C44 112 66 70 105 8"></path>
+                    <path class="gold-leaf" d="M24 132 C1 132 -3 118 25 116 C10 103 18 93 38 113 C42 123 34 131 24 132Z"></path>
+                    <path class="gold-leaf" d="M43 105 C20 99 21 86 48 91 C37 74 47 67 62 90 C63 101 53 106 43 105Z"></path>
+                    <path class="gold-leaf" d="M62 77 C43 66 48 54 69 66 C65 46 76 43 85 68 C83 78 72 82 62 77Z"></path>
+                    <path class="gold-leaf" d="M82 48 C66 34 75 25 91 40 C90 21 101 20 106 44 C102 53 91 56 82 48Z"></path>
+                </svg>
+
+                <div class="tiny-leafs">
+                    <span></span><span></span><span></span>
+                </div>
+                <h2>A little about me.</h2>
+                <p class="about-quote">
+                    Always collecting ideas like autumn leaves and turning it into beauty.
+                </p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-note">
+                    <div class="note-head">
+                        Hello, there!
+                    </div>
+
+                    <div class="note-content">
+                       <!-- <p>I’m Prasum, a student developer from Nepal who loves figuring out how things work—and then building something of my own. I’m exploring web development, game development, and AI one experiment at a time.</p>
+                        <p>My favourite projects sit where useful ideas meet delightful details. I believe every bug has a lesson, every sketch can become a product, and good work starts with asking better questions.</p> -->
+                        <p> ${state.bio} </p>
+                    </div>
+                </div>
+                <div class="about-details">
+                    <div class="detail">
+                        <h3>Skills</h3>
+                        <p>${state.skills}</p>
+                    </div>
+                    <div class="detail">
+                        <h3>How I work</h3>
+                        <p>Thinking big starting small and solve the real world problems.</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Outside the pixels</h3>
+                        <p>${state.otherskills}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="projects-header">
+                <h2>Collected Projects</h2>
+                <p class="project-quote">
+                    A collection of beautiful project created by me due to my curiosity and will to learn new thing
+                </p>
+            </div>
+            <svg class="leaf-branch top-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch bottom-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch left-branch" viewBox="0 0 140 160" aria-hidden="true">
+                    <path class="branch-stem" d="M8 152 C44 112 66 70 105 8"></path>
+                    <path class="gold-leaf" d="M24 132 C1 132 -3 118 25 116 C10 103 18 93 38 113 C42 123 34 131 24 132Z"></path>
+                    <path class="gold-leaf" d="M43 105 C20 99 21 86 48 91 C37 74 47 67 62 90 C63 101 53 106 43 105Z"></path>
+                    <path class="gold-leaf" d="M62 77 C43 66 48 54 69 66 C65 46 76 43 85 68 C83 78 72 82 62 77Z"></path>
+                    <path class="gold-leaf" d="M82 48 C66 34 75 25 91 40 C90 21 101 20 106 44 C102 53 91 56 82 48Z"></path>
+                </svg>
+
+                <div class="tiny-leafs">
+                    <span></span><span></span><span></span>
+                </div>
+
+            <div class="project-container">
+                <div class="project-card">
+                    <h3 class="project-title">
+                        NevaEdu
+                    </h3>
+                    <p class="project-description">
+                        An educational platform focused on structured learning resources, concept clarity, and student-friendly explanations to support academic growth.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        Nessay AI
+                    </h3>
+                    <p class="project-description">
+                        An AI-assisted writing platform designed to help users generate, refine, and structure essays with clarity and logical coherence.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        Quiz Mama
+                    </h3>
+                    <p class="project-description">
+                        A dynamic quiz-based web application offering interactive questions across multiple domains to improve knowledge retention and engagement.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        Woof Style
+                    </h3>
+                    <p class="project-description">
+                        A modern dog-themed website showcasing different dog breeds, breed information, Care Guides and a engaging quiz with woof style mode.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+            </div>
+        </section>
+    
+        <section class="contact" id="contact">
+            <div class="contact-header">
+                <h2>Contact Me</h2>
+                <p class="contact-quote">
+                    I’m always up for thoughtful conversations, fun experiments, and collaborating on projects that help me learn something new.
+            </div>
+
+            <div class="contact-details">
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt location-logo contact-logo"></i>
+
+                    <div class="contact-detail">
+                        <h3>Location</h3>
+                        <p>Kathmandu, Nepal</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo phoneno-logo fas fa-phone-alt"></i>
+
+                    <div class="contact-detail">
+                        <h3>Phone No</h3>
+                        <p>+977 1 2345678</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo mail-logo fas fa-envelope"></i>
+
+                    <div class="contact-detail">
+                        <h3>Mail</h3>
+                        <p>prasumshrestha8877@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo github-logo fa-brands fa-github"></i>
+
+                    <div class="contact-detail">
+                        <a href=""><h3>Github</h3></a>
+                        <p>ShresthaPrasum</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo linkedin-logo fab fa-linkedin"></i>
+
+                    <div class="contact-detail">
+                        <a href=""><h3>Linked In</h3></a>
+                        <p>ShresthaPrasum</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+</body>
+</html>
+    `
   }
 
   doc.open();
