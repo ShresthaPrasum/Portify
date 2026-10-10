@@ -33,6 +33,15 @@ const themes = {
                 --headings: #e6faff;
                 --nav: #09202b;
             `,
+  latin: `
+                --bg: #1a100b;
+                --bg-sections: #2b1c13;
+                --nav: #43291a;
+                --text: #d6b89a;
+                --headings: #fff0d6;
+                --button: #d97736;
+                --border: rgba(217, 119, 54, 0.28);
+  `
 };
 
 const state = {
@@ -1118,6 +1127,509 @@ function construct(dataUrl, layout) {
                 </body>
                 </html>
                 `;
+  }else if(layout==="latin"){
+    htmlContent= `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Name</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+    ${currentTheme}
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: var(--bg);
+    color: var(--text);
+    width: 100%;
+}
+/* header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+} */
+ nav{
+    width: 100%;
+ }
+ul{
+    list-style: none;
+    display: flex;
+    height: 62px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    background-color: var(--nav);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+#logo{
+    color: var(--headings);
+    font-size: 32px;
+    font-weight: 800;
+}
+a{
+    text-decoration: none;
+    color: var(--headings);
+}
+.right{
+    margin-left: auto;
+}
+#about{
+    margin-top: 150px;
+    background-color: var(--bg-sections);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+#about-others{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#about h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+#about-img{
+    width: 25vw;
+}
+#about-info{
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 80%;
+}
+#about-data{
+    word-break: break-all;
+    width: 300px;
+}
+#about-title h2{
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--headings);
+}
+#linkss{
+    display: flex;
+    gap: 10px;
+}
+#linkss a{
+    background-color: var(--button);
+    color: var(--headings);
+    width: 60px;
+    height: 45px;
+    padding: 5px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+#skills{
+    margin-top: 100px;
+    height: auto;
+    display: flex;
+    background: var(--bg-sections);
+    padding: 100px;
+    flex-direction: column;
+}
+#skills-title h2{
+    display: flex;
+    color: var(--headings);
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+#skills-title{
+    margin-bottom: 30px;
+}
+#skills-info{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 20px;
+}
+.skill{
+    width: 280px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    padding-top: 20px;
+    align-items: center;
+    /* justify-content: center; */
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+#skills-title p{
+    font-size: 18px;
+}
+.skill h3{
+    margin-top: 10px;
+    margin-bottom: 12px;
+    color: var(--headings);
+}
+#projects{
+    margin-top: 100px;
+    background-color: var(--bg-sections);
+    height: auto;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.projects-title{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+.projects-title h2{
+    color: var(--headings);
+    font-size: 56px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.projects-info{
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 50px;
+}
+.project{
+    padding: 10px;
+    background-color: var(--bg);
+    border-radius: 15px;
+    width: 300px;
+    height: 250px;
+    word-break: break-all;
+    border: 1px solid var(--border);
+}
+.project h3{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.links{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.link{
+    width: 40px;
+    height: 40px;
+    background-color: var(--button);
+    display: flex;
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#contact{
+    margin-top: 100px;
+    background-color: var(--bg-sections);
+    padding: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contact-title{
+    margin-bottom: 20px;
+}
+.contact-title h2{
+    color: var(--headings);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+}
+.contact-info{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 50px;
+}
+.contact-infoo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.infooo{
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+}
+.contact-infoo a{
+    color: var(--button);
+    border: none;
+    border-radius: 10px;
+    background-color: var(--border);
+}
+    </style>
+
+</head>
+<body data-theme="autumn">
+    <div id="container">
+        <header>
+            <nav>
+                <ul>
+                    <li class="logo">
+                        <h2 id="logo">
+                        Name
+                        </h2>
+                    </li>
+                    <li class="right">
+                        <a href="#about">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills">
+                            Skills
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects">
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact">
+                            Contact
+                        </a>
+                    </li>   
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+            <div id="about">
+
+                <div id="about-title">
+                    <h2>About Me</h2> 
+                </div>
+                <div id="about-others">
+                <div id="about-img">
+                    <img src="...." alt="No Image">
+                </div>
+
+                <div id="about-info">
+                    <h2>Hi, I am BRUH</h2>
+                    <p id="about-data">I am a normal highschooler with a big passion in coding and making as well as trying different new things. I want to do something big, something that people would remember throught centuries!</p>
+
+                    <div id="linkss">
+                        <a href="https://github.com" class="link"> 
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://slack.com" class="link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+
+                </div>
+                </div>
+
+
+            </div>
+
+            <div id="skills">
+                <div id="skills-title">
+                    <h2>My Skills</h2>
+                    <p>All the things I have learnt until now throughout my journey!</p>
+                </div>
+                <div id="skills-info">
+                    <div class="skill">
+                        <h3>Skill No. 1</h3>
+                        <p>I learnt this skill while doing this blah blah blah blah blah blah blah blah blah blah</p>
+                    </div>
+                    <div class="skill">
+                        <h3>Skill No. 2</h3>
+                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
+                        
+                    </div>
+                    <div class="skill">
+                        <h3>Skill No. 3</h3>
+                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
+                        
+                    </div>
+                    <div class="skill">
+                        <h3>Skill No. 4</h3>
+                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div id="projects">
+            <div class="projects-title">
+                <h2>My Projects</h2>
+                <p>Down here are the projects I made along the way, made by dedication and hardwork of mine.</p>
+            </div>
+            <div class="projects-info">
+                <div class="project">
+                    <h3>Project No. 1</h3>
+                    <p>Project_name is a blah blah blah blah which does blah blah blah blah blah blah</p>
+
+                    <div class="links">
+                        <a href="https://project.demo" class="link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://github.com/..." class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="project">
+                    <h3>Project No. 2</h3>
+                    <p>Project_name is a blah blah blah made by using blah blah blah which does blah blah.</p>
+                    <div class="links">
+                        <a href="https://demo.link" class="link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://github.com/" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>Peoject No. 3</h3>
+                    <p>Project_Name is a blah blah blah blah made by blah blah blah which blah blah blah.</p>
+                    <div class="links">
+                        <a  class="link" href="https://demo.links">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://github.com/" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>Project No.4</h3>
+                    <p>Project_Name is a blah blah blah blah blah made by blah blah blah which blah blah blah.</p>
+                    <div class="links">
+                        <a href="https://demo.link" class="link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="https://github.com/" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+            <div id="contact">
+                <div class="contact-title">
+                    <h2>Contact Me</h2>
+                    <p>You can contact me through various mediums which are listed below:</p>
+                </div>
+                <div class="contact-info">
+
+                    <div class="contact-infoo">
+                        <a href="#" class="link">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Location</h4>
+                            <p>Your, Location</p>
+                        </div>
+                    </div>
+
+                        <div class="contact-infoo">
+                            <a href="tel:9898989898" class="link">
+                                <i class="fas fa-phone-alt"></i>
+                            </a>
+                            <div class="infooo">
+                                <h4>Phone No.</h4>
+                                <p>98989898998</p>
+                            </div>
+                    </div>
+
+                    <div class="contact-infoo">
+                        <a href="mailto:abcdef1234@gmail.com" class="link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Mail</h4>
+                            <p>abcde1234@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-infoo">
+                        <a href="https://github.com" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Github</h4>
+                            <p>@BLAHHHH</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-infoo">
+                        <a href="https://linkedin.com" class="link">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Linked In</h4>
+                            <p>@BROOO</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>
+    `;
   }
 
   doc.open();
