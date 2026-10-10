@@ -33,6 +33,15 @@ const themes = {
                 --headings: #e6faff;
                 --nav: #09202b;
             `,
+  latin: `
+                --bg: #1a100b;
+                --bg-sections: #2b1c13;
+                --nav: #43291a;
+                --text: #d6b89a;
+                --headings: #fff0d6;
+                --button: #d97736;
+                --border: rgba(217, 119, 54, 0.28);
+  `
 };
 
 const state = {
@@ -120,7 +129,6 @@ function construct(dataUrl, layout) {
   state.linkedin = esc($("linkedinInput").value);
   state.twitter = esc($("twitterInput").value);
   state.skills = esc($("skillsInput").value);
-  state.phoneno = esc($("phonenoInput").value);
   state.project1_name = esc($("project1_name").value);
   state.project1_description = esc($("project1_description").value);
   state.project1_demo = esc($("project1_demo").value);
@@ -140,6 +148,12 @@ function construct(dataUrl, layout) {
 
   state.photo = dataUrl;
   let htmlContent = null;
+  const skillsthing = state.skills.split(",").map(skill=>skill.trim()).filter(skill=>skill!=="").map(skill=> `
+    <div class="skill">
+    <h3>${esc(skill)}</h3>
+    </div>
+    `
+).join("");
   if (layout === "bluez") {
     htmlContent = `<!doctype html>
             <html lang="en">
@@ -1118,6 +1132,603 @@ function construct(dataUrl, layout) {
                 </body>
                 </html>
                 `;
+  }else if(layout==="latin"){
+    htmlContent= `
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${state.name} - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root{
+    ${currentTheme}
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    background-color: var(--bg);
+    color: var(--text);
+    width: 100%;
+}
+/* header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+} */
+ nav{
+    width: 100%;
+ }
+ul{
+    list-style: none;
+    display: flex;
+    height: 62px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--nav);
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+} 
+    .right{
+    margin-left: auto;
+    }
+#logo{
+    color: var(--headings);
+    font-size: 32px;
+    font-weight: 800;
+}
+a{
+    text-decoration: none;
+    color: var(--headings);
+}
+#about{
+    margin-top: 150px;
+    background-color: var(--bg-sections);
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 100px;
+}
+#about-others{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+#about h2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+#about-info {
+    width: 100%;
+    min-width: 0;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#about-data {
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+#about-title h2{
+    font-size: 56px;
+    font-weight: 800;
+    color: var(--headings);
+}
+#linkss{
+    display: flex;
+    gap: 10px;
+}
+#linkss a{
+    background-color: var(--button);
+    color: var(--headings);
+    width: 60px;
+    height: 45px;
+    padding: 5px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+#skills{
+    margin-top: 100px;
+    height: auto;
+    display: flex;
+    background: var(--bg-sections);
+    padding: 100px;
+    flex-direction: column;
+}
+#skills-title h2{
+    display: flex;
+    color: var(--headings);
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+#skills-title{
+    margin-bottom: 30px;
+}
+#skills-info{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0,1fr));
+    gap: 20px;
+}
+.skill{
+    width: 280px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+.skill h3{
+    color: var(--headings);
+}
+#projects{
+    margin-top: 100px;
+    background-color: var(--bg-sections);
+    height: auto;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.projects-title{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+.projects-title h2{
+    color: var(--headings);
+    font-size: 56px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.projects-info {
+    display:grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+.project {
+    width: 100%;
+    min-width: 0;
+    min-height: 250px;
+    height: auto;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+.project h3{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.links{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+.link{
+    width: 40px;
+    height: 40px;
+    background-color: var(--button);
+    display: flex;
+    border: none;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
+#contact{
+    margin-top: 100px;
+    background-color: var(--bg-sections);
+    padding: 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.contact-title{
+    margin-bottom: 20px;
+}
+.contact-title h2{
+    color: var(--headings);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+}
+.contact-info{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 50px;
+}
+.contact-infoo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.infooo{
+    display: flex;
+    flex-direction: column;
+    /* gap: 5px; */
+}
+.contact-infoo a{
+    color: var(--button);
+    border: none;
+    border-radius: 10px;
+    background-color: var(--border);
+}
+    #about-img img{
+                    height: 500px;
+                    width: 400px;
+                    object-fit: cover;
+                    border-radius: 15px;
+                }
+    #about-img {
+            flex-shrink: 1;
+            min-width: 0;
+            margin-right: 0;
+}
+
+     @media (max-width: 768px) {
+    ul {
+        height: auto;
+        gap: 14px;
+        padding: 15px;
+    }
+
+    #logo {
+        font-size: 24px;
+    }
+
+    #about-others {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    #about-img {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #about-info {
+        width: 100%;
+        height: auto;
+    }
+
+    #about-data {
+        width: 100%;
+        word-break: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #about-title h2,
+    .projects-title h2,
+    .contact-title h2 {
+        font-size: 36px;
+    }
+
+    #skills-info,
+    .projects-info,
+    .contact-info {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #skills-title p,
+    .projects-title p,
+    .contact-title p {
+        overflow-wrap: anywhere;
+    }
+        #skills-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.skill {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+}
+  }
+
+//         @media (max-width: 1080px) {
+//     nav ul {
+//         padding: 0 20px;
+//         gap: 20px;
+//     }
+
+//     #intro {
+//         padding: 40px 5%;
+//         gap: 20px;
+//     }
+
+//     #data {
+//         min-width: 0;
+//     }
+
+//     #about {
+//         padding: 50px 5% 80px;
+//     }
+
+//     #about p {
+//         width: 100%;
+//     }
+
+//     #projects {
+//         padding: 80px 5%;
+//     }
+
+//     .project {
+//         padding: 25px;
+//         min-width: 0;
+//     }
+
+//     .project h3 {
+//         font-size: 28px;
+//     }
+
+//     #contact {
+//         height: auto;
+//     }
+
+//     #contact-content {
+//         flex-wrap: wrap;
+//         gap: 20px;
+//     }
+// }
+    </style>
+
+</head>
+<body data-theme="autumn">
+    <div id="container">
+        <header>
+            <nav>
+                <ul>
+                    <li class="logo">
+                        <h2 id="logo">
+                        ${state.name}
+                        </h2>
+                    </li>
+                    <li class="right">
+                        <a href="#about">
+                            About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skills">
+                            Skills
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#projects">
+                            Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact">
+                            Contact
+                        </a>
+                    </li>   
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+            <div id="about">
+
+                <div id="about-title">
+                    <h2>About Me</h2> 
+                </div>
+                <div id="about-others">
+                <div id="about-img">
+                    <img src="${state.photo}" alt="${state.name}">
+                </div>
+
+                <div id="about-info">
+                    <h2>Hi, I am ${state.name}</h2>
+                    <p id="about-data">
+                        ${state.bio}
+                    </p>
+
+                    <div id="linkss">
+                        <a href="https://github.com/${state.github}" class="link"> 
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="${state.linkedin}" class="link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+
+                </div>
+                </div>
+
+
+            </div>
+
+            <div id="skills">
+                <div id="skills-title">
+                    <h2>My Skills</h2>
+                    <p>All the things I have learnt until now throughout my journey!</p>
+                </div>
+                <div id="skills-info">
+                ${skillsthing}
+                </div>
+            </div>
+
+            <div id="projects">
+            <div class="projects-title">
+                <h2>My Projects</h2>
+                <p>Down here are the projects I made along the way, made by dedication and hardwork of mine.</p>
+            </div>
+            <div class="projects-info">
+                <div class="project">
+                    <h3>${state.project1_name}</h3>
+                    <p>${state.project1_description}</p>
+
+                    <div class="links">
+                        <a href="${state.project1_demo}" class="link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="${state.project1_github}" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="project">
+                    <h3>${state.project2_name}</h3>
+                    <p>${state.project2_description}</p>
+                    <div class="links">
+                        <a href="${state.project2_demo}" class="link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="${state.project2_github}" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project">
+                    <h3>${state.project3_name}</h3>
+                    <p>${state.project3_description}</p>
+                    <div class="links">
+                        <a  class="link" href="${state.project3_demo}">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="${state.project3_github}" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <h3>${state.project4_name}</h3>
+                    <p>${state.project4_description}</p>
+                    <div class="links">
+                        <a href="${state.project4_demo}" class="link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="${state.project4_github}" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+            <div id="contact">
+                <div class="contact-title">
+                    <h2>Contact Me</h2>
+                    <p>You can contact me through various mediums which are listed below:</p>
+                </div>
+                <div class="contact-info">
+
+                    <div class="contact-infoo">
+                        <a href="#" class="link">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Location</h4>
+                            <p>${state.location}</p>
+                        </div>
+                    </div>
+
+                        <div class="contact-infoo">
+                            <a href="tel:${state.phoneno}" class="link">
+                                <i class="fas fa-phone-alt"></i>
+                            </a>
+                            <div class="infooo">
+                                <h4>Phone No.</h4>
+                                <p>${state.phoneno}</p>
+                            </div>
+                    </div>
+
+                    <div class="contact-infoo">
+                        <a href="mailto:${state.email}" class="link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Mail</h4>
+                            <p>${state.email}</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-infoo">
+                        <a href="https://github.com/${state.github}" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Github</h4>
+                            <p>@${state.name}</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-infoo">
+                        <a href="${state.linkedin}" class="link">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <div class="infooo">
+                            <h4>Linked In</h4>
+                            <p>@${state.name}</p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script>
+
+    </script>
+</body>
+</html>
+    `;
   }
 
   doc.open();

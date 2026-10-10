@@ -30,7 +30,7 @@
 body{
     background-color: var(--bg);
     color: var(--text);
-    width: 100vw;
+    width: 100%;
 }
 /* header{
     display: flex;
@@ -38,15 +38,20 @@ body{
     justify-content: center;
     height: 35px;
 } */
+ nav{
+    width: 100%;
+ }
 ul{
     list-style: none;
     display: flex;
     height: 62px;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 40px;
     background-color: var(--nav);
-    width: 100vw;
+    width: 100%;
+    padding: 10px;
     margin-bottom: 20px;
 }
 #logo{
@@ -59,12 +64,12 @@ a{
     color: var(--headings);
 }
 .right{
-    margin-left: 72vw;
+    margin-left: auto;
 }
 #about{
     margin-top: 150px;
     background-color: var(--bg-sections);
-    height: 642x;
+    height: auto;
     display: flex;
     flex-direction: column;
     padding: 100px;
@@ -121,7 +126,7 @@ a{
 }
 #skills{
     margin-top: 100px;
-    height: 500px;
+    height: auto;
     display: flex;
     background: var(--bg-sections);
     padding: 100px;
@@ -140,7 +145,7 @@ a{
 }
 #skills-info{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0,1fr));
     gap: 20px;
 }
 .skill{
@@ -151,23 +156,19 @@ a{
     padding: 15px;
     padding-top: 20px;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     background-color: var(--bg);
     border: 1px solid var(--border);
     border-radius: 10px;
 }
-#skills-title p{
-    font-size: 18px;
-}
 .skill h3{
     margin-top: 10px;
-    margin-bottom: 12px;
     color: var(--headings);
 }
 #projects{
     margin-top: 100px;
     background-color: var(--bg-sections);
-    height: 800px;
+    height: auto;
     padding: 100px;
     display: flex;
     flex-direction: column;
@@ -190,7 +191,7 @@ a{
 .projects-info{
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0,1fr));
     gap: 50px;
 }
 .project{
@@ -230,7 +231,7 @@ a{
     margin-top: 100px;
     background-color: var(--bg-sections);
     padding: 100px;
-    height: 400px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -249,7 +250,7 @@ a{
 }
 .contact-info{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0,1fr));
     gap: 50px;
 }
 .contact-infoo{
@@ -346,21 +347,17 @@ a{
                 <div id="skills-info">
                     <div class="skill">
                         <h3>Skill No. 1</h3>
-                        <p>I learnt this skill while doing this blah blah blah blah blah blah blah blah blah blah</p>
                     </div>
                     <div class="skill">
                         <h3>Skill No. 2</h3>
-                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
                         
                     </div>
                     <div class="skill">
                         <h3>Skill No. 3</h3>
-                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
                         
                     </div>
                     <div class="skill">
                         <h3>Skill No. 4</h3>
-                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
                         
                     </div>
                 </div>
