@@ -167,15 +167,36 @@ const projectsthing = [1,2,3,4].map((num)=>{
     <div class="project">
                     <h3>${pr_name}</h3>
                     <p>${pr_description}</p>
-                    <div class="links">
-                        <a href="${pr_demo}" class="link">
+                    <div class="links project-links">
+                        <a href="${pr_demo}" class="link project-link">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
-                        <a href="${pr_github}" class="link">
+                        <a href="${pr_github}" class="link project-link">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
                 </div>
+    `
+}) 
+.join("");
+const projectsthing2 = [1,2,3,4].map((num)=>{
+    const pr_name1 = state[`project${num}_name`];
+    const pr_description1 = state[`project${num}_description`];
+    const pr_github1 = state[`project${num}_github`];
+    const pr_demo1 = state[`project${num}_demo`];
+
+    if(![pr_name1, pr_demo1, pr_description1, pr_github1].some(value=>value.trim()!=="")){
+        return "";
+    }
+    return `
+    <div class="project">
+        <h3>${pr_name1}</h3>
+        <p>
+        ${pr_description1}
+        </p>
+
+        <a class="project-button" href="${pr_demo1}">Visit </a>
+    </div>
     `
 }) 
 .join("");
@@ -590,6 +611,7 @@ const projectsthing = [1,2,3,4].map((num)=>{
             <h2>My Projects</h2>
           </div>
           <div id="projects-content">
+          <!--
             <div class="project">
               <h3>${state.project1_name}</h3>
               <p>
@@ -657,7 +679,8 @@ const projectsthing = [1,2,3,4].map((num)=>{
                 </a>
               </div>
 
-            </div>
+            </div> -->
+            ${projectsthing}
 
 
           </div>
@@ -697,7 +720,7 @@ const projectsthing = [1,2,3,4].map((num)=>{
                         <i class="contact-logo github-logo fa-brands fa-github"></i>
                         <div class="github-infoss contact-infoss">
                             <h3><a href="${state.github}" >Github</a></h3>
-                            <p id="github-text"><a href="${state.github}" >${state.name}</a></p>
+                            <p id="github-text"><a href="${state.github}" >${state.github}</a></p>
                         </div>
                         </div>
     
@@ -1048,7 +1071,7 @@ const projectsthing = [1,2,3,4].map((num)=>{
                         </div>
 
                         <div id="projects-content">
-                            <div class="project">
+                           <!-- <div class="project">
                             <h3>${state.project1_name}</h3>
                             <p>
                             ${state.project1_description}
@@ -1076,9 +1099,10 @@ const projectsthing = [1,2,3,4].map((num)=>{
                             <p>${state.project4_description}</p>
 
                             <a href="${state.project4_demo}" class="project-button">Visit</a>
-                            </div>
+                            </div> -->
+                            ${projectsthing2}
 
-                        </div>
+                        </div> 
 
                         </div>
 
@@ -1135,7 +1159,7 @@ const projectsthing = [1,2,3,4].map((num)=>{
                             </a>
                             <div class="github-info contact-infoos">
                                 <h3>Github</h3>
-                                <p>${state.name}</</p>
+                                <p>${state.github}</</p>
                             </div>
                             </div>
 
@@ -1727,7 +1751,7 @@ a{
                         </a>
                         <div class="infooo">
                             <h4>Github</h4>
-                            <p>@${state.name}</p>
+                            <p>@${state.github}</p>
                         </div>
                     </div>
 
