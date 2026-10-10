@@ -1318,7 +1318,8 @@ a{
     justify-content: center;
 }
 .projects-info {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    display:grid;
+    grid-template-columns: repeat(3, minmax(250px, 1fr));
     gap: 25px;
     width: 100%;
 }
@@ -1470,51 +1471,51 @@ a{
 }
   }
 
-        @media (max-width: 1080px) {
-    nav ul {
-        padding: 0 20px;
-        gap: 20px;
-    }
+//         @media (max-width: 1080px) {
+//     nav ul {
+//         padding: 0 20px;
+//         gap: 20px;
+//     }
 
-    #intro {
-        padding: 40px 5%;
-        gap: 20px;
-    }
+//     #intro {
+//         padding: 40px 5%;
+//         gap: 20px;
+//     }
 
-    #data {
-        min-width: 0;
-    }
+//     #data {
+//         min-width: 0;
+//     }
 
-    #about {
-        padding: 50px 5% 80px;
-    }
+//     #about {
+//         padding: 50px 5% 80px;
+//     }
 
-    #about p {
-        width: 100%;
-    }
+//     #about p {
+//         width: 100%;
+//     }
 
-    #projects {
-        padding: 80px 5%;
-    }
+//     #projects {
+//         padding: 80px 5%;
+//     }
 
-    .project {
-        padding: 25px;
-        min-width: 0;
-    }
+//     .project {
+//         padding: 25px;
+//         min-width: 0;
+//     }
 
-    .project h3 {
-        font-size: 28px;
-    }
+//     .project h3 {
+//         font-size: 28px;
+//     }
 
-    #contact {
-        height: auto;
-    }
+//     #contact {
+//         height: auto;
+//     }
 
-    #contact-content {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-}
+//     #contact-content {
+//         flex-wrap: wrap;
+//         gap: 20px;
+//     }
+// }
     </style>
 
 </head>
@@ -1571,10 +1572,10 @@ a{
                     </p>
 
                     <div id="linkss">
-                        <a href="https://github.com" class="link"> 
+                        <a href="https://github.com/${state.github}" class="link"> 
                             <i class="fa-brands fa-github"></i>
                         </a>
-                        <a href="https://slack.com" class="link">
+                        <a href="${state.linkedin}" class="link">
                             <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
@@ -1593,22 +1594,17 @@ a{
                 <div id="skills-info">
                     <div class="skill">
                         <h3>Skill No. 1</h3>
-                        <p>I learnt this skill while doing this blah blah blah blah blah blah blah blah blah blah</p>
                     </div>
                     <div class="skill">
                         <h3>Skill No. 2</h3>
-                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
                         
                     </div>
                     <div class="skill">
                         <h3>Skill No. 3</h3>
-                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
                         
                     </div>
                     <div class="skill">
                         <h3>Skill No. 4</h3>
-                        <p>I learnt this skill in order to blah blah blah blah blah blah and I made this blah blah.</p>
-                        
                     </div>
                 </div>
             </div>
@@ -1620,14 +1616,14 @@ a{
             </div>
             <div class="projects-info">
                 <div class="project">
-                    <h3>Project No. 1</h3>
-                    <p>Project_name is a blah blah blah blah which does blah blah blah blah blah blah</p>
+                    <h3>${state.project1_name}</h3>
+                    <p>${state.project1_description}</p>
 
                     <div class="links">
-                        <a href="https://project.demo" class="link">
+                        <a href="${state.project1_demo}" class="link">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
-                        <a href="https://github.com/..." class="link">
+                        <a href="${state.project1_github}" class="link">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
@@ -1635,38 +1631,38 @@ a{
                 </div>
 
                 <div class="project">
-                    <h3>Project No. 2</h3>
-                    <p>Project_name is a blah blah blah made by using blah blah blah which does blah blah.</p>
+                    <h3>${state.project2_name}</h3>
+                    <p>${state.project2_description}</p>
                     <div class="links">
-                        <a href="https://demo.link" class="link">
+                        <a href="${state.project2_demo}" class="link">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
-                        <a href="https://github.com/" class="link">
+                        <a href="${state.project2_github}" class="link">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
                 </div>
                 <div class="project">
-                    <h3>Peoject No. 3</h3>
-                    <p>Project_Name is a blah blah blah blah made by blah blah blah which blah blah blah.</p>
+                    <h3>${state.project3_name}</h3>
+                    <p>${state.project3_description}</p>
                     <div class="links">
-                        <a  class="link" href="https://demo.links">
+                        <a  class="link" href="${state.project3_demo}">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
-                        <a href="https://github.com/" class="link">
+                        <a href="${state.project3_github}" class="link">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
                 </div>
 
                 <div class="project">
-                    <h3>Project No.4</h3>
-                    <p>Project_Name is a blah blah blah blah blah made by blah blah blah which blah blah blah.</p>
+                    <h3>${state.project4_name}</h3>
+                    <p>${state.project4_description}</p>
                     <div class="links">
-                        <a href="https://demo.link" class="link">
+                        <a href="${state.project4_demo}" class="link">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
-                        <a href="https://github.com/" class="link">
+                        <a href="${state.project4_github}" class="link">
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
