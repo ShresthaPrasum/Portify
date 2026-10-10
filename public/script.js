@@ -1007,6 +1007,30 @@ const projectsthing2 = [1,2,3,4].map((num)=>{
     font-weight: 800;
     justify-content: center;
 }
+    .skill{
+    height: 200px;
+    width: 250px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: var(--bg-sections);
+}
+    .skill h3{
+    margin-bottom: 10px;
+    font-size: 26px;
+    color: var(--headings);
+}
+    #skills-content{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px,1fr));
+    align-content: start;
+    gap: 50px;
+    margin-top: 15px;
+}
                     </style>
                 </head>
                 <body data-theme="normal">
@@ -1058,9 +1082,12 @@ const projectsthing2 = [1,2,3,4].map((num)=>{
                         </p>
 
                         <div id="skills-title">
-                            <h2>Skills</h2>
-                            <p>Technologies I have learnt until now!</p>
-                            <h3 id="skill">${state.skills}</h3>
+                        <h2>Skills</h2>
+                        <p>Technologies I have learnt until now!</p>
+                        <div id="skills-content">
+                        ${skillsthing}
+                        </div>
+                           <!-- <h3 id="skill">${state.skills}</h3> -->
                         </div>
                         </div>
 
