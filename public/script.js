@@ -129,7 +129,6 @@ function construct(dataUrl, layout) {
   state.linkedin = esc($("linkedinInput").value);
   state.twitter = esc($("twitterInput").value);
   state.skills = esc($("skillsInput").value);
-  state.phoneno = esc($("phonenoInput").value);
   state.project1_name = esc($("project1_name").value);
   state.project1_description = esc($("project1_description").value);
   state.project1_demo = esc($("project1_demo").value);
@@ -149,6 +148,12 @@ function construct(dataUrl, layout) {
 
   state.photo = dataUrl;
   let htmlContent = null;
+  const skillsthing = state.skills.split(",").map(skill=>skill.trim()).filter(skill=>skill!=="").map(skill=> `
+    <div class="skill">
+    <h3>${esc(skill)}</h3>
+    </div>
+    `
+).join("");
   if (layout === "bluez") {
     htmlContent = `<!doctype html>
             <html lang="en">
@@ -1281,17 +1286,12 @@ a{
     padding: 15px;
     padding-top: 20px;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     background-color: var(--bg);
     border: 1px solid var(--border);
     border-radius: 10px;
 }
-#skills-title p{
-    font-size: 18px;
-}
 .skill h3{
-    margin-top: 10px;
-    margin-bottom: 12px;
     color: var(--headings);
 }
 #projects{
@@ -1592,20 +1592,7 @@ a{
                     <p>All the things I have learnt until now throughout my journey!</p>
                 </div>
                 <div id="skills-info">
-                    <div class="skill">
-                        <h3>Skill No. 1</h3>
-                    </div>
-                    <div class="skill">
-                        <h3>Skill No. 2</h3>
-                        
-                    </div>
-                    <div class="skill">
-                        <h3>Skill No. 3</h3>
-                        
-                    </div>
-                    <div class="skill">
-                        <h3>Skill No. 4</h3>
-                    </div>
+                ${skillsthing}
                 </div>
             </div>
 
@@ -1684,47 +1671,47 @@ a{
                         </a>
                         <div class="infooo">
                             <h4>Location</h4>
-                            <p>Your, Location</p>
+                            <p>${state.location}</p>
                         </div>
                     </div>
 
                         <div class="contact-infoo">
-                            <a href="tel:9898989898" class="link">
+                            <a href="tel:${state.phoneno}" class="link">
                                 <i class="fas fa-phone-alt"></i>
                             </a>
                             <div class="infooo">
                                 <h4>Phone No.</h4>
-                                <p>98989898998</p>
+                                <p>${state.phoneno}</p>
                             </div>
                     </div>
 
                     <div class="contact-infoo">
-                        <a href="mailto:abcdef1234@gmail.com" class="link">
+                        <a href="mailto:${state.email}" class="link">
                             <i class="fas fa-envelope"></i>
                         </a>
                         <div class="infooo">
                             <h4>Mail</h4>
-                            <p>abcde1234@gmail.com</p>
+                            <p>${state.email}</p>
                         </div>
                     </div>
 
                     <div class="contact-infoo">
-                        <a href="https://github.com" class="link">
+                        <a href="https://github.com/${state.github}" class="link">
                             <i class="fa-brands fa-github"></i>
                         </a>
                         <div class="infooo">
                             <h4>Github</h4>
-                            <p>@BLAHHHH</p>
+                            <p>@${state.name}</p>
                         </div>
                     </div>
 
                     <div class="contact-infoo">
-                        <a href="https://linkedin.com" class="link">
+                        <a href="${state.linkedin}" class="link">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
                         <div class="infooo">
                             <h4>Linked In</h4>
-                            <p>@BROOO</p>
+                            <p>@${state.name}</p>
                         </div>
                     </div>
 
