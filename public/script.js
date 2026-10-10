@@ -1134,7 +1134,7 @@ function construct(dataUrl, layout) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Name</title>
+    <title>${state.name} - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
@@ -1174,12 +1174,15 @@ ul{
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
     background-color: var(--nav);
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-}
+} 
+    .right{
+    margin-left: auto;
+    }
 #logo{
     color: var(--headings);
     font-size: 32px;
@@ -1188,9 +1191,6 @@ ul{
 a{
     text-decoration: none;
     color: var(--headings);
-}
-.right{
-    margin-left: auto;
 }
 #about{
     margin-top: 150px;
@@ -1218,15 +1218,14 @@ a{
 #about-img{
     width: 25vw;
 }
-#about-info{
-    display: flex;
-    flex-direction: column;
-    width: 10vw;
-    height: 80%;
+#about-info {
+    width: 100%;
+    min-width: 0;
 }
-#about-data{
-    word-break: break-all;
-    width: 300px;
+#about-data {
+    width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 #about-title h2{
     font-size: 56px;
@@ -1318,20 +1317,18 @@ a{
     align-items: center;
     justify-content: center;
 }
-.projects-info{
-    display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
-    grid-template-columns: repeat(3, minmax(0,1fr));
-    gap: 50px;
+.projects-info {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 25px;
+    width: 100%;
 }
-.project{
-    padding: 10px;
-    background-color: var(--bg);
-    border-radius: 15px;
-    width: 300px;
-    height: 250px;
-    word-break: break-all;
-    border: 1px solid var(--border);
+.project {
+    width: 100%;
+    min-width: 0;
+    min-height: 250px;
+    height: auto;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 .project h3{
     margin-bottom: 15px;
@@ -1401,6 +1398,123 @@ a{
     border-radius: 10px;
     background-color: var(--border);
 }
+    #about-img img{
+                    height: 500px;
+                    width: 400px;
+                    object-fit: cover;
+                    border-radius: 15px;
+                }
+    #about-img {
+            flex-shrink: 1;
+            min-width: 0;
+            margin-right: 0;
+}
+
+     @media (max-width: 768px) {
+    ul {
+        height: auto;
+        gap: 14px;
+        padding: 15px;
+    }
+
+    #logo {
+        font-size: 24px;
+    }
+
+    #about-others {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    #about-img {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    #about-info {
+        width: 100%;
+        height: auto;
+    }
+
+    #about-data {
+        width: 100%;
+        word-break: normal;
+        overflow-wrap: anywhere;
+    }
+
+    #about-title h2,
+    .projects-title h2,
+    .contact-title h2 {
+        font-size: 36px;
+    }
+
+    #skills-info,
+    .projects-info,
+    .contact-info {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #skills-title p,
+    .projects-title p,
+    .contact-title p {
+        overflow-wrap: anywhere;
+    }
+        #skills-info {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.skill {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+}
+  }
+
+        @media (max-width: 1080px) {
+    nav ul {
+        padding: 0 20px;
+        gap: 20px;
+    }
+
+    #intro {
+        padding: 40px 5%;
+        gap: 20px;
+    }
+
+    #data {
+        min-width: 0;
+    }
+
+    #about {
+        padding: 50px 5% 80px;
+    }
+
+    #about p {
+        width: 100%;
+    }
+
+    #projects {
+        padding: 80px 5%;
+    }
+
+    .project {
+        padding: 25px;
+        min-width: 0;
+    }
+
+    .project h3 {
+        font-size: 28px;
+    }
+
+    #contact {
+        height: auto;
+    }
+
+    #contact-content {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
     </style>
 
 </head>
@@ -1411,7 +1525,7 @@ a{
                 <ul>
                     <li class="logo">
                         <h2 id="logo">
-                        Name
+                        ${state.name}
                         </h2>
                     </li>
                     <li class="right">
@@ -1447,12 +1561,14 @@ a{
                 </div>
                 <div id="about-others">
                 <div id="about-img">
-                    <img src="...." alt="No Image">
+                    <img src="${state.photo}" alt="${state.name}">
                 </div>
 
                 <div id="about-info">
-                    <h2>Hi, I am BRUH</h2>
-                    <p id="about-data">I am a normal highschooler with a big passion in coding and making as well as trying different new things. I want to do something big, something that people would remember throught centuries!</p>
+                    <h2>Hi, I am ${state.name}</h2>
+                    <p id="about-data">
+                        ${state.bio}
+                    </p>
 
                     <div id="linkss">
                         <a href="https://github.com" class="link"> 
