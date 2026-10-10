@@ -14,6 +14,7 @@
         :root{
             --bg-color: #fcd5ab;
             --bg1-color: #ffc37a;
+            --bg2-color: #ffe4c4;
             --font-color: #f57959;
             --red-color: #f34c3e;
             --stem-color: #996b4c;
@@ -222,7 +223,7 @@
             width: 15%;
             height: auto;
             left: 28%;
-            bottom: -5%;
+            bottom: -3%;
             transform: rotateY(180deg);
         }
         .gold-leaf{
@@ -266,6 +267,184 @@
             left: 12px;
             top: 15px;
         }
+
+        .about{
+            position: relative;
+            overflow: hidden;
+            padding: clamp(70px, 6vw, 130px) 5vw;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+        }
+
+        .about-header{
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .about-header h2{
+            font-size: clamp(30px, 5.5vw, 60px);
+            letter-spacing: -3px;
+            padding-bottom: 10px;
+        }
+
+        .about-content{
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 80px;
+            justify-content: center;
+        }
+
+        .about-note{
+            display: flex;
+            flex-direction: column;
+            height: 52vh;
+            width: 36%;
+            border-top: 8px solid var(--bg1-color);
+            background-color: #fff;
+            padding: 2vw;
+            transform: rotate(-2deg);
+            gap: 10px;
+        }
+
+        .about-details{
+            height: 50vh;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .detail h3{
+            font-size: 1vw;
+            margin-bottom: 10px;
+        }
+
+        .note-head{
+            font: 28px "Pacifico", cursive;
+            margin: 0 0 10px;
+        }
+
+        .note-content p{
+            font-size: 15px;
+            line-height: 2;
+        }
+
+        .projects{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: clamp(70px, 6vw, 130px) 5vw;
+            min-height: 100vh;
+            background-color: var(--bg2-color);
+        }
+
+        .projects-header{
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .projects-header h2{
+            font-size: clamp(30px, 5.5vw, 60px);
+            letter-spacing: -3px;
+            padding-bottom: 10px;
+        }
+
+        .project-container{
+            display: grid;
+            width: 70%;
+            justify-content: center;
+            grid-template-columns: repeat(2, minmax(0,1fr));
+            gap: 3rem;
+            margin-top: 20px;
+        }
+
+        .project-card{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 30px;
+            gap: 15px;
+            border: 1px solid var(--font-color);
+            border-radius: 12px;
+            background-color: var(--bg2-color);
+        }
+
+        .project-description{
+            color: #8e7468;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .project-title{
+            font-size: 4vh;
+            color: var(--font-color);
+            letter-spacing: -2px;
+        }
+
+        .project-view{
+            display: inline-flex;
+            width: 135px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: none;
+            border-radius: 45px;
+            color: white;
+            background-color: var(--font-color);
+            padding: 14px 20px;
+            font-size: 18px;
+        }
+
+        .contact{
+            position: relative;
+            overflow: hidden;
+            padding: clamp(70px, 6vw, 130px) 5vw;
+            min-height: 40vh;
+            background-color: var(--bg-color);
+        }
+
+        .contact-header{
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .contact-header h2{
+            font-size: clamp(30px, 5.5vw, 60px);
+            letter-spacing: -3px;
+            padding-bottom: 10px;
+        }
+        
+        .contact-details{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+        }
+
+        .contact-info{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-logo{
+            display: inline-flex;
+            background-color: var(--font-color);
+            border-radius: 12px;
+            color: white;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+
+        }
+
     </style>
 </head>
 <body>
@@ -288,10 +467,10 @@
                             </span>
                         </a>
                         <div class="nav-bar">
-                            <a href="">Home</a>
-                            <a href="">About</a>
-                            <a href="">Projects</a>
-                            <a href="">Contact</a>
+                            <a href="#">Home</a>
+                            <a href="#about">About</a>
+                            <a href="#projects">Projects</a>
+                            <a href="#contacts">Contact</a>
                         </div>
                         <div class="social-medias">
                             <a href="https://twitter.com">
@@ -358,7 +537,200 @@
                 </div>
             </div>
         </section>
-        <section class="about" id="about"></section>
+
+        <section class="about" id="about">
+            <div class="about-header">
+                <svg class="leaf-branch top-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch bottom-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch left-branch" viewBox="0 0 140 160" aria-hidden="true">
+                    <path class="branch-stem" d="M8 152 C44 112 66 70 105 8"></path>
+                    <path class="gold-leaf" d="M24 132 C1 132 -3 118 25 116 C10 103 18 93 38 113 C42 123 34 131 24 132Z"></path>
+                    <path class="gold-leaf" d="M43 105 C20 99 21 86 48 91 C37 74 47 67 62 90 C63 101 53 106 43 105Z"></path>
+                    <path class="gold-leaf" d="M62 77 C43 66 48 54 69 66 C65 46 76 43 85 68 C83 78 72 82 62 77Z"></path>
+                    <path class="gold-leaf" d="M82 48 C66 34 75 25 91 40 C90 21 101 20 106 44 C102 53 91 56 82 48Z"></path>
+                </svg>
+
+                <div class="tiny-leafs">
+                    <span></span><span></span><span></span>
+                </div>
+                <h2>A little about me.</h2>
+                <p class="about-quote">
+                    Always collecting ideas like autumn leaves and turning it into beauty.
+                </p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-note">
+                    <div class="note-head">
+                        Hello, there!
+                    </div>
+
+                    <div class="note-content">
+                        <p>I’m Prasum, a student developer from Nepal who loves figuring out how things work—and then building something of my own. I’m exploring web development, game development, and AI one experiment at a time.</p>
+                        <p>My favourite projects sit where useful ideas meet delightful details. I believe every bug has a lesson, every sketch can become a product, and good work starts with asking better questions.</p>
+                    </div>
+                </div>
+                <div class="about-details">
+                    <div class="detail">
+                        <h3>Currently Exploring</h3>
+                        <p>HTML, CSS, JavaScript, PYTHON, CPP, C#, JAVA and the fundamentals of game dev</p>
+                    </div>
+                    <div class="detail">
+                        <h3>How I work</h3>
+                        <p>Thinking big starting small and solve the real world problems.</p>
+                    </div>
+                    <div class="detail">
+                        <h3>Outside the pixels</h3>
+                        <p>Chess, science, learning new things, sharemarket, reading books and listening to music.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="projects-header">
+                <h2>Collected Projects</h2>
+                <p class="project-quote">
+                    A collection of beautiful project created by me due to my curiosity and will to learn new thing
+                </p>
+            </div>
+            <svg class="leaf-branch top-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch bottom-branch" viewBox=" 0 0 190 112">
+                    <path class="branch-stem" d="M8 12 C54 25 91 52 176 100"/>
+                    <path class="red-leaf" d="M30 22 C7 5 14 -1 43 15 C39 2 51 -3 55 22 C68 6 80 10 65 31 C57 39 43 34 30 22Z"></path>
+                    <path class="red-leaf" d="M66 39 C49 17 59 12 81 32 C79 17 91 15 93 39 C109 26 116 33 97 48 C87 54 76 49 66 39Z"></path>
+                    <path class="red-leaf" d="M101 61 C87 39 98 33 115 54 C116 39 128 39 127 62 C144 52 151 60 130 72 C119 77 110 70 101 61Z"></path>
+                    <path class="red-leaf" d="M139 82 C130 62 141 57 153 77 C157 64 167 68 163 87 C180 81 185 91 165 99 C154 101 145 91 139 82Z"></path>
+                </svg>
+
+                <svg class="leaf-branch left-branch" viewBox="0 0 140 160" aria-hidden="true">
+                    <path class="branch-stem" d="M8 152 C44 112 66 70 105 8"></path>
+                    <path class="gold-leaf" d="M24 132 C1 132 -3 118 25 116 C10 103 18 93 38 113 C42 123 34 131 24 132Z"></path>
+                    <path class="gold-leaf" d="M43 105 C20 99 21 86 48 91 C37 74 47 67 62 90 C63 101 53 106 43 105Z"></path>
+                    <path class="gold-leaf" d="M62 77 C43 66 48 54 69 66 C65 46 76 43 85 68 C83 78 72 82 62 77Z"></path>
+                    <path class="gold-leaf" d="M82 48 C66 34 75 25 91 40 C90 21 101 20 106 44 C102 53 91 56 82 48Z"></path>
+                </svg>
+
+                <div class="tiny-leafs">
+                    <span></span><span></span><span></span>
+                </div>
+
+            <div class="project-container">
+                <div class="project-card">
+                    <h3 class="project-title">
+                        NevaEdu
+                    </h3>
+                    <p class="project-description">
+                        An educational platform focused on structured learning resources, concept clarity, and student-friendly explanations to support academic growth.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        Nessay AI
+                    </h3>
+                    <p class="project-description">
+                        An AI-assisted writing platform designed to help users generate, refine, and structure essays with clarity and logical coherence.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        Quiz Mama
+                    </h3>
+                    <p class="project-description">
+                        A dynamic quiz-based web application offering interactive questions across multiple domains to improve knowledge retention and engagement.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+                <div class="project-card">
+                    <h3 class="project-title">
+                        Woof Style
+                    </h3>
+                    <p class="project-description">
+                        A modern dog-themed website showcasing different dog breeds, breed information, Care Guides and a engaging quiz with woof style mode.
+                    </p>
+
+                    <a href="" class="project-view">Live Demo</a>
+                </div>
+            </div>
+        </section>
+    
+        <section class="contact" id="contact">
+            <div class="contact-header">
+                <h2>Contact Me</h2>
+                <p class="contact-quote">
+                    I’m always up for thoughtful conversations, fun experiments, and collaborating on projects that help me learn something new.
+            </div>
+
+            <div class="contact-details">
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt location-logo contact-logo"></i>
+
+                    <div class="contact-detail">
+                        <h3>Location</h3>
+                        <p>Kathmandu, Nepal</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo phoneno-logo fas fa-phone-alt"></i>
+
+                    <div class="contact-detail">
+                        <h3>Phone No</h3>
+                        <p>+977 1 2345678</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo mail-logo fas fa-envelope"></i>
+
+                    <div class="contact-detail">
+                        <h3>Mail</h3>
+                        <p>prasumshrestha8877@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo github-logo fa-brands fa-github"></i>
+
+                    <div class="contact-detail">
+                        <a href=""><h3>Github</h3></a>
+                        <p>ShresthaPrasum</p>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <i class="contact-logo linkedin-logo fab fa-linkedin"></i>
+
+                    <div class="contact-detail">
+                        <a href=""><h3>Linked In</h3></a>
+                        <p>ShresthaPrasum</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
     </main>
 </body>
 </html>
