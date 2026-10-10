@@ -154,6 +154,31 @@ function construct(dataUrl, layout) {
     </div>
     `
 ).join("");
+const projectsthing = [1,2,3,4].map((num)=>{
+    const pr_name = state[`project${num}_name`];
+    const pr_description = state[`project${num}_description`];
+    const pr_github = state[`project${num}_github`];
+    const pr_demo = state[`project${num}_demo`];
+
+    if(![pr_name, pr_demo, pr_description, pr_github].some(value=>value.trim()!=="")){
+        return "";
+    }
+    return `
+    <div class="project">
+                    <h3>${pr_name}</h3>
+                    <p>${pr_description}</p>
+                    <div class="links">
+                        <a href="${pr_demo}" class="link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                        <a href="${pr_github}" class="link">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+    `
+}) 
+.join("");
   if (layout === "bluez") {
     htmlContent = `<!doctype html>
             <html lang="en">
@@ -524,7 +549,7 @@ function construct(dataUrl, layout) {
                         <h2>
                         Hello, I'm  ${state.name}<br/>
                         </h2>
-                        <span id="name-text">${state.bio}</span> <br> Feat: 
+                        <span id="name-text">${state.bio}</span> <br> 
                         <button>Get in touch</button>
                         <button>View my works</button>
                         <div class="social-medias">
@@ -1602,7 +1627,8 @@ a{
                 <p>Down here are the projects I made along the way, made by dedication and hardwork of mine.</p>
             </div>
             <div class="projects-info">
-                <div class="project">
+                ${projectsthing}
+               <!-- <div class="project">
                     <h3>${state.project1_name}</h3>
                     <p>${state.project1_description}</p>
 
@@ -1653,7 +1679,7 @@ a{
                             <i class="fa-brands fa-github"></i>
                         </a>
                     </div>
-                </div>
+                </div> -->
 
             </div>
             </div>
