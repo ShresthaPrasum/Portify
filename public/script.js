@@ -125,91 +125,91 @@ const esc = (s) =>
 const safeName = (n) => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
 
 function construct(dataUrl, layout) {
-  const iframe = $("preview");
-  const doc = iframe.contentDocument || iframe.contentWindow.document;
+    const iframe = $("preview");
+    const doc = iframe.contentDocument || iframe.contentWindow.document;
 
-  const currentTheme = themes[state.theme] || themes.ocean;
+    const currentTheme = themes[state.theme] || themes.ocean;
 
-  state.name = esc($("nameInput").value);
-  state.bio = esc($("bioInput").value);
-  state.location = esc($("locationInput").value);
-  state.email = esc($("emailInput").value);
-  state.phoneno = esc($("phonenoInput").value);
-  state.github = esc($("githubInput").value);
-  state.linkedin = esc($("linkedinInput").value);
-  state.twitter = esc($("twitterInput").value);
-  state.skills = esc($("skillsInput").value);
-  state.project1_name = esc($("project1_name").value);
-  state.project1_description = esc($("project1_description").value);
-  state.project1_demo = esc($("project1_demo").value);
-  state.project1_github = esc($("project1_github").value);
-  state.project2_name = esc($("project2_name").value);
-  state.project2_description = esc($("project2_description").value);
-  state.project2_github = esc($("project2_github").value);
-  state.project2_demo = esc($("project2_demo").value);
-  state.project3_name = esc($("project3_name").value);
-  state.project3_description = esc($("project3_description").value);
-  state.project3_github = esc($("project3_github").value);
-  state.project3_demo = esc($("project3_demo").value);
-  state.project4_name = esc($("project4_name").value);
-  state.project4_description = esc($("project4_description").value);
-  state.project4_github = esc($("project4_github").value);
-  state.project4_demo = esc($("project4_demo").value);
-  state.otherskills = esc($("skillss").value);
+    state.name = esc($("nameInput").value)|| 'FirstName LastName';
+    state.bio = esc($("bioInput").value);
+    state.location = esc($("locationInput").value);
+    state.email = esc($("emailInput").value);
+    state.phoneno = esc($("phonenoInput").value);
+    state.github = esc($("githubInput").value);
+    state.linkedin = esc($("linkedinInput").value);
+    state.twitter = esc($("twitterInput").value);
+    state.skills = esc($("skillsInput").value);
+    state.project1_name = esc($("project1_name").value);
+    state.project1_description = esc($("project1_description").value);
+    state.project1_demo = esc($("project1_demo").value);
+    state.project1_github = esc($("project1_github").value);
+    state.project2_name = esc($("project2_name").value);
+    state.project2_description = esc($("project2_description").value);
+    state.project2_github = esc($("project2_github").value);
+    state.project2_demo = esc($("project2_demo").value);
+    state.project3_name = esc($("project3_name").value);
+    state.project3_description = esc($("project3_description").value);
+    state.project3_github = esc($("project3_github").value);
+    state.project3_demo = esc($("project3_demo").value);
+    state.project4_name = esc($("project4_name").value);
+    state.project4_description = esc($("project4_description").value);
+    state.project4_github = esc($("project4_github").value);
+    state.project4_demo = esc($("project4_demo").value);
+    state.otherskills = esc($("other-skills").value);
 
-  state.photo = dataUrl;
-  let htmlContent = null;
-  const skillsthing = state.skills.split(",").map(skill=>skill.trim()).filter(skill=>skill!=="").map(skill=> `
-    <div class="skill">
-    <h3>${esc(skill)}</h3>
-    </div>
-    `
-).join("");
-const projectsthing = [1,2,3,4].map((num)=>{
-    const pr_name = state[`project${num}_name`];
-    const pr_description = state[`project${num}_description`];
-    const pr_github = state[`project${num}_github`];
-    const pr_demo = state[`project${num}_demo`];
+    state.photo = dataUrl;
+    let htmlContent = null;
+    const skillsthing = state.skills.split(",").map(skill=>skill.trim()).filter(skill=>skill!=="").map(skill=> `
+        <div class="skill">
+        <h3>${esc(skill)}</h3>
+        </div>
+        `
+    ).join("");
+    const projectsthing = [1,2,3,4].map((num)=>{
+        const pr_name = state[`project${num}_name`];
+        const pr_description = state[`project${num}_description`];
+        const pr_github = state[`project${num}_github`];
+        const pr_demo = state[`project${num}_demo`];
 
-    if(![pr_name, pr_demo, pr_description, pr_github].some(value=>value.trim()!=="")){
-        return "";
-    }
-    return `
-    <div class="project">
-                    <h3>${pr_name}</h3>
-                    <p>${pr_description}</p>
-                    <div class="links project-links">
-                        <a href="${pr_demo}" class="link project-link">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-                        <a href="${pr_github}" class="link project-link">
-                            <i class="fa-brands fa-github"></i>
-                        </a>
+        if(![pr_name, pr_demo, pr_description, pr_github].some(value=>value.trim()!=="")){
+            return "";
+        }
+        return `
+        <div class="project">
+                        <h3>${pr_name}</h3>
+                        <p>${pr_description}</p>
+                        <div class="links project-links">
+                            <a href="${pr_demo}" class="link project-link">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                            <a href="${pr_github}" class="link project-link">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
                     </div>
-                </div>
-    `
-}) 
-.join("");
-const projectsthing2 = [1,2,3,4].map((num)=>{
-    const pr_name1 = state[`project${num}_name`];
-    const pr_description1 = state[`project${num}_description`];
-    const pr_github1 = state[`project${num}_github`];
-    const pr_demo1 = state[`project${num}_demo`];
+        `
+    }) 
+    .join("");
+    const projectsthing2 = [1,2,3,4].map((num)=>{
+        const pr_name1 = state[`project${num}_name`];
+        const pr_description1 = state[`project${num}_description`];
+        const pr_github1 = state[`project${num}_github`];
+        const pr_demo1 = state[`project${num}_demo`];
 
-    if(![pr_name1, pr_demo1, pr_description1, pr_github1].some(value=>value.trim()!=="")){
-        return "";
-    }
-    return `
-    <div class="project">
-        <h3>${pr_name1}</h3>
-        <p>
-        ${pr_description1}
-        </p>
+        if(![pr_name1, pr_demo1, pr_description1, pr_github1].some(value=>value.trim()!=="")){
+            return "";
+        }
+        return `
+        <div class="project">
+            <h3>${pr_name1}</h3>
+            <p>
+            ${pr_description1}
+            </p>
 
-        <a class="project-button" href="${pr_demo1}">Visit </a>
-    </div>
-    `
-}) 
+            <a class="project-button" href="${pr_demo1}">Visit </a>
+        </div>
+        `
+    }) 
 .join("");
   if (layout === "bluez") {
     htmlContent = `<!doctype html>
@@ -2227,11 +2227,7 @@ a{
             overflow: hidden;
             padding: clamp(70px, 6vw, 130px) 5vw;
             min-height: 40vh;
-            background-color: var(--bg-color);
-            background-image: url(leafs.png);
-            background-size: cover;
-            /* background-position:; */
-            color: #ede9e9;
+            background-color: var(--bg1-color);
         }
 
         .contact-header{
@@ -2260,9 +2256,9 @@ a{
 
         .contact-logo{
             display: inline-flex;
-            background-color: #573710;
+            background-color: var(--bg-color);
             border-radius: 12px;
-            color: white;
+            color: red;
             width: 50px;
             height: 50px;
             align-items: center;
@@ -2286,7 +2282,8 @@ a{
                                 ${state.name[0].toUpperCase()}
                             </span>
                             <span class="logo-name">
-                                ${state.name.toUpperCase()}
+                                ${state.name.split(' ')[0].toUpperCase()}<br>
+                                <small>${state.name.split(' ')[1].toUpperCase()}</small>
                             </span>
                         </a>
                         <div class="nav-bar">
@@ -2341,7 +2338,7 @@ a{
                     <div class="hero-name">
                         <h1>
                             <span class="hero-title">
-                                ${state.name}
+                                ${state.name.split(' ')[0]}
                             </span>
                             <span class="hero-subtitle">
                                 CREATIVE DEVELOPER
@@ -2349,13 +2346,13 @@ a{
                         </h1>
 
                         <p class="hero-description">
-                            ${state.bio}
+                            I am a passionate developer who loves to create beautiful and creative projects. I turn curious mind bending ideas into reality with code and creativity. 
                         </p>
 
-                        <a href="#project" class="capsule-btn">View My Projects</a>
+                        <a href="#projects" class="capsule-btn">View My Projects</a>
                     </div>
                     <div class="hero-profile">
-                        <img src="${state.photo}" alt="${state,name}">
+                        <img src="${state.photo}" alt="${state.name}">
                     </div>
                 </div>
             </div>
@@ -2403,9 +2400,8 @@ a{
                     </div>
 
                     <div class="note-content">
-                       <!-- <p>I’m Prasum, a student developer from Nepal who loves figuring out how things work—and then building something of my own. I’m exploring web development, game development, and AI one experiment at a time.</p>
-                        <p>My favourite projects sit where useful ideas meet delightful details. I believe every bug has a lesson, every sketch can become a product, and good work starts with asking better questions.</p> -->
-                        <p> ${state.bio} </p>
+                       <p>${state.bio}</p>
+                        <p>My favourite projects sit where useful ideas meet delightful details. I believe every bug has a lesson, every sketch can become a product, and good work starts with asking better questions.</p>
                     </div>
                 </div>
                 <div class="about-details">
@@ -2560,7 +2556,7 @@ a{
 </html>
     `
   }
-
+  
   doc.open();
   doc.write(htmlContent);
   doc.close();
