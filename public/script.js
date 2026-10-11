@@ -788,7 +788,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                             <i class="contact-logo github-logo fa-brands fa-github"></i>
                             <div class="github-infoss contact-infoss">
                                 <h3><a href="${state.github}" >Github</a></h3>
-                                <p id="github-text"><a href="${state.github}" >${state.github}</a></p>
+                                <p id="github-text"><a href="${state.github}" >${state.name}</a></p>
                             </div>
                             </div>
         
@@ -1254,7 +1254,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                                 </a>
                                 <div class="github-info contact-infoos">
                                     <h3>Github</h3>
-                                    <p>${state.github}</</p>
+                                    <p>${state.name}</p>
                                 </div>
                                 </div>
 
@@ -2493,13 +2493,12 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                         </div>
                     </div>
                     <div class="contact-info">
-                    <a href="https://github.com/${state.github}">
+                    <a href="${state.github}">
                         <i class="contact-logo github-logo fa-brands fa-github"></i>
                         </a>
 
                         <div class="contact-detail">
-                            <a href="https://github.com/${state.github}"><h3>Github</h3></a>
-                            <p>${state.github}</p>
+                            <p>${state.name}</p>
                         </div>
                     </div>
                     <div class="contact-info">
