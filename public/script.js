@@ -211,6 +211,33 @@ const projectsthing2 = [1,2,3,4].map((num)=>{
     `
 }) 
 .join("");
+const projectsthing1 = [1,2,3,4].map((num)=>{
+    const pr_name2 = state[`project${num}_name`];
+    const pr_description2 = state[`project${num}_description`];
+    const pr_demo2 = state[`project${num}_demo`];
+    const pr_github2 = state[`project${num}_github`];
+
+    if(![pr_name2, pr_description2, pr_demo2].some(value=>value.trim()!=="")){
+        return "";
+    }
+    return `
+    <div class="project-card">
+                    <h3 class="project-title">
+                        ${pr_name2}
+                    </h3>
+                    <p class="project-description">
+                        ${pr_description2}
+                    </p>
+                    <div id="linkss">
+                    <a href="${pr_demo2}" class="project-view">Demo</a>
+                    <a href="${pr_github2}" class="project-view">
+                    <i class="fa-brands fa-github project-logo github-logo"></i>
+                    </a>
+                    </div>
+                </div>
+    `
+})
+.join("");
   if (layout === "bluez") {
     htmlContent = `<!doctype html>
             <html lang="en">
@@ -2231,7 +2258,7 @@ a{
             background-image: url(leafs.png);
             background-size: cover;
             /* background-position:; */
-            color: #ede9e9;
+            color: #4e372f;
         }
 
         .contact-header{
@@ -2269,6 +2296,14 @@ a{
             justify-content: center;
 
         }
+            #linkss{
+            display: flex;
+            flex-direction: row;
+            gap:15px;
+            }
+            .project-logo{
+                display: inline-flex;
+            }
 
     </style>
 </head>
@@ -2355,7 +2390,7 @@ a{
                         <a href="#project" class="capsule-btn">View My Projects</a>
                     </div>
                     <div class="hero-profile">
-                        <img src="${state.photo}" alt="${state,name}">
+                        <img src="${state.photo}" alt="${state.name}">
                     </div>
                 </div>
             </div>
@@ -2461,6 +2496,7 @@ a{
                 </div>
 
             <div class="project-container">
+            <!--
                 <div class="project-card">
                     <h3 class="project-title">
                         NevaEdu
@@ -2500,7 +2536,8 @@ a{
                     </p>
 
                     <a href="" class="project-view">Live Demo</a>
-                </div>
+                </div> -->
+                ${projectsthing1}
             </div>
         </section>
     
@@ -2517,39 +2554,46 @@ a{
 
                     <div class="contact-detail">
                         <h3>Location</h3>
-                        <p>Kathmandu, Nepal</p>
+                        <p>${state.location}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="tel:${state.phoneno}">
                     <i class="contact-logo phoneno-logo fas fa-phone-alt"></i>
-
+                    </a>
                     <div class="contact-detail">
                         <h3>Phone No</h3>
-                        <p>+977 1 2345678</p>
+                        <p>${state.phoneno}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="mailto:${state.email}">
                     <i class="contact-logo mail-logo fas fa-envelope"></i>
+                    </a>
 
                     <div class="contact-detail">
                         <h3>Mail</h3>
-                        <p>prasumshrestha8877@gmail.com</p>
+                        <p>${state.email}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="https://github.com/${state.github}">
                     <i class="contact-logo github-logo fa-brands fa-github"></i>
+                    </a>
 
                     <div class="contact-detail">
-                        <a href=""><h3>Github</h3></a>
-                        <p>ShresthaPrasum</p>
+                        <a href="https://github.com/${state.github}"><h3>Github</h3></a>
+                        <p>${state.github}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="${state.linkedin}">
                     <i class="contact-logo linkedin-logo fab fa-linkedin"></i>
+                    </a>
 
                     <div class="contact-detail">
-                        <a href=""><h3>Linked In</h3></a>
-                        <p>ShresthaPrasum</p>
+                        <a href="${state.linkedin}"><h3>Linked In</h3></a>
+                        <p>${state.name}</p>
                     </div>
                 </div>
             </div>
