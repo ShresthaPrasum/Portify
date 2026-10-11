@@ -206,10 +206,10 @@ function construct(dataUrl, layout) {
             ${pr_description1}
             </p>
 
-            <a class="project-button" href="${pr_demo1}">Visit </a>
-        </div>
-        `
-    }) 
+        <a class="project-button" href="${pr_demo1}">Visit </a>
+    </div>
+    `
+}) 
 .join("");
   if (layout === "bluez") {
     htmlContent = `<!doctype html>
@@ -2227,7 +2227,11 @@ a{
             overflow: hidden;
             padding: clamp(70px, 6vw, 130px) 5vw;
             min-height: 40vh;
-            background-color: var(--bg1-color);
+            background-color: var(--bg-color);
+            background-image: url(leafs.png);
+            background-size: cover;
+            /* background-position:; */
+            color: #ede9e9;
         }
 
         .contact-header{
@@ -2265,6 +2269,14 @@ a{
             justify-content: center;
 
         }
+            #linkss{
+            display: flex;
+            flex-direction: row;
+            gap:15px;
+            }
+            .project-logo{
+                display: inline-flex;
+            }
 
     </style>
 </head>
@@ -2457,6 +2469,7 @@ a{
                 </div>
 
             <div class="project-container">
+            <!--
                 <div class="project-card">
                     <h3 class="project-title">
                         NevaEdu
@@ -2496,7 +2509,8 @@ a{
                     </p>
 
                     <a href="" class="project-view">Live Demo</a>
-                </div>
+                </div> -->
+                ${projectsthing1}
             </div>
         </section>
     
@@ -2513,39 +2527,46 @@ a{
 
                     <div class="contact-detail">
                         <h3>Location</h3>
-                        <p>Kathmandu, Nepal</p>
+                        <p>${state.location}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="tel:${state.phoneno}">
                     <i class="contact-logo phoneno-logo fas fa-phone-alt"></i>
-
+                    </a>
                     <div class="contact-detail">
                         <h3>Phone No</h3>
-                        <p>+977 1 2345678</p>
+                        <p>${state.phoneno}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="mailto:${state.email}">
                     <i class="contact-logo mail-logo fas fa-envelope"></i>
+                    </a>
 
                     <div class="contact-detail">
                         <h3>Mail</h3>
-                        <p>prasumshrestha8877@gmail.com</p>
+                        <p>${state.email}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="https://github.com/${state.github}">
                     <i class="contact-logo github-logo fa-brands fa-github"></i>
+                    </a>
 
                     <div class="contact-detail">
-                        <a href=""><h3>Github</h3></a>
-                        <p>ShresthaPrasum</p>
+                        <a href="https://github.com/${state.github}"><h3>Github</h3></a>
+                        <p>${state.github}</p>
                     </div>
                 </div>
                 <div class="contact-info">
+                <a href="${state.linkedin}">
                     <i class="contact-logo linkedin-logo fab fa-linkedin"></i>
+                    </a>
 
                     <div class="contact-detail">
-                        <a href=""><h3>Linked In</h3></a>
-                        <p>ShresthaPrasum</p>
+                        <a href="${state.linkedin}"><h3>Linked In</h3></a>
+                        <p>${state.name}</p>
                     </div>
                 </div>
             </div>
