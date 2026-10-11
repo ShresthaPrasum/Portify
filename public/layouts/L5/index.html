@@ -47,7 +47,7 @@
         #terminal-box{
             display: flex;
             border: 1px solid var(--border);
-            height: 100%;
+            min-height: 85%;
             border-radius: 15px;
             overflow: hidden;
             flex-direction: column;
@@ -125,8 +125,75 @@
 
         .divider{
             border: 1px solid var(--border);
-            margin: 20px 0px;
+            margin: 10px 0px 0px;
         }
+
+        .output{
+            height: 30vh;
+            overflow-y: auto;
+            scrollbar-color: #2d4655 transparent;
+            padding: 10px 0px;
+            scrollbar-width: thin;
+        }
+
+        .output-line{
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 0 0 14px;
+        }
+
+        .command-output{
+            color: var(--green);
+            margin-bottom: 4px;
+        }
+
+        .output-design{
+            color: var(--grey);
+        }
+
+        .user-command{
+            color: #14ff5a;
+        }
+
+        .green{
+            color: #00bd42;
+        }
+
+        .grey{
+            color: var(--grey);
+        }
+
+        .result-line{
+            margin: 0 0 4px;
+        }
+
+        .prompt{
+            font-size: 12px;
+            color: var(--green);
+        }
+
+        .input{
+            margin-top: 15px;
+        }
+
+        .input form{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+
+        #input-area{
+            flex: 1;
+            border: none;
+            background-color: transparent;
+            color: var(--green);
+            font-size: 12px;
+            padding:5px 0;
+            outline: none;
+        }
+
 
     </style>
 </head>
@@ -171,17 +238,44 @@
                 <div class="output">
                     <div class="output-line">
                         <div class="command-output">
+                            <span class="output-user">
+                                prasum@portfolio
+                            </span>
+
+                            <span class="output-design">
+                                :~$
+                            </span>
 
                         </div>
 
                         <div class="result">
+                            <p class="result-line green">Welcome to my terminality Port~ </p>
+
+                            <p class="result-line">I'm Prasum ~ A student who enjoys coding, creating project learning new stuffs, and experimenting </p>
                             
+                            <p class="result-line grey">This portfolio mimics the terminal behaviour and uses command to show display about me and my brain</p>
+                            
+                            <p class="result-line">Run help to display all the available commands </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="input">
+                <hr class="divider">
 
+                <div class="input">
+                    <form id="input-form">
+                        <label for="command-input" class="prompt">
+                            <span class="output-user">
+                                prasum@portfolio
+                            </span>
+
+                            <span class="output-design">
+                                :~$
+                            </span>
+                        </label>
+                        <input type="text" name="command-input" id="input-area" autofocus placeholder="type a command and press ↵enter">
+
+                    </form>
                 </div>
             </div>
 
