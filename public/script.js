@@ -6,7 +6,7 @@ let file = null;
 let dataUrl = "";
 
 const themes = {
-  bluez: `
+    bluez: `
                 --bg: #0c2351;
                 --bg-sections: #172b5d5e;
                 --text: #fff;
@@ -15,7 +15,7 @@ const themes = {
                 --headings: #fff1f3;
                 --nav: #132343;
             `,
-  midnight: `
+    midnight: `
                 --bg: #171f45;
                 --bg-sections: #151a2e;
                 --text: #f5f7ff;
@@ -24,7 +24,7 @@ const themes = {
                 --headings: #f1f5ff;
                 --nav: #0d1424;
             `,
-  ocean: `
+    ocean: `
                 --bg: #1e4458;
                 --bg-sections: #0c2935;
                 --text: #e9fbff;
@@ -33,7 +33,7 @@ const themes = {
                 --headings: #e6faff;
                 --nav: #09202b;
             `,
-  latin: `
+    latin: `
                 --bg: #1a100b;
                 --bg-sections: #2b1c13;
                 --nav: #43291a;
@@ -41,100 +41,97 @@ const themes = {
                 --headings: #fff0d6;
                 --button: #d97736;
                 --border: rgba(217, 119, 54, 0.28);
-  `
-//   autumn: `
-//             --bg-color: #fcd5ab;
-//             --bg1-color: #ffc37a;
-//             --bg2-color: #ffe4c4;
-//             --font-color: #f57959;
-//             --red-color: #f34c3e;
-//             --stem-color: #996b4c;
-//   `
+                --bg1-sections: #2b1c13;
+  `,
+    //   autumn: `
+    //             --bg-color: #fcd5ab;
+    //             --bg1-color: #ffc37a;
+    //             --bg2-color: #ffe4c4;
+    //             --font-color: #f57959;
+    //             --red-color: #f34c3e;
+    //             --stem-color: #996b4c;
+    //   `
 };
 
 const state = {
-  theme: "ocean",
-  layout: "bluez",
-  name: "Prasum Shrestha",
-  bio: "I am a high school student and technology enthusiast from Nepal with a strong interest in software development and problem-solving. I enjoy exploring new tools, learning emerging technologies, and building practical digital projects. I am passionate about coding and continuously seek opportunities to enhance my skills and contribute to innovative solutions.",
-  location: "Nepal, Rupendehi",
-  email: "prasumshrestha8877@gmail.com",
-  phoneno: "9812345678",
-  github: "github.com/prasumshrestha",
-  linkedin: "linkedin.com/in/prasum-shrestha-1a2b3c4d5e",
-  twitter: "twitter.com/prasumshrestha",
-  skills: "HTML, CSS, JavaScript, Python, C++, React, Node.js, Git, SQL",
-  photo: "example.jpg",
-  project1_name: "Project_1",
-  project1_description: "This is a project",
-  project1_github: "https://github.com/",
-  project1_demo: "https://",
-  project2_name: "Project_2",
-  project2_description: "This is a project",
-  project2_github: "https://github.com/",
-  project2_demo: "https://",
-  project3_name: "",
-  project3_description: "",
-  project3_demo: "",
-  project3_github: "",
-  project4_name: "",
-  project4_description: "",
-  project4_demo: "",
-  project4_github: "",
-  "skillss": ""
+    theme: "ocean",
+    layout: "bluez",
+    name: "Prasum Shrestha",
+    bio: "I am a high school student and technology enthusiast from Nepal with a strong interest in software development and problem-solving. I enjoy exploring new tools, learning emerging technologies, and building practical digital projects. I am passionate about coding and continuously seek opportunities to enhance my skills and contribute to innovative solutions.",
+    location: "Nepal, Rupendehi",
+    email: "prasumshrestha8877@gmail.com",
+    phoneno: "9812345678",
+    github: "github.com/prasumshrestha",
+    linkedin: "linkedin.com/in/prasum-shrestha-1a2b3c4d5e",
+    twitter: "twitter.com/prasumshrestha",
+    skills: "HTML, CSS, JavaScript, Python, C++, React, Node.js, Git, SQL",
+    photo: "example.jpg",
+    project1_name: "Project_1",
+    project1_description: "This is a project",
+    project1_github: "https://github.com/",
+    project1_demo: "https://",
+    project2_name: "Project_2",
+    project2_description: "This is a project",
+    project2_github: "https://github.com/",
+    project2_demo: "https://",
+    project3_name: "",
+    project3_description: "",
+    project3_demo: "",
+    project3_github: "",
+    project4_name: "",
+    project4_description: "",
+    project4_demo: "",
+    project4_github: "",
+    skillss: "",
 };
 
 const inputs = [
-  "nameInput",
-  "bioInput",
-  "locationInput",
-  "emailInput",
-  "phonenoInput",
-  "githubInput",
-  "linkedinInput",
-  "twitterInput",
-  "skillsInput",
-  "project1_name",
-  "project1_description",
-  "project1_demo",
-   "project1_github",
-   "project2_name",
-   "project2_description",
-   "project2_demo",
-   "project2_github",
-   "project3_name",
-   "project3_description",
-   "project3_demo",
-   "project3_github",
-   "project4_name",
-   "project4_description",
-   "project4_demo",
-   "project4_github",
-   "other-skills"
+    "nameInput",
+    "bioInput",
+    "locationInput",
+    "emailInput",
+    "phonenoInput",
+    "githubInput",
+    "linkedinInput",
+    "twitterInput",
+    "skillsInput",
+    "project1_name",
+    "project1_description",
+    "project1_demo",
+    "project1_github",
+    "project2_name",
+    "project2_description",
+    "project2_demo",
+    "project2_github",
+    "project3_name",
+    "project3_description",
+    "project3_demo",
+    "project3_github",
+    "project4_name",
+    "project4_description",
+    "project4_demo",
+    "project4_github",
+    "other-skills",
 ];
 
-
-
 const esc = (s) =>
-  s.replace(
-    /[&<>"']/g,
-    (c) =>
-      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
-        c
-      ],
-  ); // This is so complex than I expected used AI for this new thing
+    s.replace(
+        /[&<>"']/g,
+        (c) =>
+            ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+            c
+            ],
+    ); // This is so complex than I expected used AI for this new thing
 
 const safeName = (n) => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
-
 
 function construct(dataUrl, layout) {
     const iframe = $("preview");
     const doc = iframe.contentDocument || iframe.contentWindow.document;
 
     const currentTheme = themes[state.theme] || themes.ocean;
-    
 
-    state.name = esc($("nameInput").value)|| 'FirstName LastName';
+    state.name = esc($("nameInput").value) || "FirstName LastName";
     state.bio = esc($("bioInput").value);
     state.location = esc($("locationInput").value);
     state.email = esc($("emailInput").value);
@@ -163,22 +160,33 @@ function construct(dataUrl, layout) {
 
     state.photo = dataUrl;
     let htmlContent = null;
-    const skillsthing = state.skills.split(",").map(skill=>skill.trim()).filter(skill=>skill!=="").map(skill=> `
+    const skillsthing = state.skills
+        .split(",")
+        .map((skill) => skill.trim())
+        .filter((skill) => skill !== "")
+        .map(
+            (skill) => `
         <div class="skill">
         <h3>${esc(skill)}</h3>
         </div>
-        `
-    ).join("");
-    const projectsthing = [1,2,3,4].map((num)=>{
-        const pr_name = state[`project${num}_name`];
-        const pr_description = state[`project${num}_description`];
-        const pr_github = state[`project${num}_github`];
-        const pr_demo = state[`project${num}_demo`];
+        `,
+        )
+        .join("");
+    const projectsthing = [1, 2, 3, 4]
+        .map((num) => {
+            const pr_name = state[`project${num}_name`];
+            const pr_description = state[`project${num}_description`];
+            const pr_github = state[`project${num}_github`];
+            const pr_demo = state[`project${num}_demo`];
 
-        if(![pr_name, pr_demo, pr_description, pr_github].some(value=>value.trim()!=="")){
-            return "";
-        }
-        return `
+            if (
+                ![pr_name, pr_demo, pr_description, pr_github].some(
+                    (value) => value.trim() !== "",
+                )
+            ) {
+                return "";
+            }
+            return `
         <div class="project">
                         <h3>${pr_name}</h3>
                         <p>${pr_description}</p>
@@ -191,19 +199,24 @@ function construct(dataUrl, layout) {
                             </a>
                         </div>
                     </div>
-        `
-    }) 
-    .join("");
-    const projectsthing2 = [1,2,3,4].map((num)=>{
-        const pr_name1 = state[`project${num}_name`];
-        const pr_description1 = state[`project${num}_description`];
-        const pr_github1 = state[`project${num}_github`];
-        const pr_demo1 = state[`project${num}_demo`];
+        `;
+        })
+        .join("");
+    const projectsthing2 = [1, 2, 3, 4]
+        .map((num) => {
+            const pr_name1 = state[`project${num}_name`];
+            const pr_description1 = state[`project${num}_description`];
+            const pr_github1 = state[`project${num}_github`];
+            const pr_demo1 = state[`project${num}_demo`];
 
-        if(![pr_name1, pr_demo1, pr_description1, pr_github1].some(value=>value.trim()!=="")){
-            return "";
-        }
-        return `
+            if (
+                ![pr_name1, pr_demo1, pr_description1, pr_github1].some(
+                    (value) => value.trim() !== "",
+                )
+            ) {
+                return "";
+            }
+            return `
         <div class="project">
             <h3>${pr_name1}</h3>
             <p>
@@ -212,19 +225,24 @@ function construct(dataUrl, layout) {
 
         <a class="project-button" href="${pr_demo1}">Visit </a>
     </div>
-    `
-}) 
-.join("");
-const projectsthing1 = [1,2,3,4].map((num)=>{
-    const pr_name2 = state[`project${num}_name`];
-    const pr_description2 = state[`project${num}_description`];
-    const pr_demo2 = state[`project${num}_demo`];
-    const pr_github2 = state[`project${num}_github`];
+    `;
+        })
+        .join("");
+    const projectsthing1 = [1, 2, 3, 4]
+        .map((num) => {
+            const pr_name2 = state[`project${num}_name`];
+            const pr_description2 = state[`project${num}_description`];
+            const pr_demo2 = state[`project${num}_demo`];
+            const pr_github2 = state[`project${num}_github`];
 
-    if(![pr_name2, pr_description2, pr_demo2].some(value=>value.trim()!=="")){
-        return "";
-    }
-    return `
+            if (
+                ![pr_name2, pr_description2, pr_demo2].some(
+                    (value) => value.trim() !== "",
+                )
+            ) {
+                return "";
+            }
+            return `
     <div class="project-card">
                     <h3 class="project-title">
                         ${pr_name2}
@@ -239,35 +257,35 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                     </a>
                     </div>
                 </div>
-    `
-})
-.join("");
-// const projectsthing3= [1,2,3,4].map((num)=>{
-//     const pr_name3 = state[`project${num}_name`];
-//     const pr_description3 = state[`project${num}_description`];
-//     const pr_github3 = state[`project${num}_github`];
-//     const pr_demo3 = state[`project${num}_demo`];
+    `;
+        })
+        .join("");
+    // const projectsthing3= [1,2,3,4].map((num)=>{
+    //     const pr_name3 = state[`project${num}_name`];
+    //     const pr_description3 = state[`project${num}_description`];
+    //     const pr_github3 = state[`project${num}_github`];
+    //     const pr_demo3 = state[`project${num}_demo`];
 
-//     if(![pr_demo3, pr_description3, pr_github3, pr_name3]){
-//         return "";
-//     }
-//     return `
-//         <div class="project-card">
-//                     <h3 class="project-title">
-//                         ${pr_name3}
-//                     </h3>
-//                     <p class="project-description">
-//                         ${pr_description3}
-//                     </p>
-//                     <div id="links">
-//                     <a href="${pr_demo3}" class="project-view">Demo</a>
-//                     <a href="${pr_github3}" class="project-view">
-//                     <i class="fa-brands fa-github"></i>
-//                     </a>
-//                     </div>
-//                 </div>
-//     `
-// })
+    //     if(![pr_demo3, pr_description3, pr_github3, pr_name3]){
+    //         return "";
+    //     }
+    //     return `
+    //         <div class="project-card">
+    //                     <h3 class="project-title">
+    //                         ${pr_name3}
+    //                     </h3>
+    //                     <p class="project-description">
+    //                         ${pr_description3}
+    //                     </p>
+    //                     <div id="links">
+    //                     <a href="${pr_demo3}" class="project-view">Demo</a>
+    //                     <a href="${pr_github3}" class="project-view">
+    //                     <i class="fa-brands fa-github"></i>
+    //                     </a>
+    //                     </div>
+    //                 </div>
+    //     `
+    // })
     if (layout === "bluez") {
         htmlContent = `<!doctype html>
                 <html lang="en">
@@ -1222,7 +1240,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                                 </div>
 
                                 <div id="phoneno" class="contact-infos">
-                                <a href="tel:${state.phone}">
+                                <a href="tel:${state.phoneno}">
                                     <span class="contact-icon">
                                     <i class="contact-logo fas fa-phone-alt"></i>
                                     </span>
@@ -1275,8 +1293,8 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                     </body>
                     </html>
                     `;
-    }else if(layout==="latin"){
-        htmlContent= `
+    } else if (layout === "latin") {
+        htmlContent = `
         <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1738,7 +1756,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
 </body>
 </html>
         `;
-    }else if(layout==="autumn"){
+    } else if (layout === "autumn") {
         htmlContent = `
             <!DOCTYPE html>
     <html lang="en">
@@ -2219,11 +2237,11 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                         <div class="nav">
                             <a href="#home" class="brand">
                                 <span class="logo">
-                                    ${state.name[0].toUpperCase()}
+                                    ${(state.name[0] || "").toUpperCase()}
                                 </span>
                                 <span class="logo-name">
-                                    ${state.name.split(' ')[0].toUpperCase()}<br>
-                                    <small>${state.name.split(' ')[1].toUpperCase()}</small>
+                                    ${state.name.split(" ")[0].toUpperCase()}<br>
+                                    <small>${(state.name.split(" ")[1] || "").toUpperCase()}</small>
                                 </span>
                             </a>
                             <div class="nav-bar">
@@ -2278,7 +2296,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                         <div class="hero-name">
                             <h1>
                                 <span class="hero-title">
-                                    ${state.name.split(' ')[0]}
+                                    ${state.name.split(" ")[0]}
                                 </span>
                                 <span class="hero-subtitle">
                                     CREATIVE DEVELOPER
@@ -2502,102 +2520,607 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
         </main>
     </body>
     </html>
-        `
-    }else if(layout==="terminal"){
+        `;
+    } else if (layout === "terminal") {
+        htmlContent = `
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name - Portfolio</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <style>
+
+        :root, [data-theme="terminal"]{
+        --bg: #070b11;
+        --bg-sections: rgba(12, 19, 29, .94);
+        --bg1-sections: #0e1722;
+        --text: #d9e6ef;
+        --green: #00bd42;
+        --red: #ff7285;
+        --grey: rgba(170, 170, 170);
+        --headings: #d7ffd7;
+        --button: #14ff5a;
+        --border: rgba(57, 255, 20, 0.24);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg);
+            color: var(--text);
+            width: 100%;
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            padding: 40px;
+            font-family: "Liberation Mono", monospace;
+        }
+
+        main{
+            position: relative;
+            width: min(100%, 950px);
+            height: 75vh;
+
+        }
+        #terminal-box{
+            display: flex;
+            border: 1px solid var(--border);
+            min-height: 85%;
+            border-radius: 15px;
+            overflow: hidden;
+            flex-direction: column;
+            background-color: var(--bg-sections);
+        }
+        header{
+            background-color: var(--nav);
+            height: 50px;
+            display: flex;
+            background-color: var(--bg1-sections);
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            padding: 0px 20px;
+        }
+        #three-circles{
+            display: flex;
+            gap: 7px;
+            align-items: center;
+
+        }
+        #red{
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+        }
+        .red{
+            color: red;
+        }
+        #orange{
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: orange;
+        }
+        #green{
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: green;
+        }
+
+        .terminal-title{
+            color: var(--grey);
+            font-size: 12px;
+        }
+
+        .terminal-version{
+            color: var(--grey);
+            font-size: 12px;
+        }
+
+        #terminal-body{
+            padding: 20px 30px ;
+        }   
+
+        .intro-line{
+            margin: 4px 0px;
+            color: var(--grey);
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .intro pre{
+            color: var(--green);
+            font-size: 11px;
+            margin: 0 0 14px;
+        }
+
+        strong{
+            color: rgb(0, 174, 255);
+            font-weight: 777;
+        }
+
+        .divider{
+            border: 1px solid var(--border);
+            margin: 10px 0px 0px;
+        }
+
+        .output{
+            height: 30vh;
+            overflow-y: auto;
+            scrollbar-color: #2d4655 transparent;
+            padding: 10px 0px;
+            scrollbar-width: thin;
+        }
+
+        .output-line{
+            font-size: 12px;
+            line-height: 1.6;
+            margin: 0 0 14px;
+        }
+
+        .command-output{
+            color: var(--green);
+            margin-bottom: 4px;
+        }
+
+        .output-design{
+            color: var(--grey);
+        }
+
+        .user-command{
+            color: #14ff5a;
+        }
+
+        .green{
+            color: #00bd42;
+        }
+
+        .grey{
+            color: var(--grey);
+        }
+
+        .result-line{
+            margin: 0 0 4px;
+        }
+
+        .prompt{
+            font-size: 12px;
+            color: var(--green);
+        }
+
+        .input{
+            margin-top: 15px;
+        }
+
+        .input form{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+
+        #input-area{
+            flex: 1;
+            border: none;
+            background-color: transparent;
+            color: var(--green);
+            font-size: 12px;
+            padding:5px 0;
+            outline: none;
+        }
+        .output-user{
+            color: var(--green);
+        }
+        .aboutme{
+            font-weight: 800;
+            font-size: 56px;
+            color: rgb(0, 174, 255);
+        }
+        .bio{
+            color: var(--text);
+        }
+
+    </style>
+</head>
+<body data-theme="terminal">
+    <main>
+        <div id="terminal-box">
+            <header>
+                <div id="three-circles">
+                    <span id="red"></span>
+                    <span id="orange"></span>
+                    <span id="green"></span>
+                </div>
+
+                <div class="terminal-title">
+                    <p>terminal.${state.name}.dev:~$</p>
+                </div>
+
+                <div class="terminal-version">
+                    <p>(Build 1.1)</p>
+                </div>
+            </header>
+
+            <div id="terminal-body">
+                <div class="intro-line">
+                    <strong>${state.name}</strong> / A curious and a technology enthusiast
+                </div>
+
+                <div class="intro-line">
+                    I like imagining different <strong>creative ideas</strong> that can solve different problems
+                </div>
+                
+                <hr class="divider">
+
+                <div class="output">
+                    <div class="output-line">
+                        <div class="command-output">
+                            <span class="output-user">
+                                ${state.name}@portfolio
+                            </span>
+
+                            <span class="output-design">
+                                :~$
+                            </span>
+
+                        </div>
+
+                        <div class="result">
+                            <p class="result-line green">Welcome to my Terminality Portfolio~ </p>
+
+                            <p class="result-line">I'm ${state.name} ~ A student who enjoys coding, creating project learning new stuffs, and experimenting </p>
+                            
+                            <p class="result-line grey">This portfolio mimics the terminal behaviour and uses command to show display about me and my brain</p>
+                            
+                            <p class="result-line">Run help to display all the available<strong> commands.</strong>  </p>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="divider">
+
+                <div class="input">
+                    <form id="input-form" action="javascript:void(0)" onsubmit="return false;">
+                        <label for="command-input" class="prompt">
+                            <span class="output-user">
+                                ${state.name}@portfolio
+                            </span>
+
+                            <span class="output-design">
+                                :~$
+                            </span>
+                        </label>
+                        <input type="text" name="command-input" id="input-area" autofocus placeholder="type a command and press ↵enter">
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    
+    <script>
+(function () {
+        const dataa = ${JSON.stringify({ name: state.name, bio: state.bio, location: state.location, email: state.email, phoneno: state.phoneno, github: state.github, linkedin: state.linkedin, skills: state.skills, project1_name: state.project1_name, project1_description: state.project1_description, project1_demo: state.project1_demo, project1_github: state.project1_github, project2_name: state.project2_name, project2_description: state.project2_description, project2_demo: state.project2_demo, project2_github: state.project2_github, project3_name: state.project3_name, project3_description: state.project3_description, project3_demo: state.project3_demo, project3_github: state.project3_github, project4_name: state.project4_name, project4_description: state.project4_description, project4_demo: state.project4_demo, project4_github: state.project4_github }).replace(/</g, "\\u003c")};  <!--i used ai for debuging this logic as it was too much complex -->
+        let form = document.querySelector('#input-form');
+        form.addEventListener('submit', (e)=>e.preventDefault());
+form.addEventListener('keydown', (event)=>{
+    if(event.key==='Enter'){
+    event.preventDefault();
+    let commandinput = document.querySelector('#input-area').value.trim();
+    document.querySelector('#input-area').value = '';
+    let result = document.querySelector('.result');
+
+    if(commandinput.toLowerCase()==='help'){
+        const helpoutput = \`
+        <br>
+         <p class="result-line">
+         <span class="output-user"> \${dataa.name}@portfolio </span>
+         <span class="output-design"> :-$ </span>
+         help</p>
+         <p class="result-line grey">
+         There are several commands to see my portfolio which are listed below :)
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> clear </span> - <strong> Clears the screen </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> about </span> - <strong> To Know about me </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> skills </span> - <strong> Lists all of my skills</strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> project1 </span> - <strong> Lists my 1st project infos </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> project2 </span> - <strong> Lists my 2nd project infos </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> project3 </span> - <strong> Lists my 3rd project infos </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> project4 </span> - <strong> Lists my 4th project infos </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> contact </span> - <strong> Lists the mediums from where you can contact me! </strong>
+         </p>
+        \`;
+        result.insertAdjacentHTML('beforeend',helpoutput);
         
+    }else if(commandinput.toLowerCase()==="about"){
+        const aboutoutput = \`
+        <br>
+        <p class="result-line">
+        <span class="output-user"> \${dataa.name}@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        about
+        </p>
+        <h2 class="aboutme result-line"> About Me </h2>
+        <p class="result-line bio"> \${dataa.bio} </p>
+        <img src=".." alt="">
+        \`;
+        result.insertAdjacentHTML('beforeend', aboutoutput);
+
+    }else if(commandinput==="skills"){
+        const skillsoutput = \`
+        <br>
+        <p class="result-line">
+        <span class="output-user"> \${dataa.name}@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        skills
+        </p>
+        <h2 class="aboutme result-line"> My Skills </h2>
+        <p class = "result-line output-user">\${dataa.skills}</p>
+
+        \`;
+        result.insertAdjacentHTML('beforeend', skillsoutput);
+
+    }else if(commandinput==="project1"){
+        const projectoutput = \`
+        <br>
+        <p class="result-line">
+        <span class="output-user"> \${dataa.name}@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project1
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> \${dataa.project1_name} </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            \${dataa.project1_description}
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            \${dataa.project1_demo}
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            \${dataa.project1_github}
+            </p>
+            \`;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
+    }else if(commandinput==="project2"){
+        const projectoutput = \`
+        <br>
+        <p class="result-line">
+        <span class="output-user"> \${dataa.name}@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project2
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> \${dataa.project2_name} </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            \${dataa.project2_description}
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            \${dataa.project2_demo}
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            \${dataa.project2_github}
+            </p>
+            \`;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
+    }else if(commandinput==="project3"){
+        const projectoutput = \`
+        <br>
+        <p class="result-line">
+        <span class="output-user"> \${dataa.name}@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project3
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> \${dataa.project3_name} </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            \${dataa.project3_description}
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            \${dataa.project3_demo}
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            \${dataa.project3_github}
+            </p>
+            \`;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
+    }else if(commandinput==="project4"){
+        const projectoutput = \`
+        <br>
+        <p class="result-line">
+        <span class="output-user"> \${dataa.name}@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project4
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> \${dataa.project4_name} </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            \${dataa.project4_description}
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            \${dataa.project4_demo}
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            \${dataa.project4_github}
+            </p>
+            \`;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
+    }else if(commandinput==="contact"){
+        const contactoutput = \`
+            <br>
+            <p class="result-line">
+            <span class="output-user"> \${dataa.name}@portfolio </span>
+            <span class="output-design"> :-$ </span>
+            contact
+            </p>
+            <h2 class="aboutme result-line"> Contact Me </h2>
+            <p class="result-line location"> <strong> Location </strong>: \${dataa.location} </p>
+            <p class="result-line"> <strong> Github </strong>: \${dataa.github} </p>
+            <p class="result-line linkedin"> <strong> Linked In </strong>: \${dataa.linkedin} </p>
+            <p class="result-line mail"> <strong> Gmail </strong>: \${dataa.email} </p>
+            <p class="result-line phoneno"> <strong> Phone No: </strong>: \${dataa.phoneno}</p> 
+        \`;
+        return result.insertAdjacentHTML('beforeend', contactoutput);
+    } else if(commandinput==="clear"){
+        result.innerHTML = \`\`;
+    }else{
+        const otheroutput = \`
+        <br>
+        <p class="result-line">
+        <span class="output-user"> \${dataa.name}@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        \${commandinput.toLowerCase()}
+        </p>
+        <p class="result-line red"> Error: Command not found </p>
+        \`;
+        result.insertAdjacentHTML('beforeend', otheroutput);
+    }
+
     }
     
+})
+})();
+    </script>
+</body>
+</html>
+        `;
+    }
+
     doc.open();
     doc.write(htmlContent);
     doc.close();
 }
 
 function getindexhtml() {
-  const iframe = document.getElementById("preview");
-  const doc = iframe.contentDocument || iframe.contentWindow.document;
-  return "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
+    const iframe = document.getElementById("preview");
+    const doc = iframe.contentDocument || iframe.contentWindow.document;
+    return "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
 }
 
 document.querySelectorAll(".choice-btn").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    document.querySelectorAll(".choice-btn").forEach((button) => {
-      button.classList.remove("active");
+    btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".choice-btn").forEach((button) => {
+            button.classList.remove("active");
+        });
+        btn.classList.add("active");
+        const selectedLayout = btn.getAttribute("data-layout");
+        if (selectedLayout) {
+            state.layout = selectedLayout;
+            construct(dataUrl, state.layout);
+        }
     });
-    btn.classList.add("active");
-    const selectedLayout = btn.getAttribute("data-layout");
-    if (selectedLayout) {
-      state.layout = selectedLayout;
-      construct(dataUrl, state.layout);
-    }
-  });
 });
 
 document.querySelectorAll(".theme-btn").forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    document.querySelectorAll(".theme-btn").forEach((button) => {
-      button.classList.remove("active");
+    btn.addEventListener("click", (e) => {
+        document.querySelectorAll(".theme-btn").forEach((button) => {
+            button.classList.remove("active");
+        });
+
+        btn.classList.add("active");
+
+        const selectedTheme = btn.getAttribute("data-theme");
+        if (selectedTheme) {
+            state.theme = selectedTheme;
+            construct(dataUrl, state.layout);
+        }
     });
-
-    btn.classList.add("active");
-
-    const selectedTheme = btn.getAttribute("data-theme");
-    if (selectedTheme) {
-      state.theme = selectedTheme;
-      construct(dataUrl, state.layout);
-    }
-  });
 });
 
 inputs.forEach((id) => {
-  const inputElem = document.getElementById(id);
-  if (inputElem) {
-    inputElem.addEventListener("input", (e) => {
-      const key = id.replace("Input", "");
-      state[key] = e.target.value;
-      construct(dataUrl, state.layout);
-    });
-  }
+    const inputElem = document.getElementById(id);
+    if (inputElem) {
+        inputElem.addEventListener("input", (e) => {
+            const key = id.replace("Input", "");
+            state[key] = e.target.value;
+            construct(dataUrl, state.layout);
+        });
+    }
 });
 
 $("photo").addEventListener("change", (e) => {
-  file = e.target.files[0];
+    file = e.target.files[0];
 
-  if (!file || !file.type.startsWith("image/")) {
-    file = null;
-    return;
-  }
+    if (!file || !file.type.startsWith("image/")) {
+        file = null;
+        return;
+    }
 
-  const reader = new FileReader();
-  reader.onload = () => {
-    dataUrl = reader.result;
-    construct(dataUrl, state.layout);
-  };
+    const reader = new FileReader();
+    reader.onload = () => {
+        dataUrl = reader.result;
+        construct(dataUrl, state.layout);
+    };
 
-  reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
 });
 
 $("exportbtn").addEventListener("click", async () => {
-  try {
-    const zip = new JSZip();
-    let imgPath = "";
-    if (file) {
-      imgPath = "images/" + safeName(file.name);
-      zip.file(imgPath, file);
+    try {
+        const zip = new JSZip();
+        let imgPath = "";
+        if (file) {
+            imgPath = "images/" + safeName(file.name);
+            zip.file(imgPath, file);
+        }
+
+        zip.file("index.html", getindexhtml());
+        const blob = await zip.generateAsync({
+            type: "blob",
+        });
+
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "portfolio.zip";
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    } catch (error) {
+        console.error("Failed to export profile:", error);
     }
-
-    zip.file("index.html", getindexhtml());
-    const blob = await zip.generateAsync({
-      type: "blob",
-    });
-
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "portfolio.zip";
-    a.click();
-    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
-  } catch (error) {
-    console.error("Failed to export profile:", error);
-  }
 });
 
 construct(dataUrl, state.layout);
