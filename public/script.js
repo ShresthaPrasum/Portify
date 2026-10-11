@@ -2781,7 +2781,7 @@ function construct(dataUrl, layout) {
                         <div class="result">
                             <p class="result-line green">Welcome to my Terminality Portfolio~ </p>
 
-                            <p class="result-line">I'm Prasum ~ A student who enjoys coding, creating project learning new stuffs, and experimenting </p>
+                            <p class="result-line">I'm ${state.name} ~ A student who enjoys coding, creating project learning new stuffs, and experimenting </p>
                             
                             <p class="result-line grey">This portfolio mimics the terminal behaviour and uses command to show display about me and my brain</p>
                             
