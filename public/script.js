@@ -110,7 +110,7 @@ const inputs = [
    "project4_description",
    "project4_demo",
    "project4_github",
-   "skillss"
+   "other-skills"
 ];
 
 const esc = (s) =>
@@ -211,6 +211,59 @@ function construct(dataUrl, layout) {
     `
 }) 
 .join("");
+const projectsthing1 = [1,2,3,4].map((num)=>{
+    const pr_name2 = state[`project${num}_name`];
+    const pr_description2 = state[`project${num}_description`];
+    const pr_demo2 = state[`project${num}_demo`];
+    const pr_github2 = state[`project${num}_github`];
+
+    if(![pr_name2, pr_description2, pr_demo2].some(value=>value.trim()!=="")){
+        return "";
+    }
+    return `
+    <div class="project-card">
+                    <h3 class="project-title">
+                        ${pr_name2}
+                    </h3>
+                    <p class="project-description">
+                        ${pr_description2}
+                    </p>
+                    <div id="linkss">
+                    <a href="${pr_demo2}" class="project-view">Demo</a>
+                    <a href="${pr_github2}" class="project-view">
+                    <i class="fa-brands fa-github project-logo github-logo"></i>
+                    </a>
+                    </div>
+                </div>
+    `
+})
+.join("");
+// const projectsthing3= [1,2,3,4].map((num)=>{
+//     const pr_name3 = state[`project${num}_name`];
+//     const pr_description3 = state[`project${num}_description`];
+//     const pr_github3 = state[`project${num}_github`];
+//     const pr_demo3 = state[`project${num}_demo`];
+
+//     if(![pr_demo3, pr_description3, pr_github3, pr_name3]){
+//         return "";
+//     }
+//     return `
+//         <div class="project-card">
+//                     <h3 class="project-title">
+//                         ${pr_name3}
+//                     </h3>
+//                     <p class="project-description">
+//                         ${pr_description3}
+//                     </p>
+//                     <div id="links">
+//                     <a href="${pr_demo3}" class="project-view">Demo</a>
+//                     <a href="${pr_github3}" class="project-view">
+//                     <i class="fa-brands fa-github"></i>
+//                     </a>
+//                     </div>
+//                 </div>
+//     `
+// })
   if (layout === "bluez") {
     htmlContent = `<!doctype html>
             <html lang="en">
@@ -2199,7 +2252,91 @@ a{
             color: #8e7468;
             font-size: 15px;
             line-height: 1.8;
- 
+   }
+
+        .project-title{
+            font-size: 4vh;
+            color: var(--font-color);
+            letter-spacing: -2px;
+        }
+
+        .project-view{
+            display: inline-flex;
+            width: 135px;
+            height: 45px;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: none;
+            border-radius: 45px;
+            color: white;
+            background-color: var(--font-color);
+            padding: 14px 20px;
+            font-size: 18px;
+        }
+
+        .contact{
+            position: relative;
+            overflow: hidden;
+            padding: clamp(70px, 6vw, 130px) 5vw;
+            min-height: 40vh;
+            background-color: var(--bg-color);
+            background-image: url(leafs.png);
+            background-size: cover;
+            /* background-position:; */
+        }
+
+        .contact-header{
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .contact-header h2{
+            font-size: clamp(30px, 5.5vw, 60px);
+            letter-spacing: -3px;
+            padding-bottom: 10px;
+        }
+        
+        .contact-details{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100%;
+        }
+
+        .contact-info{
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contact-logo{
+            display: inline-flex;
+            background-color: var(--bg-color);
+            border-radius: 12px;
+            color: red;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+
+        }
+            #linkss{
+            display: flex;
+            flex-direction: row;
+            gap:15px;
+            }
+            .project-logo{
+                display: inline-flex;
+            }
+            #linkss{
+            display: flex;
+            flex-direction: row;
+            gap:15px;
+            }
+            .project-logo{
+                display: inline-flex;
+            }
 
     </style>
 </head>
@@ -2228,7 +2365,7 @@ a{
                             <a href="#contacts">Contact</a>
                         </div>
                         <div class="social-medias">
-                            <a href="${state.twitter}">
+                            <a href="${state.twitter}" style="z-index:10000;">
                                 <i class="fa-brands fa-x"></i>
                             </a>
                             <a href="https://github.com/${state.github}">
@@ -2281,7 +2418,7 @@ a{
                         </h1>
 
                         <p class="hero-description">
-                            I am a passionate developer who loves to create beautiful and creative projects. I turn curious mind bending ideas into reality with code and creativity. 
+                            ${state.bio}
                         </p>
 
                         <a href="#projects" class="capsule-btn">View My Projects</a>
