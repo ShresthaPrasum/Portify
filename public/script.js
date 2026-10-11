@@ -1087,14 +1087,14 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
         border-radius: 10px;
         background-color: var(--bg-sections);
     }
-        .skill h3{
+    .skill h3{
         margin-bottom: 10px;
         font-size: 26px;
         color: var(--headings);
     }
         #skills-content{
         display: grid;
-        grid-template-columns: repeat(4, minmax(250px,1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         align-content: start;
         gap: 50px;
         margin-top: 15px;
@@ -1155,7 +1155,6 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                             <div id="skills-content">
                             ${skillsthing}
                             </div>
-                            <!-- <h3 id="skill">${state.skills}</h3> -->
                             </div>
                             </div>
 
@@ -1429,6 +1428,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
         }
         .skill h3{
             margin-top: 10px;
+            font-size: 24px;
             color: var(--headings);
         }
         #projects{
@@ -1529,7 +1529,6 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
         .infooo{
             display: flex;
             flex-direction: column;
-            /* gap: 5px; */
         }
         .contact-infoo a{
             color: var(--button);
@@ -1578,7 +1577,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
 
             <div id="about">
                 <div id="about-img">
-                    <img src="${state.profileImage}" alt="No Image">
+                    <img src="${state.photo}" alt="No Image">
                 </div>
 
                 <div id="about-info">
@@ -1602,21 +1601,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
                     <p>All the things I have learnt until now throughout my journey!</p>
                 </div>
                 <div id="skills-info">
-                    <div class="skill">
-                        <h3>Skill No. 1</h3>
-                    </div>
-                    <div class="skill">
-                        <h3>Skill No. 2</h3>
-                        
-                    </div>
-                    <div class="skill">
-                        <h3>Skill No. 3</h3>
-                        
-                    </div>
-                    <div class="skill">
-                        <h3>Skill No. 4</h3>
-                        
-                    </div>
+                    ${skillsthing}
                 </div>
             </div>
 
@@ -2195,7 +2180,7 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
 
             .contact-logo{
                 display: inline-flex;
-                background-color: var(--bg-color);
+                background-color: var(--bg2-color);
                 border-radius: 12px;
                 color: red;
                 width: 50px;
@@ -2518,6 +2503,8 @@ const projectsthing1 = [1,2,3,4].map((num)=>{
     </body>
     </html>
         `
+    }else if(layout==="terminal"){
+        
     }
     
     doc.open();
