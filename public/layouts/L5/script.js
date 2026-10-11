@@ -25,7 +25,16 @@ form.addEventListener('keydown', (event)=>{
         <span class="output-user"> skills </span> - <strong> Lists all of my skills</strong>
          </p>
          <p class="result-line"> 
-        <span class="output-user"> projects </span> - <strong> Lists my best projects </strong>
+        <span class="output-user"> project1 </span> - <strong> Lists my 1st project infos </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> project2 </span> - <strong> Lists my 2nd project infos </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> project3 </span> - <strong> Lists my 3rd project infos </strong>
+         </p>
+         <p class="result-line"> 
+        <span class="output-user"> project4 </span> - <strong> Lists my 4th project infos </strong>
          </p>
          <p class="result-line"> 
         <span class="output-user"> contact </span> - <strong> Lists the mediums from where you can contact me! </strong>
