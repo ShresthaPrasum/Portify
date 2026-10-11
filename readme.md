@@ -46,5 +46,4 @@ Portify is a web application that is used to create your portfolio. To make your
 Try this out [here](https://portifygen.netlify.app/).
 
 ## Note:
-- This project is in progress, so it might have some glitches. I would suggest making a pr and contributing if you find one ;).
-- Exporting the zip file was kinda difficult so we used some AI. (We have mentioned the parts we have used AI for in the code through comments!)
+- Exporting the zip file was kinda difficult so we used some AI as well as we have used ai for debugging and adding dataa variables in terminality theme (We have mentioned the parts we have used AI for in the code through comments!)
