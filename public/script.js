@@ -2746,7 +2746,7 @@ function construct(dataUrl, layout) {
                 </div>
 
                 <div class="terminal-title">
-                    <p>terminal.\${state.name}.dev:~$</p>
+                    <p>terminal.${state.name}.dev:~$</p>
                 </div>
 
                 <div class="terminal-version">
