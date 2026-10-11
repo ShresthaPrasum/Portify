@@ -16,7 +16,7 @@ form.addEventListener('keydown', (event)=>{
          There are several commands to see my portfolio which are listed below :)
          </p>
          <p class="result-line"> 
-        <span class="output-user"> ls </span> - <strong> Lists all the sections </strong>
+        <span class="output-user"> clear </span> - <strong> Clears the screen </strong>
          </p>
          <p class="result-line"> 
         <span class="output-user"> about </span> - <strong> To Know about me </strong>
@@ -33,6 +33,77 @@ form.addEventListener('keydown', (event)=>{
         `;
         result.insertAdjacentHTML('beforeend',helpoutput);
         
+    }else if(commandinput.toLowerCase()==="about"){
+        const aboutoutput = `
+        <br>
+        <p class="result-line">
+        <span class="output-user"> name@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        about
+        </p>
+        <h2 class="aboutme result-line"> About Me </h2>
+        <p class="result-line bio"> I am a blah blah blah </p>
+        <img src=".." alt="">
+        `;
+        result.insertAdjacentHTML('beforeend', aboutoutput);
+
+    }else if(commandinput==="skills"){
+        const skillsoutput = `
+        <br>
+        <p class="result-line">
+        <span class="output-user"> name@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        skills
+        </p>
+        <h2 class="aboutme result-line"> My Skills </h2>
+        <p class = "result-line output-user">• All skills </p>
+
+        `;
+        result.insertAdjacentHTML('beforeend', skillsoutput);
+
+    }else if(commandinput==="project1"){
+        const projectoutput = `
+        <br>
+        <p class="result-line">
+        <span class="output-user"> name@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project1
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> Project No.1 </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            Description
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            link
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            link
+            </p>
+            `;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
+    }else if(commandinput==="contact"){
+        const contactoutput = `
+            <br>
+            <p class="result-line">
+            <span class="output-user"> name@portfolio </span>
+            <span class="output-design"> :-$ </span>
+            contact
+            </p>
+            <h2 class="aboutme result-line"> Contact Me </h2>
+            <p class="result-line location"> <strong> Location </strong>: </p>
+            <p class="result-line"> <strong> Github </strong>: link </p>
+            <p class="result-line linkedin"> <strong> Linked In </strong>: </p>
+            <p class="result-line mail"> <strong> Mail </strong>: </p>
+            <p class="result-line phoneno"> <strong> Phone No </strong>: </p> 
+        `;
+        return result.insertAdjacentHTML('beforeend', contactoutput);
+    } else if(commandinput==="clear"){
+        result.innerHTML = ``;
     }else{
         const otheroutput = `
         <br>
