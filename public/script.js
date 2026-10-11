@@ -1,8 +1,6 @@
 const $ = (id) => document.getElementById(id);
 const detailInput = document.querySelectorAll(".detailInput");
 
-const inputCommand = document.getElementById("input-area");
-
 let file = null;
 
 let dataUrl = "";
@@ -128,11 +126,6 @@ const esc = (s) =>
 
 const safeName = (n) => n.toLowerCase().replace(/[^a-z0-9._-]/g, "-"); // This too :)
 
-inputCommand.addEventListener("keypress", function (event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-  }
-});
 
 function construct(dataUrl, layout) {
     const iframe = $("preview");
