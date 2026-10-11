@@ -86,6 +86,81 @@ form.addEventListener('keydown', (event)=>{
             `;
             result.insertAdjacentHTML('beforeend', projectoutput);
 
+    }else if(commandinput==="project2"){
+        const projectoutput = `
+        <br>
+        <p class="result-line">
+        <span class="output-user"> name@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project1
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> Project No.2 </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            Description
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            link
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            link
+            </p>
+            `;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
+    }else if(commandinput==="project3"){
+        const projectoutput = `
+        <br>
+        <p class="result-line">
+        <span class="output-user"> name@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project1
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> Project No.3 </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            Description
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            link
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            link
+            </p>
+            `;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
+    }else if(commandinput==="project4"){
+        const projectoutput = `
+        <br>
+        <p class="result-line">
+        <span class="output-user"> name@portfolio </span>
+        <span class="output-design"> :-$ </span>
+        project1
+        </p>
+     <!--   <h2 class="aboutme result-line">My Projects</h2> -->
+        <h2 class="result-line output-user"> <strong> Project No.4 </strong> </h2>
+            <p class="result-line">  
+            <strong> Description: </strong> 
+            Description
+            </p>
+            <p class="result-line">
+            <strong> Demo: </strong>
+            link
+            </p>
+            <p class= "result-line">
+            <strong> Github: </strong>
+            link
+            </p>
+            `;
+            result.insertAdjacentHTML('beforeend', projectoutput);
+
     }else if(commandinput==="contact"){
         const contactoutput = `
             <br>
